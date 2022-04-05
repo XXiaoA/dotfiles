@@ -1,2 +1,2 @@
 # mini-vimrc
-A minimal `.vimrc` file which don't have any plugin.
+A minimal `.vimrc` file which doesn't have any plugin.
