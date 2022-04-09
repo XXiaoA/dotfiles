@@ -1,8 +1,21 @@
+" basic
+set nu
+set mouse = ""
+
+" key mapping
 imap jj <ESC>
+
+" save and quit the vim
 nmap W :w<cr>
 nmap Q :q<cr>
-set nu
-set mouse=
+
+" move the line
+nmap <A-up> :m .-2<cr>
+nmap <A-down> :m .+1<cr>
+imap <A-up> <ESC>:m .-2<cr>
+imap <A-down> <ESC>:m .+1<cr>
+vmap <A-up> :m '<-2<cr>gv
+vmap <A-down> :m '>+1<cr>gv
 
 " highlight
 if !has('gui_running')
