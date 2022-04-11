@@ -1,4 +1,4 @@
-" basic
+" basic{{{
 set nu
 set mouse = ""
 
@@ -9,6 +9,21 @@ imap jj <ESC>
 nmap W :w<cr>
 nmap Q :q<cr>
 
+" windows
+nmap sc <C-w>c
+nmap so <C-w>o
+nmap sv <C-w>v
+nmap sh <C-w>s
+nmap s= <C-w>=
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap sj :resize +10<CR>
+nmap sk :resize -10<CR>
+nmap s. :vertical resize +20<CR>
+nmap s, :vertical resize -20<CR>
+
 " move the line
 nmap <A-up> :m .-2<cr>
 nmap <A-down> :m .+1<cr>
@@ -17,7 +32,10 @@ imap <A-down> <ESC>:m .+1<cr>
 vmap <A-up> :m '<-2<cr>gv
 vmap <A-down> :m '>+1<cr>gv
 
-" highlight
+" fold
+set foldmethod=marker"}}}
+
+" highlight{{{
 if !has('gui_running')
     augroup MyColors
         autocmd!
@@ -147,4 +165,4 @@ if exists('&termguicolors')
     set notermguicolors
 endif
 set background=dark
-colorscheme desert
+colorscheme desert"}}}
