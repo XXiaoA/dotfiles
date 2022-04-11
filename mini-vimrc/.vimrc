@@ -27,6 +27,8 @@ set expandtab
 set softtabstop=4
 " 光标所在的当前行高亮
 set cursorline
+" 粘贴模式
+set pastetoggle=<F9>
 " 打开文件类型检查
 filetype indent on
 " 打开语法高亮
@@ -68,13 +70,41 @@ let mapleader="\<space>"
 nnoremap <leader>t "=strftime("%Y-%m-%dT%T%z")<CR>gp
 "}}}
 
-" smart number{{{
-" from https://github.com/jeffkreeftmeijer/vim-numbertoggle
+" autocmd{{{
+" smart number from https://github.com/jeffkreeftmeijer/vim-numbertoggle{{{
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END"}}}
+
+" auto creat and save{{{
+if exists("g:loaded_auto_mkdir")
+	finish
+endif
+let g:loaded_auto_mkdir = 1
+
+augroup auto_mkdir
+	au!
+	au BufEnter * call <SID>auto_mkdir()
+augroup END
+
+function <SID>auto_mkdir()
+	" Get directory the file is supposed to be saved in
+	let s:dir = expand("<afile>:p:h")
+
+	" Create that directory (and its parents) if it doesn't exist yet
+	if !isdirectory(s:dir)
+		call mkdir(s:dir, "p")
+	endif
+endfunction
+
+augroup autoSave
+    autocmd!
+    autocmd InsertLeave,TextChanged * w
+augroup END
+"}}}
+"}}}
 
 " highlight{{{
 if !has('gui_running')
