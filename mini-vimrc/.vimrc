@@ -1,8 +1,38 @@
 " basic{{{
+" 文件编码
+set encoding=utf-8
+" 显示行号
 set nu
+" 禁用鼠标
 set mouse = ""
+" 显示命令
+set showcmd
+" 显示模式
+set showmode
+" 不与vi兼容
+set nocompatible
+" 启用256色
+set t_Co=256
+" fold
+set foldmethod=marker
+" 按下回车键后，下一行的缩进会自动跟上一行的缩进保持一致
+set autoindent
+" 按下 Tab 键时，Vim 显示的空格数。
+set tabstop=4
+" 在文本上按下>>、<<或==时，每一级的字符数。
+set shiftwidth=4
+" 自动将 Tab 转为空格。
+set expandtab
+" Tab 转为多少个空格
+set softtabstop=4
+" 光标所在的当前行高亮
+set cursorline
+" 打开文件类型检查
+filetype indent on
+" 打开语法高亮
+syntax on"}}}
 
-" key mapping
+" key mapping{{{
 imap jj <ESC>
 
 " save and quit the vim
@@ -32,13 +62,19 @@ imap <A-down> <ESC>:m .+1<cr>
 vmap <A-up> :m '<-2<cr>gv
 vmap <A-down> :m '>+1<cr>gv
 
-" fold
-set foldmethod=marker"}}}
-
 let mapleader="\<space>"
 
 " get date
-nnoremap <leader>t "=strftime("%Y-%m-%dT%T%z")<CR>gP
+nnoremap <leader>t "=strftime("%Y-%m-%dT%T%z")<CR>gp
+"}}}
+
+" smart number{{{
+" from https://github.com/jeffkreeftmeijer/vim-numbertoggle
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END"}}}
 
 " highlight{{{
 if !has('gui_running')
