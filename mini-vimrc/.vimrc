@@ -35,6 +35,11 @@ vmap <A-down> :m '>+1<cr>gv
 " fold
 set foldmethod=marker"}}}
 
+let mapleader="\<space>"
+
+" get date
+nnoremap <leader>t "=strftime("%Y-%m-%dT%T%z")<CR>gP
+
 " highlight{{{
 if !has('gui_running')
     augroup MyColors
