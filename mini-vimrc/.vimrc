@@ -117,10 +117,12 @@ function <SID>auto_mkdir()
 	endif
 endfunction
 
-augroup autoSave
-    autocmd!
-    autocmd InsertLeave,TextChanged * w
-augroup END
+if @% != ""
+    augroup autoSave
+        autocmd!
+        autocmd InsertLeave,TextChanged * w
+    augroup END
+endif
 "}}}
 "}}}
 
