@@ -46,7 +46,7 @@ set incsearch
 " 搜索时忽略大小写
 set ignorecase
 " 单词拼写检查
-set spell spelllang=en_us
+" set spell spelllang=en_us
 " 不创建备份文件
 set nobackup
 " 不创建交换文件
