@@ -45,6 +45,21 @@ set hlsearch
 set incsearch
 " 搜索时忽略大小写
 set ignorecase
+" 单词拼写检查
+set spell spelllang=en_us
+" 不创建备份文件
+set nobackup
+" 不创建交换文件
+set noswapfile
+" 自动切换工作目录
+set autochdir
+" Vim 需要记住多少次历史操作。
+set history=500
+" 打开文件监视
+set autoread
+" 如果行尾有多余的空格（包括 Tab 键）
+"set listchars=tab:»■,trail:■
+"set list
 " 打开文件类型检查
 filetype indent on
 " 打开语法高亮
