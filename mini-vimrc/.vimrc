@@ -29,6 +29,22 @@ set softtabstop=4
 set cursorline
 " 粘贴模式
 set pastetoggle=<F9>
+" 垂直滚动时，光标距离顶部/底部的位置
+set scrolloff=7
+" 水平滚动时，光标距离行首或行尾的位置
+set sidescrolloff=15
+" 总是显示状态栏
+set laststatus=2
+" 在状态栏显示光标的当前位置
+set  ruler
+" 高亮光标对应的括号
+set showmatch
+" 搜索时，高亮显示匹配结果。
+set hlsearch
+" 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果。
+set incsearch
+" 搜索时忽略大小写
+set ignorecase
 " 打开文件类型检查
 filetype indent on
 " 打开语法高亮
@@ -38,8 +54,8 @@ syntax on"}}}
 imap jj <ESC>
 
 " save and quit the vim
-nmap W :w<cr>
-nmap Q :q<cr>
+nmap <C-s> :w<cr>
+nmap <C-q> :q<cr>
 
 " windows
 nmap sc <C-w>c
@@ -66,6 +82,8 @@ vmap <A-down> :m '>+1<cr>gv
 
 let mapleader="\<space>"
 
+" no highlight
+nmap <leader>be :noh<cr>
 " get date
 nnoremap <leader>t "=strftime("%Y-%m-%dT%T%z")<CR>gp
 "}}}
