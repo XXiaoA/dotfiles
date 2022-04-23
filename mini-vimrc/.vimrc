@@ -1,4 +1,6 @@
 " basic{{{
+" 不与vi兼容
+set nocompatible
 " 文件编码
 set encoding=utf-8
 " 显示行号
@@ -9,8 +11,6 @@ set mouse = ""
 set showcmd
 " 显示模式
 set showmode
-" 不与vi兼容
-set nocompatible
 " 启用256色
 set t_Co=256
 " fold
