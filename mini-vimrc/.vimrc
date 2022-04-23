@@ -97,6 +97,8 @@ vmap <A-down> :m '>+1<cr>gv
 
 let mapleader="\<space>"
 
+" Autoindentation
+nmap <leader>i gg=G
 " no highlight
 nmap <leader>be :noh<cr>
 " get date
@@ -106,33 +108,33 @@ nnoremap <leader>t "=strftime("%Y-%m-%dT%T%z")<CR>gp
 " autocmd{{{
 " smart number from https://github.com/jeffkreeftmeijer/vim-numbertoggle{{{
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END"}}}
 
 " auto creat and save{{{
 if exists("g:loaded_auto_mkdir")
-	finish
+    finish
 endif
 let g:loaded_auto_mkdir = 1
 
 augroup auto_mkdir
-	au!
-	au BufEnter * call <SID>auto_mkdir()
+    au!
+    au BufEnter * call <SID>auto_mkdir()
 augroup END
 
 function <SID>auto_mkdir()
-	" Get directory the file is supposed to be saved in
-	let s:dir = expand("<afile>:p:h")
+    " Get directory the file is supposed to be saved in
+    let s:dir = expand("<afile>:p:h")
 
-	" Create that directory (and its parents) if it doesn't exist yet
-	if !isdirectory(s:dir)
-		call mkdir(s:dir, "p")
-	endif
+    " Create that directory (and its parents) if it doesn't exist yet
+    if !isdirectory(s:dir)
+        call mkdir(s:dir, "p")
+    endif
 endfunction
 
-if @% != ""
+if  @% != "" && !isdirectory(@%)
     augroup autoSave
         autocmd!
         autocmd InsertLeave,TextChanged * w
