@@ -69,8 +69,10 @@ syntax on"}}}
 imap jj <ESC>
 
 " save and quit the vim
-nmap <C-s> :w<cr>
-nmap <C-q> :q<cr>
+imap <C-s> :w<cr>
+imap <C-q> :qall<cr>
+nmap W :w<cr>
+nmap Q :qall<cr>
 
 " windows
 nmap sc <C-w>c
