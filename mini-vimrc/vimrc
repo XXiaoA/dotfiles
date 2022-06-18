@@ -108,6 +108,7 @@ nnoremap <leader>t "=strftime("%Y-%m-%dT%T%z")<CR>gp
 "}}}
 
 " autocmd{{{
+au FileType * set formatoptions-=ro
 " smart number from https://github.com/jeffkreeftmeijer/vim-numbertoggle{{{
 augroup numbertoggle
     autocmd!
