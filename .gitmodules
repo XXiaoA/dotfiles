@@ -1,15 +1,3 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/XXiaoA/nvim
-[submodule "zsh/powerlevel10k"]
-	path = zsh/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "zsh/zsh-autosuggestions"]
-	path = zsh/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "zsh/zsh-syntax-highlighting"]
-	path = zsh/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zsh/zsh-completions"]
-	path = zsh/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions
