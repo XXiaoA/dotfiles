@@ -2,9 +2,8 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -29,37 +28,109 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-path=(~/.local/bin $path)
-typeset -x XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-ZINIT_THEME_DIR="${HOME}/.zinit/themes/_local"
+
 export XDG_CONFIG_HOME=$HOME/.config
-export HISTSIZE=10000                   # Maximum events for internal history
-export SAVEHIST=10000                   # Maximum events in history file
 # editor
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# Setopt
+setopt correct
+# setopt autocd
 
-# alias
-alias ..="cd .."
-alias v=nvim
-alias lg=lazygit
-alias cat=bat
-alias cl=clear
-alias yt=yt-dlp
+setopt interactive_comments
+########
+zpcompinit
+zpcdreplay
+########
+ALOXAF_FZF_TAB_EXTRA=true
+# 当变量ALOXAF_FZF_TAB_EXTRA的值为01时，仅加载补全项颜色函数;为02时，加载右侧窗口配置;为true时，启用所有额外函数;为false时禁用。
 
 # Load powerlevel10k theme
 zinit ice depth"1" # git clone depth
 zinit light romkatv/powerlevel10k
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-history-substring-search
+
+#This plugin defines a function called `extract` that extracts the archive file you pass it, and it supports a wide variety of archive filetypes.
 zinit snippet OMZP::extract
+
+#This plugin defines the [z command](https://github.com/rupa/z) that tracks your most visited directories and allows you to access them with very few keystrokes.
+zinit light rupa/z
+
+#The git plugin provides many aliases and a few useful functions.
 zinit snippet OMZP::git
-# # https://github.com/ajeetdsouza/zoxide#installation
-eval "$(zoxide init zsh)"
+
+#This plugin uses the command-not-found package for zsh to provide suggested packages to be installed if a command cannot be found.
+zinit snippet OMZP::command-not-found
+
+#This plugin adds colors to man pages.
+zinit snippet OMZP::colored-man-pages
+
+#(Short name F-Sy-H). Syntax-highlighting for Zshell – fine granularity, number of features, 40 work hours themes
+zinit wait lucid for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+    blockf \
+    zsh-users/zsh-completions \
+    atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+
+#It suggests commands as you type based on history and completions.
+zinit light zsh-users/zsh-autosuggestions
+
+#Easily prefix your current or previous commands with `sudo` by pressing <kbd>esc</kbd> twice
+zinit snippet OMZP::sudo
+
+# Replace zsh's default completion selection menu with fzf!
+zinit light Aloxaf/fzf-tab
+
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory
+zinit snippet OMZP::dirhistory
+
+# zinit light changyuheng/fz
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# alias
+alias ..="cd .."
+
+alias lg=lazygit
+alias cl=clear
+alias yt=yt-dlp
+alias cp="cp -i"
+alias vim=nvim
+alias v=nvim
+
+if [[ $(command -v bat) ]] {
+    alias cat=bat
+}
+
+if [[ $(command -v exa) ]] {
+    DISABLE_LS_COLORS=true
+    unset LS_BIN_FILE
+    for i (/bin/ls ${PREFIX}/bin/ls /usr/bin/ls /usr/local/bin/ls) {
+        [[ ! -x ${i} ]] || {
+            local LS_BIN_FILE=${i}
+                    break
+                }
+            }
+            [[ -n ${LS_BIN_FILE} ]] || local LS_BIN_FILE=$(whereis ls 2>/dev/null | awk '{print $2}')
+            alias lls=${LS_BIN_FILE} 
+            # lls is the original ls. lls为原版ls
+            alias ls="exa --color=auto" 
+            # Exa is a modern version of ls. exa是一款优秀的ls替代品,拥有更好的文件展示体验,输出结果更快,使用rust编写。
+            alias l='exa -lbah --icons'
+            alias la='exa -labgh --icons'
+            alias ll='exa -lbg --icons'
+            alias lsa='exa -lbagR --icons'
+            alias lst='exa -lTabgh --icons' # 输入lst,将展示类似于tree的树状列表。
+        } else {
+        alias ls='ls --color=auto'
+        # color should not be always.
+        alias lst='tree -pCsh'
+        alias l='ls -lah'
+        alias la='ls -lAh'
+        alias ll='ls -lh'
+        alias lsa='ls -lah'
+    }
