@@ -12,4 +12,4 @@
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "zsh/zsh-completions"]
 	path = zsh/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
+	url = https://github.com/zsh-users/zsh-completions
