@@ -86,14 +86,20 @@ zinit light Aloxaf/fzf-tab
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory
 zinit snippet OMZP::dirhistory
 
-# zinit light changyuheng/fz
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+function zvm_config() {
+    ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+    ZVM_VI_SURROUND_BINDKEY=s-prefix
+}
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# alias
+# alias{{{
 alias ..="cd .."
+alias ...="cd ../.."
 
 alias lg=lazygit
 alias cl=clear
@@ -114,23 +120,24 @@ if [[ $(command -v exa) ]] {
             local LS_BIN_FILE=${i}
                     break
                 }
-            }
-            [[ -n ${LS_BIN_FILE} ]] || local LS_BIN_FILE=$(whereis ls 2>/dev/null | awk '{print $2}')
-            alias lls=${LS_BIN_FILE} 
-            # lls is the original ls. lls为原版ls
-            alias ls="exa --color=auto" 
-            # Exa is a modern version of ls. exa是一款优秀的ls替代品,拥有更好的文件展示体验,输出结果更快,使用rust编写。
-            alias l='exa -lbah --icons'
-            alias la='exa -labgh --icons'
-            alias ll='exa -lbg --icons'
-            alias lsa='exa -lbagR --icons'
-            alias lst='exa -lTabgh --icons' # 输入lst,将展示类似于tree的树状列表。
-        } else {
-        alias ls='ls --color=auto'
-        # color should not be always.
-        alias lst='tree -pCsh'
-        alias l='ls -lah'
-        alias la='ls -lAh'
-        alias ll='ls -lh'
-        alias lsa='ls -lah'
-    }
+        }
+    [[ -n ${LS_BIN_FILE} ]] || local LS_BIN_FILE=$(whereis ls 2>/dev/null | awk '{print $2}')
+    alias lls=${LS_BIN_FILE} 
+    # lls is the original ls. lls为原版ls
+    alias ls="exa --color=auto" 
+    # Exa is a modern version of ls. exa是一款优秀的ls替代品,拥有更好的文件展示体验,输出结果更快,使用rust编写。
+    alias l='exa -lbah --icons'
+    alias la='exa -labgh --icons'
+    alias ll='exa -lbg --icons'
+    alias lsa='exa -lbagR --icons'
+    alias lst='exa -lTabgh --icons' # 输入lst,将展示类似于tree的树状列表。
+} else {
+    alias ls='ls --color=auto'
+    # color should not be always.
+    alias lst='tree -pCsh'
+    alias l='ls -lah'
+    alias la='ls -lAh'
+    alias ll='ls -lh'
+    alias lsa='ls -lah'
+}
+# }}}
