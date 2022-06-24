@@ -1,3 +1,3 @@
 ```sh
-$XDG_CONFIG_HOME/yt-dlp.conf
+$XDG_CONFIG_HOME/yt-dlp/config
 ```

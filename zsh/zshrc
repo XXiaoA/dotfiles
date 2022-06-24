@@ -88,10 +88,8 @@ zinit snippet OMZP::dirhistory
 
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
-function zvm_config() {
-    ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
-    ZVM_VI_SURROUND_BINDKEY=s-prefix
-}
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+ZVM_VI_SURROUND_BINDKEY=s-prefix
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -107,6 +105,7 @@ alias yt=yt-dlp
 alias cp="cp -i"
 alias vim=nvim
 alias v=nvim
+alias md="mkdir -p"
 
 if [[ $(command -v bat) ]] {
     alias cat=bat
