@@ -76,6 +76,9 @@ zinit light Aloxaf/fzf-tab
 zinit ice wait"2" lucid
 zinit light rupa/z
 
+zinit ice wait lucid
+zinit light mfaerevaag/wd
+
 #The git plugin provides many aliases and a few useful functions.
 zinit ice wait lucid
 zinit snippet OMZP::git
@@ -116,6 +119,7 @@ alias vim=nvim
 alias v=nvim
 alias md="mkdir -p"
 alias rd=rmdir
+alias hy=hyperfine
 
 if [[ $(command -v bat) ]] {
     alias cat=bat
@@ -150,3 +154,6 @@ if [[ $(command -v exa) ]] {
     alias lsa='ls -lah'
 }
 # }}}
+
+# ignore case
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
