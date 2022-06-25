@@ -50,20 +50,10 @@ ALOXAF_FZF_TAB_EXTRA=true
 zinit ice depth"1" # git clone depth
 zinit light romkatv/powerlevel10k
 
-#This plugin defines a function called `extract` that extracts the archive file you pass it, and it supports a wide variety of archive filetypes.
-zinit snippet OMZP::extract
-
-#This plugin defines the [z command](https://github.com/rupa/z) that tracks your most visited directories and allows you to access them with very few keystrokes.
-zinit light rupa/z
-
-#The git plugin provides many aliases and a few useful functions.
-zinit snippet OMZP::git
-
-#This plugin uses the command-not-found package for zsh to provide suggested packages to be installed if a command cannot be found.
-zinit snippet OMZP::command-not-found
-
-#This plugin adds colors to man pages.
-zinit snippet OMZP::colored-man-pages
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+ZVM_VI_SURROUND_BINDKEY=s-prefix
 
 #(Short name F-Sy-H). Syntax-highlighting for Zshell – fine granularity, number of features, 40 work hours themes
 zinit wait lucid for \
@@ -75,21 +65,40 @@ zinit wait lucid for \
     zsh-users/zsh-autosuggestions
 
 #It suggests commands as you type based on history and completions.
+zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
-#Easily prefix your current or previous commands with `sudo` by pressing <kbd>esc</kbd> twice
-zinit snippet OMZP::sudo
-
 # Replace zsh's default completion selection menu with fzf!
+zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
 
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory
-zinit snippet OMZP::dirhistory
+#This plugin defines the [z command](https://github.com/rupa/z) that tracks your most visited directories and allows you to access them with very few keystrokes.
+zinit ice wait"2" lucid
+zinit light rupa/z
 
-zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
-ZVM_VI_SURROUND_BINDKEY=s-prefix
+#The git plugin provides many aliases and a few useful functions.
+zinit ice wait lucid
+zinit snippet OMZP::git
+
+#This plugin defines a function called `extract` that extracts the archive file you pass it, and it supports a wide variety of archive filetypes.
+zinit ice wait"2" lucid
+zinit snippet OMZP::extract
+
+#This plugin uses the command-not-found package for zsh to provide suggested packages to be installed if a command cannot be found.
+zinit ice wait"3" lucid
+zinit snippet OMZP::command-not-found
+
+#This plugin adds colors to man pages.
+zinit ice wait"3" lucid
+zinit snippet OMZP::colored-man-pages
+
+#Easily prefix your current or previous commands with `sudo` by pressing <kbd>esc</kbd> twice
+zinit ice wait lucid
+zinit snippet OMZP::sudo
+
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory
+zinit ice wait lucid
+zinit snippet OMZP::dirhistory
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -106,6 +115,7 @@ alias cp="cp -i"
 alias vim=nvim
 alias v=nvim
 alias md="mkdir -p"
+alias rd=rmdir
 
 if [[ $(command -v bat) ]] {
     alias cat=bat
