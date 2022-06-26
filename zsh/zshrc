@@ -64,23 +64,28 @@ zinit wait lucid for \
     atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
 
-#It suggests commands as you type based on history and completions.
-zinit ice wait lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
 
 # Replace zsh's default completion selection menu with fzf!
 zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
 
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-history-substring-search
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 #This plugin defines the [z command](https://github.com/rupa/z) that tracks your most visited directories and allows you to access them with very few keystrokes.
 zinit ice wait"2" lucid
 zinit light rupa/z
 
-zinit ice wait lucid
+zinit ice wait"2" lucid
 zinit light mfaerevaag/wd
 
 #The git plugin provides many aliases and a few useful functions.
-zinit ice wait lucid
+zinit ice wait"2" lucid
 zinit snippet OMZP::git
 
 #This plugin defines a function called `extract` that extracts the archive file you pass it, and it supports a wide variety of archive filetypes.
@@ -96,11 +101,11 @@ zinit ice wait"3" lucid
 zinit snippet OMZP::colored-man-pages
 
 #Easily prefix your current or previous commands with `sudo` by pressing <kbd>esc</kbd> twice
-zinit ice wait lucid
+zinit ice wait"3" lucid
 zinit snippet OMZP::sudo
 
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory
-zinit ice wait lucid
+zinit ice wait"3" lucid
 zinit snippet OMZP::dirhistory
 
 
@@ -115,15 +120,10 @@ alias lg=lazygit
 alias cl=clear
 alias yt=yt-dlp
 alias cp="cp -i"
-alias vim=nvim
 alias v=nvim
 alias md="mkdir -p"
 alias rd=rmdir
 alias hy=hyperfine
-
-if [[ $(command -v bat) ]] {
-    alias cat=bat
-}
 
 if [[ $(command -v exa) ]] {
     DISABLE_LS_COLORS=true
