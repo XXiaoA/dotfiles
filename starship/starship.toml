@@ -20,3 +20,6 @@ behind = "⇣${count}"
 modified = "!${count}"
 untracked = "?${count}"
 staged = "+${count}"
+
+[cmd_duration]
+format = "[$duration]($style)"
