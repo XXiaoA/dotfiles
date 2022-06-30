@@ -14,6 +14,7 @@ alias gl='git pull'
 alias gup='git pull --rebase'
 #compdef _git gup=git-fetch
 alias gp='git push'
+alias gpf='git push -f'
 #compdef _git gp=git-push
 alias gd='git diff'
 
