@@ -6,8 +6,6 @@ alias rd=rmdir
 alias hy=hyperfine
 alias cp="cp -i"
 alias md="mkdir -p"
-alias tt "tmux a -t"
-alias tk "tmux kill-session -t"
 
 if command -sq exa
     alias ls="exa --color=auto"
@@ -25,3 +23,9 @@ else
     alias ll='ls -lh'
     alias lsa='ls -lah'
 end
+
+# tmux
+alias tt "tmux a -t"
+alias tk "tmux kill-session -t"
+alias tn 'tmux new-session'
+alias tl 'tmux list-sessions'
