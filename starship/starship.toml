@@ -20,6 +20,9 @@ behind = "⇣${count}"
 modified = "!${count}"
 untracked = "?${count}"
 staged = "+${count}"
+deleted = "✘${count}"
+renamed = "»${count}"
+stashed = "$${count}"
 
 [cmd_duration]
 format = "[$duration]($style)"
