@@ -19,7 +19,7 @@ alias gpf='git push -f'
 alias gd='git diff'
 
 function gdv
-  git diff -w $argv | view -
+    git diff -w $argv | view -
 end
 
 #compdef _git gdv=git-diff
@@ -114,15 +114,13 @@ alias gsd='git svn dcommit'
 # Usage example: git pull origin $(current_branch)
 #
 function current_branch
-  set ref (git symbolic-ref HEAD 2> /dev/null); or \
-  set ref (git rev-parse --short HEAD 2> /dev/null); or return
-  echo ref | sed s-refs/heads--
+    set ref (git symbolic-ref HEAD 2> /dev/null); or set ref (git rev-parse --short HEAD 2> /dev/null); or return
+    echo ref | sed s-refs/heads--
 end
 
 function current_repository
-  set ref (git symbolic-ref HEAD 2> /dev/null); or \
-  set ref (git rev-parse --short HEAD 2> /dev/null); or return
-  echo (git remote -v | cut -d':' -f 2)
+    set ref (git symbolic-ref HEAD 2> /dev/null); or set ref (git rev-parse --short HEAD 2> /dev/null); or return
+    echo (git remote -v | cut -d':' -f 2)
 end
 
 # these aliases take advantage of the previous function
@@ -137,9 +135,10 @@ alias ggpnp='git pull origin (current_branch); and git push origin (current_bran
 
 # Pretty log messages
 function _git_log_prettily
-  if ! [ -z $1 ]; then
-    git log --pretty=$1
-  end
+    if ! [ -z $1 ]
+        then
+        git log --pretty=$1
+    end
 end
 
 alias glp="_git_log_prettily"
@@ -151,9 +150,10 @@ alias glp="_git_log_prettily"
 #
 # This function return a warning if the current branch is a wip
 function work_in_progress
-  if git log -n 1 | grep -q -c wip; then
-    echo "WIP!!"
-  end
+    if git log -n 1 | grep -q -c wip
+        then
+        echo "WIP!!"
+    end
 end
 
 # these alias commit and uncomit wip branches
