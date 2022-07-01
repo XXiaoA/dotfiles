@@ -60,7 +60,7 @@ alias gba='git branch -a'
 #compdef _git gba=git-branch
 alias gcount='git shortlog -sn'
 #compdef gcount=git
-alias gcl='git config --list'
+alias gcl='git clone'
 alias gcp='git cherry-pick'
 #compdef _git gcp=git-cherry-pick
 alias glg='git log --stat --max-count=10'
