@@ -24,5 +24,20 @@ deleted = "✘${count}"
 renamed = "»${count}"
 stashed = "\\$${count}"
 
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style)"
+
 [cmd_duration]
 format = "[$duration]($style)"
+
+[rust]
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+disabled = true
+
+[lua]
+disabled = true
