@@ -10,4 +10,4 @@ starship init fish | source
 fish_vi_key_bindings
 
 # https://github.com/skywind3000/z.lua
-source (lua $XDG_CONFIG_HOME/fish/conf.d/z.lua --init fish | psub)
+source (lua $HOME/dotfiles/fish/z.lua --init fish | psub)
