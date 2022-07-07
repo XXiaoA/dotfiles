@@ -69,14 +69,6 @@ zinit wait lucid for \
 zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
 
-
-zinit ice wait lucid
-zinit light zsh-users/zsh-history-substring-search
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
 #This plugin defines the [z command](https://github.com/rupa/z) that tracks your most visited directories and allows you to access them with very few keystrokes.
 zinit ice wait"2" lucid
 zinit light rupa/z
