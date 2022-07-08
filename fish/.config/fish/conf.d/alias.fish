@@ -11,8 +11,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-abbr -a - cd -
-
 if command -sq exa
     alias ls="exa --color=auto"
     alias l='exa -lbah --icons'
