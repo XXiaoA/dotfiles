@@ -18,6 +18,9 @@ if command -sq exa
     alias ll='exa -lbg --icons'
     alias lsa='exa -lbagR --icons'
     alias lst='exa -lTabgh --icons' # 输入lst,将展示类似于tree的树状列表。
+
+    alias tree "exa -T"
+
 else
     alias ls='ls --color=auto'
     # color should not be always.
