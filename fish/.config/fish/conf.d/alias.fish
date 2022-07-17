@@ -4,14 +4,20 @@ alias yt=yt-dlp
 alias v=nvim
 alias rd=rmdir
 alias hy=hyperfine
+alias x=extract
+
 alias cp="cp -i"
 alias md="mkdir -p"
+alias week='date +%V'
 
-alias week 'date +%V'
 
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
+if command -sq bat
+    alias cat="bat -pp"
+end
 
 if command -sq exa
     alias ls="exa --color=auto"
@@ -35,6 +41,8 @@ end
 
 # tmux
 alias tt "tmux a -t"
-alias tk "tmux kill-session -t"
 alias tn "tmux new -s"
 alias tl "tmux list-sessions"
+alias tk "tmux kill-session -t"
+alias tka='tmux kill-server'
+alias tconf='$EDITOR $HOME/.tmux.conf'

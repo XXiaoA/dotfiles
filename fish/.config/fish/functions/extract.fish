@@ -1,6 +1,5 @@
 # Taken from: https://github.com/dideler/dotfiles/blob/master/functions/extract.fish
-
-function x --description "Expand or extract bundled & compressed files"
+function extract --description "Expand or extract bundled & compressed files"
   set --local ext (echo $argv[1] | awk -F. '{print $NF}')
   switch $ext
     case tar  # non-compressed, just bundled
