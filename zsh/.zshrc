@@ -1,11 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-### Added by Zinit's installer
+### Added by Zinit's installer{{{
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
@@ -17,18 +10,9 @@ fi
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk}}}
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
-### End of Zinit's installer chunk
-
-
+export ZINIT_PATH=$HOME/.local/share/zinit
 export XDG_CONFIG_HOME=$HOME/.config
 # editor
 export EDITOR="nvim"
@@ -36,19 +20,54 @@ export VISUAL="nvim"
 
 # Setopt
 setopt correct
-# setopt autocd
+setopt autocd
 
 setopt interactive_comments
 ########
 zpcompinit
 zpcdreplay
 ########
-ALOXAF_FZF_TAB_EXTRA=true
+ALOXAF_FZF_TAB_EXTRA=true # {{{
 # 当变量ALOXAF_FZF_TAB_EXTRA的值为01时，仅加载补全项颜色函数;为02时，加载右侧窗口配置;为true时，启用所有额外函数;为false时禁用。
+#分组和补全项颜色
+aloxaf_fzf_tab_extra_opt_01() {
+    zstyle ':completion:*:descriptions' format '[%d]'
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+}
+###############
+aloxaf_fzf_tab_extra_opt_02() {
+    #FZF-TAB右侧窗口配置
+    local extract="
+# trim input
+local in=\${\${\"\$(<{f})\"%\$'\0'*}#*\$'\0'}
+# get ctxt for current completion
+local -A ctxt=(\"\${(@ps:\2:)CTXT}\")
+# real path
+local realpath=\${ctxt[IPREFIX]}\${ctxt[hpre]}\$in
+realpath=\${(Qe)~realpath}
+"
+    #zstyle ':fzf-tab:*' single-group ''
+    #zstyle ':fzf-tab:complete:_zlua:*' query-string input
+    zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
+    zstyle ':fzf-tab:complete:(cd|ls|exa|bat|cat|nano|vi|vim):*' extra-opts --preview=$extract'ls -1 -A --color=always $realpath'
+    #zstyle ':fzf-tab:complete:(cd|ls|nano|vi|vim):*' extra-opts --preview=$extract'ls -1A --color=auto ${~ctxt[hpre]}$in 2>/dev/null'
+}
+#################
+check_fzf_tab_variable(){
+case ${ALOXAF_FZF_TAB_EXTRA} in
+false) ;;
+true)
+    aloxaf_fzf_tab_extra_opt_01
+    aloxaf_fzf_tab_extra_opt_02
+    ;;
+01) aloxaf_fzf_tab_extra_opt_01 ;;
+02) aloxaf_fzf_tab_extra_opt_02 ;;
+esac
+}
+##################
+check_fzf_tab_variable # }}}
 
-# Load powerlevel10k theme
-zinit ice depth"1" # git clone depth
-zinit light romkatv/powerlevel10k
+####################
 
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
@@ -56,13 +75,13 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 ZVM_VI_SURROUND_BINDKEY=s-prefix
 
 #(Short name F-Sy-H). Syntax-highlighting for Zshell – fine granularity, number of features, 40 work hours themes
-zinit wait lucid for \
-    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-    blockf \
-    zsh-users/zsh-completions \
-    atload"!_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
+zinit ice wait lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+zinit light zsh-users/zsh-completions
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-autosuggestions
 
 
 # Replace zsh's default completion selection menu with fzf!
@@ -96,13 +115,6 @@ zinit snippet OMZP::colored-man-pages
 zinit ice wait"3" lucid
 zinit snippet OMZP::sudo
 
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory
-zinit ice wait"3" lucid
-zinit snippet OMZP::dirhistory
-
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # alias{{{
 alias ..="cd .."
@@ -149,3 +161,5 @@ if [[ $(command -v exa) ]] {
 
 # ignore case
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
+
+eval "$(starship init zsh)"
