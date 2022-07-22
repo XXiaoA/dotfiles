@@ -41,7 +41,7 @@ end
 
 # tmux
 alias tt "tmux a -t"
-alias tn "tmux new -s"
+alias tn "tmux new"
 alias tl "tmux list-sessions"
 alias tk "tmux kill-session -t"
 alias tka='tmux kill-server'
