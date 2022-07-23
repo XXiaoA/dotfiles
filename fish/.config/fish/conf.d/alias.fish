@@ -15,6 +15,10 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+if command -sq batcat
+    alias bat=batcat
+    alias cat="batcat -pp"
+end
 if command -sq bat
     alias cat="bat -pp"
 end
