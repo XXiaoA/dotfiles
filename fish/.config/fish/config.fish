@@ -11,6 +11,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 
 set -g fish_user_paths ~/.cargo/bin/ $fish_user_paths
+set -g fish_user_paths ~/.local/share/nvim/mason/bin/ $fish_user_paths
 
 fish_vi_key_bindings
 
