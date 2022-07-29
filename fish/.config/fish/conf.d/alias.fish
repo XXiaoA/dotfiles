@@ -4,7 +4,10 @@ alias yt=yt-dlp
 alias v=nvim
 alias rd=rmdir
 alias hy=hyperfine
+
+# alias for functions
 alias x=extract
+alias vn=nvim_nightly
 
 alias cp="cp -i"
 alias md="mkdir -p"
