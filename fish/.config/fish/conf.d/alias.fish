@@ -13,6 +13,7 @@ alias cp="cp -i"
 alias md="mkdir -p"
 alias week='date +%V'
 
+alias rm='echo "Please use transh-put."'
 
 alias ...="cd ../.."
 alias ....="cd ../../.."
