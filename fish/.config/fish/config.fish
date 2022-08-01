@@ -10,6 +10,10 @@ export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 
+# Clash
+export https_proxy=http://127.0.0.1:7890
+export http_proxy=$https_proxy
+
 set -g fish_user_paths ~/.cargo/bin/ $fish_user_paths
 set -g fish_user_paths ~/.local/share/nvim/mason/bin/ $fish_user_paths
 
