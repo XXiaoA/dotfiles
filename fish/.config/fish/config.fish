@@ -1,6 +1,7 @@
 set fish_greeting ""
 
 export XDG_CONFIG_HOME=$HOME/.config
+
 # editor
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -21,6 +22,12 @@ fish_vi_key_bindings
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_replace underscore
+# https://issuehint.com/issue/fish-shell/fish-shell/8981
+if status is-interactive
+    if string match -q -- 'tmux*' $TERM
+        set -g fish_vi_force_cursor 1
+    end
+end
 
 starship init fish | source
 zoxide init fish | source
