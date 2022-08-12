@@ -27,7 +27,7 @@ end
 
 if command -sq exa
     alias ls="exa --color=auto"
-    alias l='exa -lbah --icons'
+    alias l='exa -lbh --icons'
     alias la='exa -labgh --icons'
     alias ll='exa -lbg --icons'
     alias lsa='exa -lbagR --icons'
