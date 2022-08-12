@@ -6,7 +6,7 @@ scheme.cursor_fg = "black"
 
 return {
     enable_tab_bar = false,
-    font = wt.font("JetBrainsMono Nerd Font", { weight = 325 }),
+    font = wt.font("JetBrainsMono Nerd Font"),
     font_size = 16,
     color_schemes = {
         ["Andromeda"] = scheme,
