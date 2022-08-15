@@ -20,9 +20,11 @@ alias .....="cd ../../../.."
 if command -sq batcat
     alias bat=batcat
     alias cat="batcat -pp"
+    alias ccat "/usr/bin/cat"
 end
 if command -sq bat
     alias cat="bat -pp"
+    alias ccat "/usr/bin/cat"
 end
 
 if command -sq exa
