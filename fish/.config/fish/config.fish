@@ -7,9 +7,11 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # fcitx5
-export XMODIFIERS="@im=fcitx"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
 
 # Clash
 export https_proxy=http://127.0.0.1:7890
