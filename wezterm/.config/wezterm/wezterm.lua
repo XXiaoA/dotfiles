@@ -26,10 +26,39 @@ return {
     cursor_blink_ease_in = "Constant",
     cursor_blink_ease_out = "Constant",
 
-    keys = {
+    hyperlink_rules = {
+        -- Linkify things that look like URLs
+        -- This is actually the default if you don't specify any hyperlink_rules
         {
-            key = "F11",
-            action = wezterm.action.ToggleFullScreen,
+            regex = "\\b\\w+://(?:[\\w.-]+)\\.[a-z]{2,15}\\S*\\b",
+            format = "$0",
         },
+        -- match the URL with a PORT
+        -- such 'http://localhost:3000/index.html'
+        {
+            regex = "\\b\\w+://(?:[\\w.-]+):\\d+\\S*\\b",
+            format = "$0",
+        },
+        -- linkify email addresses
+        {
+            regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
+            format = "mailto:$0",
+        },
+        -- file:// URI
+        {
+            regex = "\\bfile://\\S*\\b",
+            format = "$0",
+        },
+    },
+
+    keys = {
+        { key = "Tab", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = 1 }) },
+        {
+            key = "Tab",
+            mods = "CTRL|SHIFT",
+            action = wezterm.action({ ActivateTabRelative = -1 }),
+        },
+        { key = "Enter", mods = "ALT", action = "ToggleFullScreen" },
+        { key = "F11", mods = "CTRL|SHIFT", action = "ToggleFullScreen" },
     },
 }
