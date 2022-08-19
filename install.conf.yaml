@@ -35,6 +35,7 @@
       if: "command -sq kitty" # For fish shell
       path: ./kitty/kitty.conf
 
-    ~/.termxu:
+    ~/.termux:
       if: 'test (uname -o) = "Android"' # For fish shell
       path: ./termux
+      force: true
