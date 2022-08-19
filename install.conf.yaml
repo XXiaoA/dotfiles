@@ -36,5 +36,5 @@
       path: ./kitty/kitty.conf
 
     ~/.termxu:
-      if: "test (uname -o) = Android" # For fish shell
+      if: 'test (uname -o) = "Android"' # For fish shell
       path: ./termux
