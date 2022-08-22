@@ -4,10 +4,22 @@ local scheme = wezterm.get_builtin_color_schemes()["Andromeda"]
 scheme.cursor_bg = "#8f3f71"
 scheme.cursor_fg = "black"
 
+wezterm.on("toggle-ligature", function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    if not overrides.harfbuzz_features then
+        -- If we haven't overridden it yet, then override with ligatures disabled
+        overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+    else
+        -- else we did already, and we should disable out override now
+        overrides.harfbuzz_features = nil
+    end
+    window:set_config_overrides(overrides)
+end)
+
 return {
     font = wezterm.font({
         family = "JetBrainsMono Nerd Font",
-        harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+        -- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
     }),
 
     font_size = 16,
@@ -60,5 +72,10 @@ return {
         },
         { key = "Enter", mods = "ALT", action = "ToggleFullScreen" },
         { key = "F11", mods = "CTRL|SHIFT", action = "ToggleFullScreen" },
+        {
+            key = "E",
+            mods = "CTRL",
+            action = wezterm.action.EmitEvent("toggle-ligature"),
+        },
     },
 }
