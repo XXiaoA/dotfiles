@@ -6,7 +6,7 @@ set encoding=utf-8
 " 显示行号
 set nu
 " 禁用鼠标
-set mouse = ""
+set mouse=nv
 " 显示命令
 set showcmd
 " 显示模式
@@ -57,13 +57,20 @@ set autochdir
 set history=500
 " 打开文件监视
 set autoread
+" 加快响应速度
+set updatetime=100
+" 连击频率
+set timeoutlen=500
 " 如果行尾有多余的空格（包括 Tab 键）
 "set listchars=tab:»■,trail:■
 "set list
+set fillchars="tab:»■,trail:■,eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
+set confirm
 " 打开文件类型检查
 filetype indent on
 " 打开语法高亮
-syntax on"}}}
+syntax on
+"}}}
 
 " key mapping{{{
 imap jj <ESC>
@@ -97,53 +104,27 @@ imap <A-down> <ESC>:m .+1<cr>
 vmap <A-up> :m '<-2<cr>gv
 vmap <A-down> :m '>+1<cr>gv
 
+
 let mapleader="\<space>"
+let maplocalleader="\<space>"
+
+nmap <leader>sp :<C-U>set spell!<CR>
 
 " Autoindentation
 nmap <leader>i gg=G
 " no highlight
 nmap <leader>be :noh<cr>
-" get date
-nnoremap <leader>t "=strftime("%Y-%m-%dT%T%z")<CR>gp
 "}}}
 
 " autocmd{{{
 au FileType * set formatoptions-=ro
+
 " smart number from https://github.com/jeffkreeftmeijer/vim-numbertoggle{{{
 augroup numbertoggle
     autocmd!
     autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
     autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END"}}}
-
-" auto creat and save{{{
-if exists("g:loaded_auto_mkdir")
-    finish
-endif
-let g:loaded_auto_mkdir = 1
-
-augroup auto_mkdir
-    au!
-    au BufEnter * call <SID>auto_mkdir()
-augroup END
-
-function <SID>auto_mkdir()
-    " Get directory the file is supposed to be saved in
-    let s:dir = expand("<afile>:p:h")
-
-    " Create that directory (and its parents) if it doesn't exist yet
-    if !isdirectory(s:dir)
-        call mkdir(s:dir, "p")
-    endif
-endfunction
-
-if  @% != "" && !isdirectory(@%)
-    augroup autoSave
-        autocmd!
-        autocmd InsertLeave,TextChanged * w
-    augroup END
-endif
-"}}}
 "}}}
 
 " highlight{{{
