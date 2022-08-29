@@ -1,0 +1,37 @@
+- create:
+  - ~/repos
+  - ~/.local/share/fonts
+
+- link:
+  ./fish:
+    path: ~/.config/fish
+    force: true
+
+  ./gitconfig/gitconfig:
+    path: ~/.gitconfig
+
+  ~/repos/nvimrc:
+    if: "test -d ~/repos/nvimrc/" # For fish shell
+    path: ~/.config/nvim
+
+  ./starship/starship.toml:
+    path: ~/.config/starship.toml
+
+  ./tmux/tmux.conf:
+    path: ~/.tmux.conf
+
+  ./mini-vimrc/vimrc:
+     path: ~/.vimrc
+
+  ./wezterm/wezterm.lua:
+    if: "test -e /usr/bin/wezterm" # For fish shell
+    path: ~/.config/wezterm/wezterm.luak
+
+  ./kitty/kitty.conf:
+    if: "test -e /usr/bin/kitty" # For fish shell
+    path: ~/.config/kitty/kitty.conf
+
+  ./termux:
+    if: 'test (uname -o) = "Android"' # For fish shell
+    path: ~/termux
+    force: true

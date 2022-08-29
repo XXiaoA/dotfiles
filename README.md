@@ -2,6 +2,5 @@
 My personal dotfiles
 
 ## Manage
-use `dotbot` to manage dotfiles
-
-run `./install`
+use [xdm](https://github.com/XXiaoA/xdm) to manage dotfiles
+run `xdm`
