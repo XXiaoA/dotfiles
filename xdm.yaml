@@ -1,8 +1,8 @@
-- create:
+create:
   - ~/repos
   - ~/.local/share/fonts
 
-- link:
+link:
   ./fish:
     path: ~/.config/fish
     force: true
