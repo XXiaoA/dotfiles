@@ -7,21 +7,17 @@ link:
     path: ~/.config/fish
     force: true
 
-  ./gitconfig/gitconfig:
-    path: ~/.gitconfig
+  ./gitconfig/gitconfig: ~/.gitconfig
 
   ~/repos/nvimrc:
     # if: test -d ~/repos/nvimrc/ # For fish shell
     path: ~/.config/nvim
 
-  ./starship/starship.toml:
-    path: ~/.config/starship.toml
+  ./starship/starship.toml: ~/.config/starship.toml
 
-  ./tmux/tmux.conf:
-    path: ~/.tmux.conf
+  ./tmux/tmux.conf: ~/.tmux.conf
 
-  ./mini-vimrc/vimrc:
-     path: ~/.vimrc
+  ./mini-vimrc/vimrc: ~/.vimrc
 
   ./wezterm/wezterm.lua:
     # if: test -e /usr/bin/wezterm # For fish shell
