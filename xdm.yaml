@@ -29,5 +29,5 @@ link:
 
   ./termux:
     # if: test (uname -o) = "Android" # For fish shell
-    path: ~/termux
+    path: ~/.termux
     force: true
