@@ -10,8 +10,8 @@ link:
   ./gitconfig/gitconfig: ~/.gitconfig
 
   ~/repos/nvimrc:
-    # if: test -d ~/repos/nvimrc/ # For fish shell
     path: ~/.config/nvim
+    exist: false
 
   ./starship/starship.toml: ~/.config/starship.toml
 
@@ -19,11 +19,9 @@ link:
 
   ./mini-vimrc/vimrc: ~/.vimrc
 
-  ./wezterm/wezterm.lua:
-    # if: test -e /usr/bin/wezterm # For fish shell
-    path: ~/.config/wezterm/wezterm.lua
+  ./wezterm/wezterm.lua: ~/.config/wezterm/wezterm.lua
 
   ./termux:
-    # if: test (uname -o) = "Android" # For fish shell
     path: ~/.termux
     force: true
+    manual: true
