@@ -1,15 +1,14 @@
 create:
   - ~/repos
-  - ~/.local/share/fonts
 
 link:
-  ./fish:
+  ./fish/:
     path: ~/.config/fish
     force: true
 
   ./gitconfig/gitconfig: ~/.gitconfig
 
-  ~/repos/nvimrc:
+  ~/repos/nvimrc/:
     path: ~/.config/nvim
     exist: false
 
@@ -21,7 +20,9 @@ link:
 
   ./wezterm/wezterm.lua: ~/.config/wezterm/wezterm.lua
 
-  ./termux:
+  ./termux/:
     path: ~/.termux
     force: true
     manual: true
+
+  ./fonts/: ~/.local/share/fonts
