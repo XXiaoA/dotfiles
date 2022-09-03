@@ -48,7 +48,7 @@ else
 end
 
 # tmux
-alias tt "tmux a -t"
+alias tt "tmux a"
 alias tn "tmux new"
 alias tl "tmux list-sessions"
 alias tk "tmux kill-session -t"
