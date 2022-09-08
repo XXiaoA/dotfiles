@@ -48,6 +48,12 @@ end)
 return {
     font = font_with_fallback("JetBrainsMono Nerd Font"),
     -- font_rules = font_rules,
+    window_padding = {
+        left = 10,
+        right = 2,
+        top = 10,
+        bottom = 2
+    },
 
     font_size = 16,
 
