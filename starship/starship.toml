@@ -5,7 +5,7 @@
 add_newline = true
 
 [character]
-success_symbol = "[>](bold #678979)"
+success_symbol = "[❯](bold #678979)"
 error_symbol = "[x](bold red)"
 vicmd_symbol = "[N](bold #5879A6)"
 vimcmd_replace_one_symbol = "[R](bold #9C3D55)"

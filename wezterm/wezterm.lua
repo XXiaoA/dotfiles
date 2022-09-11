@@ -51,8 +51,8 @@ return {
     window_padding = {
         left = 10,
         right = 2,
-        top = 10,
-        bottom = 2
+        top = 0,
+        bottom = 0
     },
 
     font_size = 16,
