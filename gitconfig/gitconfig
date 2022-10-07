@@ -41,6 +41,7 @@
 
     # Commit all changes.
     ca = !git add -A && git commit -av
+    cam = !git add -A && git commit -am
 
     # Show verbose output about tags, branches or remotes
     tags = tag -l
@@ -52,6 +53,7 @@
 
     # Amend the currently staged files to the latest commit.
     amend = commit --amend --reuse-message=HEAD
+    aamend = !git aa && git amend
 
     # Credit an author on the latest commit.
     credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
