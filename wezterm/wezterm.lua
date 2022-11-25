@@ -15,46 +15,13 @@ wezterm.on("toggle-ligature", function(window, pane)
     window:set_config_overrides(overrides)
 end)
 
-local function font_with_fallback(name, params)
-    local names = {
-        name,
+return {
+    font = wezterm.font_with_fallback({
+        "JetBrainsMono Nerd Font",
+        "LXGW WenKai Mono", -- for Chinese
         "Noto Color Emoji",
         "JetBrains Mono",
-    }
-    return wezterm.font_with_fallback(names, params)
-end
-local font_rules = {
-    {
-        italic = true,
-        bold = true,
-        intensity = "Bold",
-        font = font_with_fallback("Maple Mono SC NF", { italic = true, bold = true }),
-    },
-    {
-        italic = true,
-        font = font_with_fallback("Maple Mono SC NF", { italic = true }),
-    },
-}
-wezterm.on("change-italic-font", function(window, pane)
-    local overrides = window:get_config_overrides() or {}
-    if overrides.font_rules then
-        overrides.font_rules = nil
-    else
-        overrides.font_rules = font_rules
-    end
-    window:set_config_overrides(overrides)
-end)
-
-return {
-    font = font_with_fallback("JetBrainsMono Nerd Font"),
-    -- font_rules = font_rules,
-    window_padding = {
-        left = 10,
-        right = 2,
-        top = 0,
-        bottom = 0,
-    },
-
+    }),
     font_size = 16,
 
     color_schemes = {
@@ -62,6 +29,12 @@ return {
     },
     color_scheme = "Andromeda",
 
+    window_padding = {
+        left = 10,
+        right = 2,
+        top = 0,
+        bottom = 0,
+    },
     window_background_opacity = 0.95,
     window_decorations = "RESIZE",
     window_close_confirmation = "NeverPrompt",
@@ -112,11 +85,6 @@ return {
             key = "E",
             mods = "CTRL",
             action = wezterm.action.EmitEvent("toggle-ligature"),
-        },
-        {
-            key = "W",
-            mods = "CTRL",
-            action = wezterm.action.EmitEvent("change-italic-font"),
         },
     },
 }
