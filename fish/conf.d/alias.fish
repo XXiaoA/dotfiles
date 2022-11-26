@@ -54,3 +54,7 @@ alias tl "tmux list-sessions"
 alias tk "tmux kill-session -t"
 alias tka='tmux kill-server'
 alias tconf='$EDITOR $HOME/.tmux.conf'
+
+if command -sq exa
+    alias yay paru
+end
