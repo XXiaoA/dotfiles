@@ -1,10 +1,6 @@
 ---@diagnostic disable: unused-local
 local wezterm = require("wezterm")
 
-local scheme = wezterm.get_builtin_color_schemes()["Andromeda"]
-scheme.cursor_bg = "#8f3f71"
-scheme.cursor_fg = "black"
-
 wezterm.on("toggle-ligature", function(window, pane)
     local overrides = window:get_config_overrides() or {}
     if not overrides.harfbuzz_features then
@@ -24,10 +20,7 @@ return {
     }),
     font_size = 16,
 
-    color_schemes = {
-        ["Andromeda"] = scheme,
-    },
-    color_scheme = "Andromeda",
+    color_scheme = "Gruvbox Dark", -- "Gruvbox Dark", "nightfox", "duskfox"
 
     window_padding = {
         left = 10,
