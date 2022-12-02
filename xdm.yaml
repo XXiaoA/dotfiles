@@ -18,7 +18,7 @@ link:
 
   ./mini-vimrc/vimrc: ~/.vimrc
 
-  ./wezterm/wezterm.lua: ~/.config/wezterm/wezterm.lua
+  ./wezterm/: ~/.config/wezterm
 
   ./termux/:
     path: ~/.termux
@@ -26,3 +26,5 @@ link:
     manual: true
 
   ./fonts/: ~/.local/share/fonts
+
+  ./keymapper/keymapper.conf: ~/.config/keymapper.conf
