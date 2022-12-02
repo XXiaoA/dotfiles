@@ -29,3 +29,5 @@ set fish_cursor_replace underscore
 
 starship init fish | source
 zoxide init fish | source
+
+scheme gruvbox
