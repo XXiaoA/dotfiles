@@ -13,10 +13,6 @@ alias cp="cp -i"
 alias md="mkdir -p"
 alias week='date +%V'
 
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
 if command -sq batcat
     alias bat=batcat
     alias cat="batcat -pp"
