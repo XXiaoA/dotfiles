@@ -25,6 +25,4 @@ link:
     force: true
     manual: true
 
-  ./fonts/: ~/.local/share/fonts
-
   ./keymapper/keymapper.conf: ~/.config/keymapper.conf
