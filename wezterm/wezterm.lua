@@ -18,7 +18,7 @@ return {
         "Noto Color Emoji",
         "JetBrains Mono",
     }),
-    font_size = 16,
+    font_size = 16.5,
 
     color_scheme = "Gruvbox Dark", -- "Gruvbox Dark", "nightfox", "duskfox"
 
