@@ -26,3 +26,7 @@ link:
     manual: true
 
   ./keymapper/keymapper.conf: ~/.config/keymapper.conf
+
+  ./neofetch/config.conf:
+    path: ~/.config/neofetch/config.conf
+    force: true

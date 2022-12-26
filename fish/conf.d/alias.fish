@@ -7,7 +7,6 @@ alias hy=hyperfine
 
 # alias for functions
 alias x=extract
-alias vn=nvim_nightly
 
 alias cp="cp -i"
 alias md="mkdir -p"
@@ -49,8 +48,9 @@ alias tn "tmux new"
 alias tl "tmux list-sessions"
 alias tk "tmux kill-session -t"
 alias tka='tmux kill-server'
-alias tconf='$EDITOR $HOME/.tmux.conf'
 
-if command -sq exa
+if command -sq paru
     alias yay paru
 end
+
+alias nf neofetch

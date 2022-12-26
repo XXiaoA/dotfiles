@@ -22,6 +22,8 @@ return {
 
     color_scheme = "Gruvbox Dark", -- "Gruvbox Dark", "nightfox", "duskfox"
 
+    default_prog = { "/bin/bash", "-l", "-c", "tmux attach || tmux" },
+
     window_padding = {
         left = 10,
         right = 2,
