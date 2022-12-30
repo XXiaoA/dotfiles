@@ -1,0 +1,23 @@
+# Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/duskfox/nightfox_fish.fish
+
+# Syntax Highlighting Colors
+fish_color_normal e0def4
+fish_color_command 9ccfd8
+fish_color_keyword eb98c3
+fish_color_quote f6c177
+fish_color_redirection e0def4
+fish_color_end ea9a97
+fish_color_error eb6f92
+fish_color_param c4a7e7
+fish_color_comment 817c9c
+fish_color_selection --background=433c59
+fish_color_search_match --background=433c59
+fish_color_operator a3be8c
+fish_color_escape eb98c3
+fish_color_autosuggestion 817c9c
+
+# Completion Pager Colors
+fish_pager_color_progress 817c9c
+fish_pager_color_prefix 9ccfd8
+fish_pager_color_completion e0def4
+fish_pager_color_description 817c9c

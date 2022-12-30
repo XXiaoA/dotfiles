@@ -20,7 +20,7 @@ return {
     }),
     font_size = 16.5,
 
-    color_scheme = "Gruvbox Dark", -- "Gruvbox Dark", "nightfox", "duskfox"
+    color_scheme = "Catppuccin Macchiato", -- "Gruvbox Dark", "nightfox", "duskfox", "Catppuccin {Mocha, Macchiato, Frappe, Latte}"
 
     default_prog = { "/bin/bash", "-l", "-c", "tmux attach || tmux" },
 
