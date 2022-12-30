@@ -1,5 +1,5 @@
 create:
-  - ~/repos
+  - ~/Workspace
 
 link:
   ./fish/:
@@ -8,7 +8,7 @@ link:
 
   ./gitconfig/gitconfig: ~/.gitconfig
 
-  ~/repos/nvimrc/:
+  ~/Workspace/nvimrc/:
     path: ~/.config/nvim
     exist: false
 
