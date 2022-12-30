@@ -28,6 +28,8 @@ set fish_cursor_replace_one underscore
 set fish_cursor_replace underscore
 
 starship init fish | source
+
+set -x _ZO_ECHO '1'
 zoxide init fish | source
 
 scheme gruvbox
