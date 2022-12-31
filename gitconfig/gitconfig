@@ -88,3 +88,5 @@
 
 [diff]
 	external = difft
+[push]
+	autoSetupRemote = true
