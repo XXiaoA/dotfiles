@@ -80,6 +80,9 @@
     # a.k.a. ‘delete merged’
     dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
+    # Go to a branch. If it's non-exist, create it
+    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
     # List contributors with number of commits.
     contributors = shortlog --summary --numbered
 
