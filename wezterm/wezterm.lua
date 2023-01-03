@@ -13,6 +13,10 @@ end)
 
 return {
     font = wezterm.font_with_fallback({
+        {
+            family = "Maple Mono SC NF",
+            harfbuzz_features = { "cv01=1", "cv02=1", "cv03=1" },
+        },
         "JetBrainsMono Nerd Font",
         "LXGW WenKai Mono", -- for Chinese
         "Noto Color Emoji",

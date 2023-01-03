@@ -1,10 +1,3 @@
-alias lg=lazygit
-alias cl=clear
-alias yt=yt-dlp
-alias v=nvim
-alias rd=rmdir
-alias hy=hyperfine
-
 # alias for functions
 alias x=extract
 
@@ -48,9 +41,3 @@ alias tn "tmux new"
 alias tl "tmux list-sessions"
 alias tk "tmux kill-session -t"
 alias tka='tmux kill-server'
-
-if command -sq paru
-    alias yay paru
-end
-
-alias nf neofetch
