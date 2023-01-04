@@ -1,0 +1,22 @@
+# Syntax Highlighting Colors
+fish_color_normal 7A8478
+fish_color_command A7C080
+fish_color_keyword D699B6
+fish_color_quote DBBC7F
+fish_color_redirection 7A8478
+fish_color_end E69875
+fish_color_error E67E80
+fish_color_param 7FBBB3
+fish_color_comment 859289
+fish_color_selection --background=A7C080
+fish_color_search_match --background=543A48
+fish_color_operator A7C080
+fish_color_escape D699B6
+fish_color_autosuggestion 859289
+
+# Completion Pager Colors
+fish_pager_color_progress 859289
+fish_pager_color_prefix 7FBBB3
+fish_pager_color_completion D3C6AA
+fish_pager_color_description 859289
+fish_pager_color_selected_background --background=A7C080
