@@ -14,7 +14,7 @@ end)
 return {
     font = wezterm.font_with_fallback({
         {
-            family = "Maple Mono SC NF",
+            family = "Maple Mono",
             harfbuzz_features = { "cv01=1", "cv02=1", "cv03=1" },
         },
         "JetBrainsMono Nerd Font",
@@ -24,7 +24,7 @@ return {
     }),
     font_size = 16.5,
 
-    color_scheme = "everforest", -- "Gruvbox Dark", "nightfox", "duskfox", "Catppuccin {Mocha, Macchiato, Frappe, Latte}"  "tokyonight_{moon, storm}"
+    color_scheme = "Rosé Pine Moon",
 
     default_prog = { "/bin/bash", "-l", "-c", "tmux attach || tmux" },
 

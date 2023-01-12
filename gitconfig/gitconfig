@@ -89,6 +89,8 @@
     # Show the user email for the current repository.
     whoami = config user.email
 
+    unstaged = restore --staged
+
 [diff]
 	external = difft
 [push]
