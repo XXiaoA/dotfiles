@@ -30,3 +30,15 @@ link:
   ./neofetch/config.conf:
     path: ~/.config/neofetch/config.conf
     force: true
+
+  ./bspwm/: ~/.config/bspwm
+
+  ./picom/: ~/.config/picom
+
+  ./polybar/: ~/.config/polybar
+
+  ./sxhkd/: ~/.config/sxhkd
+
+  ./dunst/: ~/.config/dunst
+
+  ./rofi/: ~/.config/rofi
