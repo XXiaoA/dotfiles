@@ -42,3 +42,5 @@ link:
   ./dunst/: ~/.config/dunst
 
   ./rofi/: ~/.config/rofi
+
+  ./xinitrc: ~/.xinitrc

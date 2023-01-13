@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 #
 # wm independent hotkeys
 #
@@ -35,6 +36,14 @@ super + v
 # unhide window
 super + shift + v
     bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
+
+# focus a floating window from a tiled window
+super + a
+    if [ "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node -f last.tiled.local; \
+    else \
+        bspc node -f last.floating.local; \
+    fi
 
 # toggle floating window
 super + s
