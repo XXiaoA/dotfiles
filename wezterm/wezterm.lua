@@ -35,7 +35,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
     window:set_config_overrides(overrides)
 end)
 
-local color_scheme = "Everforest"
+local color_scheme = "Rosé Pine Moon"
 
 return {
     font = wezterm.font_with_fallback({
@@ -104,7 +104,6 @@ return {
             mods = "CTRL|SHIFT",
             action = wezterm.action({ ActivateTabRelative = -1 }),
         },
-        { key = "Enter", mods = "ALT", action = "ToggleFullScreen" },
         { key = "F11", mods = "CTRL|SHIFT", action = "ToggleFullScreen" },
         {
             key = "E",

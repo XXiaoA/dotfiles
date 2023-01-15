@@ -12,7 +12,7 @@ ctrl + alt + t
 
 # program launcher
 alt + @space
-	rofi -show drun
+    rofi -modes "drun,window,run" -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -36,6 +36,10 @@ super + v
 # unhide window
 super + shift + v
     bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
+
+# hide/unhide all windows
+super + d
+    bspc query -N -n .local.window | xargs -I ID bspc node ID -g hidden
 
 # focus a floating window from a tiled window
 super + a
@@ -150,3 +154,7 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# screenshot
+Print
+    flameshot gui

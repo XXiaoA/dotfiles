@@ -14,8 +14,11 @@ export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 
 # Clash
-export https_proxy=http://127.0.0.1:7890
-export http_proxy=$https_proxy
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=$http_proxy
+export ftp_proxy=$http_proxy
+export rsync_proxy=$http_proxy
+export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
 
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/share/nvim/mason/bin

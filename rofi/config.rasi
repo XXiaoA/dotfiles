@@ -4,6 +4,7 @@ configuration {
 	disable-history: false;
 	drun-display-format: "{name}";
 	icon-theme: "Fluent";
+    terminal: "wezterm";
 	kb-accept-custom: "Control+Return";
 	kb-cancel: "Escape,Control+g,Control+bracketleft,Control+space";
 	kb-row-select: "Control+Super+space";
@@ -11,18 +12,18 @@ configuration {
 	modi: "drun";
 	scroll-method: 0;
 	show-icons: true;
-sorting-method: "fzf";
-sort: true;
+    sorting-method: "fzf";
+    sort: true;
 	threads: 0;
 	window-thumbnail: true;
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
 }
 
 @theme "~/.config/rofi/themes/squared-nord.rasi"
