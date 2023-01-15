@@ -24,6 +24,7 @@ bspc rule -a SimpleScreenRecorder state=floating
 feh --bg-scale $HOME/Pictures/cat_pacman.png
 keymapper &
 dunst &
+$HOME/.config/polybar/launch.sh
+nm-applet &
 picom -b & 
 fcitx5 &
-$HOME/.config/polybar/launch.sh

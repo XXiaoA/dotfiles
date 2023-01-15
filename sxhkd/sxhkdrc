@@ -11,7 +11,7 @@ ctrl + alt + t
     wezterm
 
 # program launcher
-alt + @space
+super + @space
     rofi -modes "drun,window,run" -show drun
 
 # make sxhkd reload its configuration files:

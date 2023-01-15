@@ -1,29 +1,24 @@
 configuration {
-	combi-hide-mode-prefix: true;
-	combi-modi: "window,drun,calc";
-	disable-history: false;
-	drun-display-format: "{name}";
-	icon-theme: "Fluent";
-    terminal: "wezterm";
-	kb-accept-custom: "Control+Return";
-	kb-cancel: "Escape,Control+g,Control+bracketleft,Control+space";
-	kb-row-select: "Control+Super+space";
-	matching: "fuzzy";
-	modi: "drun";
-	scroll-method: 0;
-	show-icons: true;
-    sorting-method: "fzf";
-    sort: true;
-	threads: 0;
-	window-thumbnail: true;
-    timeout {
-        action: "kb-cancel";
-        delay:  0;
-    }
-    filebrowser {
-        directories-first: true;
-        sorting-method:    "name";
-    }
+    show-icons: true;
+    terminal: "kitty"; /* dont't support wezterm */
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    window-format: " [{w}]\t\t{t:0}";
+    sidebar-mode: true;
+    display-run: "ﰌ Run ﰌ";
+    display-drun: " App ";
+    display-window: " Win ";
+    show-match: false;
+    kb-mode-previous: "Alt+h,Control+Shift+Tab";
+    kb-mode-next: "Alt+l,Control+Tab";
+    kb-row-left: "Control+Alt+h";
+    kb-row-right: "Control+Alt+l";
+    kb-row-down: "Control+Alt+j,Control+n,Down";
+    kb-row-up: "Control+Alt+k,Control+p,Up";
+    kb-remove-word-back: "Control+BackSpace";
+    modi: "run,drun,window";
 }
 
 @theme "~/.config/rofi/themes/squared-nord.rasi"
