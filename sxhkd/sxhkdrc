@@ -49,10 +49,6 @@ super + a
         bspc node -f last.floating.local; \
     fi
 
-# toggle floating window
-super + s
-    bspc node -t ~floating
-
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
