@@ -45,6 +45,7 @@ link:
 
   ./rofi/: ~/.config/rofi
 
-  ./xinitrc: ~/.xinitrc
+  ./x/xinitrc: ~/.xinitrc
+  ./x/xprofile: ~/.xprofile
 
   ./fonts/: ~/.local/share/fonts

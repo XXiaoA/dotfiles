@@ -18,6 +18,7 @@ bspc config gapless_monocle      true
 bspc rule -a Chrome desktop='^2'
 bspc rule -a Screenkey manage=off
 bspc rule -a vlc state=floating
+bspc rule -a mpv state=floating
 bspc rule -a SimpleScreenRecorder state=floating
 
 
