@@ -46,3 +46,5 @@ link:
   ./rofi/: ~/.config/rofi
 
   ./xinitrc: ~/.xinitrc
+
+  ./fonts/: ~/.local/share/fonts
