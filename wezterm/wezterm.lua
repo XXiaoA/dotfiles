@@ -98,6 +98,11 @@ return {
     },
 
     keys = {
+        {
+            key = "Enter",
+            mods = "SHIFT",
+            action = wezterm.action.SendString("\x1b[13;2u")
+        },
         { key = "Tab", mods = "CTRL", action = wezterm.action({ ActivateTabRelative = 1 }) },
         {
             key = "Tab",
