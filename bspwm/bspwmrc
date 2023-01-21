@@ -29,4 +29,3 @@ $HOME/.config/polybar/launch.sh
 nm-applet &
 picom -b & 
 fcitx5 &
-udiskie &
