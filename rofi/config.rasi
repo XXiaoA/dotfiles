@@ -1,6 +1,6 @@
 configuration {
     show-icons: true;
-    terminal: "kitty"; /* dont't support wezterm */
+    terminal: "wezterm start";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
