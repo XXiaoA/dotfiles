@@ -1,0 +1,40 @@
+def_key "+"
+    show_clock
+def_key "="
+    volume_up
+
+def_key "j"
+    scroll_down
+def_key "k"
+    scroll_up
+
+def_key "ctrl-u"
+    page_up
+def_key "ctrl-d"
+    page_down
+
+def_key "h"
+    previous_column
+def_key "l"
+    next_column
+
+def_key "."
+    show_lyrics
+
+def_key "n"
+    next_found_item
+def_key "N"
+    previous_found_item
+
+def_key "g"
+  move_home
+
+def_key "G"
+  move_end
+
+def_key "0"
+  replay_song
+def_key "ctrl-f"
+  page_down
+def_key "ctrl-b"
+  page_up

@@ -15,6 +15,8 @@ now_playing_prefix                    = "$b"
 centered_cursor                       = "no"
 cyclic_scrolling                      = "yes"
 mouse_list_scroll_whole_page          = "no"
+allow_for_physical_item_deletion      = "yes"
+# execute_on_song_change                = notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)"
 
 autocenter_mode                       = "yes"
 display_bitrate                       = "yes"
