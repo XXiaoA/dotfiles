@@ -49,3 +49,6 @@ link:
   ./x11/xprofile: ~/.xprofile
 
   ./fonts/: ~/.local/share/fonts
+
+  ./mpd/: ~/.config/mpd
+  ./ncmpcpp/: ~/.config/ncmpcpp
