@@ -103,7 +103,7 @@ super + bracket{left,right}
 
 # focus the last node/desktop
 super + {Tab,grave}
-	bspc {node,desktop} -f last
+	bspc {node,desktop} -f last.local
 
 # focus the older or newer node in the focus history
 super + {o,i}
@@ -154,3 +154,8 @@ super + {Left,Down,Up,Right}
 # screenshot
 Print
     flameshot gui
+
+# send win to next or prev desktop & focus it
+alt + ctrl + shift + { Right,Left }
+    DIR={next.local,prev.local}; \
+    bspc node -d "$DIR" --follow
