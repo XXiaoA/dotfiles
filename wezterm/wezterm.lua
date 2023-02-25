@@ -35,13 +35,13 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
     window:set_config_overrides(overrides)
 end)
 
-local color_scheme = "Duskfox"
+local color_scheme = "Rosé Pine Moon"
 
 return {
     font = wezterm.font_with_fallback({
         {
             family = "Maple Mono",
-            harfbuzz_features = { "cv01=1", "cv02=1", "cv03=1" },
+            harfbuzz_features = { "cv01=1", "cv02=1", "ss01=1", "ss02=1" },
         },
         "JetBrainsMono Nerd Font",
         "LXGW WenKai Mono", -- for Chinese
