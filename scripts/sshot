@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+## Take screenshots with maim
+
+dir="$HOME/Pictures/Screenshots"
+time=`date +%Y-%m-%d-%I-%M-%S`
+file="$dir/Screenshot_$time.png"
+
+# countdown
+countdown () {
+	for sec in `seq $1 -1 1`; do
+		dunstify -t 1000 --replace=699 -i $file "Taking shot in : $sec"
+		sleep 1
+	done
+}
+
+if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+	echo -e "Dependencies:
+    maim dunst xdotool xclip
+Options:
+    -m    Mode to take the screenshot ( full|select|win )
+    -s    Way to store the screenshot ( clip|save )
+    -w    Wait how long to take the screenshot ( Number )"
+ exit 0
+fi
+
+# get user's input
+while getopts m:s:w: flag
+do
+    case "${flag}" in
+        m) mode=${OPTARG};; # `full` or `select` or `win`
+        s) store=${OPTARG};; # `clip` or `save`
+        w) wait_time=${OPTARG};; # a number ( `0` means now )
+    esac
+done
+
+# set default value
+if [[ -z "${mode}" ]]; then
+    mode="full"
+fi
+if [[ -z "${store}" ]]; then
+    store="save"
+fi
+if [[ -z "${wait_time}" ]]; then
+    wait_time=0
+fi
+
+
+if [[ ! -d "$dir" ]]; then
+	mkdir -p "$dir"
+fi
+if [[ "${wait_time}" != 0 ]]; then
+    countdown $wait_time
+fi
+
+command="maim -u -f png"
+if [[ "${mode}" == "select" ]]; then
+    command+=" -s -b 2 -c 0.35,0.55,0.85,0.25 -l"
+elif [[ "${mode}" == "win" ]]; then
+    command+=" -i `xdotool getactivewindow`"
+fi
+if [[ "${store}" == "clip" ]]; then
+    command+=" | xclip -selection clipboard -t image/png"
+elif [[ "${store}" == "save" ]]; then
+    command+=" $file"
+fi
+
+eval $command \
+    && dunstify -u normal --replace=699 -i $file "Screenshot Successfully" \
+    || dunstify -u normal --replace=699 "Screenshot Failed"
+
+exit 0
