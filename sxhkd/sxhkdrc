@@ -37,6 +37,10 @@ super + v
 super + shift + v
     bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
 
+# unhide window with rofi
+super + alt + v
+    ~/dotfiles/scripts/unhidewindow
+
 # hide/unhide all windows
 super + d
     bspc query -N -n .local.window | xargs -I ID bspc node ID -g hidden
