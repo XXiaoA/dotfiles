@@ -7,6 +7,9 @@
 super + Return
     wezterm
 
+super + shift + Return
+    bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm
+
 ctrl + alt + t
     wezterm
 
@@ -169,3 +172,6 @@ shift + Print
 alt + ctrl + shift + { Right,Left }
     DIR={next.local,prev.local}; \
     bspc node -d "$DIR" --follow
+
+super + alt + {b, f, t, s}
+    { wezterm start btop,firefox,telegram-desktop,simplescreenrecorder }
