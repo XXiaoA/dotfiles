@@ -174,4 +174,4 @@ alt + ctrl + shift + { Right,Left }
     bspc node -d "$DIR" --follow
 
 super + alt + {b, f, t, s}
-    { wezterm start btop,firefox,telegram-desktop,simplescreenrecorder }
+    { bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- btop,firefox,telegram-desktop,simplescreenrecorder }
