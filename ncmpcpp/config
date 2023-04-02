@@ -9,6 +9,7 @@ user_interface                        = "alternative"
 alternative_header_first_line_format  = "$(white)─┤ $b$(magenta)%a$(end)$/b ├─$(end)"
 alternative_header_second_line_format = "$(16)%t (%y)$(end)"
 alternative_ui_separator_color        = "cyan"
+playlist_display_mode                 = "classic" # columns
 
 song_columns_list_format              = "$L (10)[white]{n} $1│$7 (20)[magenta]{a} $1│$7 (20)[white]{b} $1│$7 (20)[magenta]{t} $1│$7 (20)[white]{l}"
 now_playing_prefix                    = "$b"
