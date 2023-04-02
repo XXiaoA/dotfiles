@@ -15,15 +15,15 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 
-bspc rule -a Chrome desktop='^2'
 bspc rule -a Screenkey manage=off
 bspc rule -a vlc state=floating
 bspc rule -a mpv state=floating
-bspc rule -a feh state=floating
+bspc rule -a feh state=floating center=true
 bspc rule -a SimpleScreenRecorder state=floating
 
 
-feh --bg-scale $HOME/Pictures/wallpaper/焦茶_67308965_紙飛行機0.jpg
+feh --bg-fill $HOME/Pictures/wallpaper/焦茶_71295163_浅瀬0.jpg
+# feh --randomize --bg-fill ~/Pictures/wallpaper/*
 xsetroot -cursor_name left_ptr
 keymapper &
 dunst &
@@ -31,3 +31,4 @@ $HOME/.config/polybar/launch.sh
 nm-applet &
 picom -b --experimental-backends &
 fcitx5 &
+udiskie &
