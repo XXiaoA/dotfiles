@@ -51,3 +51,5 @@ link:
 
   ./mpd/: ~/.config/mpd
   ./ncmpcpp/: ~/.config/ncmpcpp
+
+  ./feh/: ~/.config/feh

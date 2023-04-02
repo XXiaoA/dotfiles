@@ -1,0 +1,7 @@
+# https://www.reddit.com/r/linuxquestions/comments/ae3pzr/how_to_get_feh_to_zoom_in_with_scroll_wheel/
+# Unbind existing scroll operations
+prev_img
+next_img
+# Set <action> <mouse button>
+zoom_in 4
+zoom_out 5
