@@ -29,5 +29,5 @@ keymapper &
 dunst &
 $HOME/.config/polybar/launch.sh
 nm-applet &
-picom -b &
+picom -b --experimental-backends &
 fcitx5 &

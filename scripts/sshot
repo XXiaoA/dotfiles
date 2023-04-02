@@ -2,7 +2,7 @@
 ## Take screenshots with maim
 
 dir="$HOME/Pictures/Screenshots"
-time=`date +%Y-%m-%d-%I-%M-%S`
+time=`date +%Y-%m-%d-%H-%M-%S`
 file="$dir/Screenshot_$time.png"
 
 # countdown
