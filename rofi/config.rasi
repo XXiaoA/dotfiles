@@ -19,6 +19,8 @@ configuration {
     kb-row-up: "Control+Alt+k,Control+p,Up";
     kb-remove-word-back: "Control+BackSpace";
     modi: "run,drun,window";
+    me-select-entry: "MousePrimary";
+    me-accept-entry: "!MousePrimary";
 }
 
 @theme "~/.config/rofi/themes/squared-nord.rasi"
