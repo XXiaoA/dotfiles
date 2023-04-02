@@ -24,7 +24,7 @@
     line_height = 4
     markup = full
     # default
-    format = "<b>%s</b>\n%b"
+    format = "<b>%a:</b> %s\n%b"
     alignment = center
     vertical_alignment = center
     show_age_threshold = 60
@@ -38,7 +38,7 @@
     sticky_history = yes
     history_length = 6
     dmenu = /usr/bin/dmenu -p dunst:
-    browser =  /usr/bin/microsoft-edge-stable -new-tab
+    browser = /usr/bin/firefox -new-tab
     always_run_script = true
     title = Dunst
     class = Dunst
