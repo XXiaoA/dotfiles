@@ -8,7 +8,7 @@ file="$dir/Screenshot_$time.png"
 # countdown
 countdown () {
 	for sec in `seq $1 -1 1`; do
-		dunstify -t 1000 --replace=699 -i $file "Taking shot in : $sec"
+		dunstify -a "sshot" -t 1000 --replace=699 -i $file "Taking shot in : $sec"
 		sleep 1
 	done
 }
@@ -65,7 +65,7 @@ elif [[ "${store}" == "save" ]]; then
 fi
 
 eval $command \
-    && dunstify -u normal --replace=699 -i $file "Screenshot Successfully" \
-    || dunstify -u normal --replace=699 "Screenshot Failed"
+    && dunstify -a "sshot" -u normal --replace=699 -i $file "Screenshot Successfully" \
+    || dunstify -a "sshot" -u normal --replace=699 "Screenshot Failed"
 
 exit 0
