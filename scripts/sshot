@@ -18,7 +18,7 @@ if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     maim dunst xdotool xclip
 Options:
     -m    Mode to take the screenshot ( full|select|win )
-    -s    Way to store the screenshot ( clip|save )
+    -s    Way to store the screenshot ( clip|save|clip&save )
     -w    Wait how long to take the screenshot ( Number )"
  exit 0
 fi
@@ -28,7 +28,7 @@ while getopts m:s:w: flag
 do
     case "${flag}" in
         m) mode=${OPTARG};; # `full` or `select` or `win`
-        s) store=${OPTARG};; # `clip` or `save`
+        s) store=${OPTARG};; # `clip` or `save` or `clip&save`
         w) wait_time=${OPTARG};; # a number ( `0` means now )
     esac
 done
@@ -38,7 +38,7 @@ if [[ -z "${mode}" ]]; then
     mode="full"
 fi
 if [[ -z "${store}" ]]; then
-    store="save"
+    store="clip&save"
 fi
 if [[ -z "${wait_time}" ]]; then
     wait_time=0
@@ -58,14 +58,17 @@ if [[ "${mode}" == "select" ]]; then
 elif [[ "${mode}" == "win" ]]; then
     command+=" -i `xdotool getactivewindow`"
 fi
-if [[ "${store}" == "clip" ]]; then
-    command+=" | xclip -selection clipboard -t image/png"
-elif [[ "${store}" == "save" ]]; then
-    command+=" $file"
-fi
+command+=" $file"
 
 eval $command \
     && dunstify -a "sshot" -u normal --replace=699 -i $file "Screenshot Successfully" \
     || dunstify -a "sshot" -u normal --replace=699 "Screenshot Failed"
+
+if [[ "${store}" == "clip" ]] || [[ "${store}" == "clip&save" ]]; then
+	cat "$file" | xclip -selection clipboard -t image/png
+    if [[ "${store}" == "clip" ]]; then
+        rm "$file"
+    fi
+fi
 
 exit 0
