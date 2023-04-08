@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+while "true"; do
+    musiccontrol nccover
+    dunstify -a Music --replace=27072 -i /tmp/cover.png 'Playing..' $(mpc --format '%title% \n%artist%' current)
+    mpc idle
+done
