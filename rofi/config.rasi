@@ -1,16 +1,15 @@
 configuration {
     show-icons: true;
     terminal: "wezterm start";
-    drun-display-format: "{icon} {name}";
-    location: 0;
+	drun-display-format:        "{name}";
     disable-history: false;
     hide-scrollbar: true;
     window-format: " [{w}]\t\t{t:0}";
     sidebar-mode: true;
-    display-run: "ﰌ Run ﰌ";
-    display-drun: " App ";
-    display-window: " Win ";
-    show-match: false;
+    display-run: "";
+    display-drun: "";
+    display-window: "";
+    show-match: true;
     kb-mode-previous: "Alt+h,Control+Shift+Tab";
     kb-mode-next: "Alt+l,Control+Tab";
     kb-row-left: "Control+Alt+h";
@@ -23,4 +22,4 @@ configuration {
     me-accept-entry: "!MousePrimary";
 }
 
-@theme "~/.config/rofi/themes/squared-nord.rasi"
+@theme "~/dotfiles/rofi/launchers.rasi"
