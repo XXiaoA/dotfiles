@@ -1,48 +1,79 @@
+# https://github.com/XXiaoA/dotfiles/blob/main/ncmpcpp/config
+
 ncmpcpp_directory      = "~/.local/share/ncmpcpp"
 lyrics_directory       = "~/.local/share/ncmpcpp/lyrics"
 mpd_music_dir          = "~/Music/"
 mpd_host               = "localhost"
 mpd_port               = "6600"
 mpd_connection_timeout = 5
+mpd_crossfade_time = "5"
 
-user_interface                        = "alternative"
-alternative_header_first_line_format  = "$(white)─┤ $b$(magenta)%a$(end)$/b ├─$(end)"
-alternative_header_second_line_format = "$(16)%t (%y)$(end)"
-alternative_ui_separator_color        = "cyan"
-playlist_display_mode                 = "classic" # columns
+# execute_on_song_change  = "~/dotfiles/scripts/musiccontrol nccover ; dunstify -a Music --replace=27072 -i /tmp/cover.png "Playing.." "$(mpc --format '%title% \n%artist%' current)""
 
-song_columns_list_format              = "$L (10)[white]{n} $1│$7 (20)[magenta]{a} $1│$7 (20)[white]{b} $1│$7 (20)[magenta]{t} $1│$7 (20)[white]{l}"
-now_playing_prefix                    = "$b"
-centered_cursor                       = "no"
-cyclic_scrolling                      = "yes"
-mouse_list_scroll_whole_page          = "no"
-allow_for_physical_item_deletion      = "yes"
-# execute_on_song_change                = notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)"
+visualizer_data_source = /tmp/mpd.fifo
+visualizer_output_name = my_fifo
 
-autocenter_mode                       = "yes"
-display_bitrate                       = "yes"
-header_visibility                     = "yes"
-statusbar_visibility                  = "yes"
-progressbar_look                      = "▃▃▃"
+visualizer_in_stereo = "no"
+visualizer_fps = "60"
+visualizer_type = "spectrum"
+visualizer_look = "▋▋"
+visualizer_color = "199,200,201,202,166,130,94,58,22"
+visualizer_spectrum_smooth_look = "yes"
 
+# GENERAL
+# ---
+connected_message_on_startup = "yes"
+cyclic_scrolling = "yes"
+mouse_support = "yes"
+mouse_list_scroll_whole_page = "yes"
+lines_scrolled = "1"
+message_delay_time = "1"
+playlist_shorten_total_times = "yes"
+playlist_display_mode = "columns"
+browser_display_mode = "columns"
+search_engine_display_mode = "columns"
+playlist_editor_display_mode = "columns"
+autocenter_mode = "yes"
+centered_cursor = "yes"
+user_interface = "classic"
+follow_now_playing_lyrics = "yes"
+locked_screen_width_part = "50"
+ask_for_locked_screen_width_part = "yes"
+display_bitrate = "no"
+external_editor = "nano"
+main_window_color = "default"
+startup_screen = "playlist"
 
-visualizer_output_name                = "FIFO"
-visualizer_in_stereo                  = "no"
-visualizer_data_source                = "/tmp/mpd.fifo"
-visualizer_type                       = "spectrum"
-visualizer_look                       = "▋▋"
-visualizer_fps                        = "60"
-visualizer_color                      = "33,39,63,75,81,99,117,153,189"
+# PROGRESS BAR
+# ---
+progressbar_look = "━━━"
+#progressbar_look = "▃▃▃"
+progressbar_elapsed_color = "magenta"
+progressbar_color = "black"
 
-color1                                = "white"
-color2                                = "red"
-discard_colors_if_item_is_selected    = "yes"
-main_window_color                     = "white"
-header_window_color                   = "4"
-progressbar_color                     = "cyan"
-statusbar_color                       = "blue"
-volume_color                          = "4"
-window_border_color                   = "white"
-active_window_border                  = "4"
+# UI VISIBILITY
+# ---
+header_visibility = "no"
+statusbar_visibility = "yes"
+titles_visibility = "yes"
+enable_window_title = "yes"
 
-# vim: ft=conf
+# COLORS
+# ---
+statusbar_color = "white"
+color1 = "white"
+color2 = "blue"
+
+# UI APPEARANCE
+# ---
+now_playing_prefix = "$b$2$7 "
+now_playing_suffix = "  $/b$8"
+current_item_prefix = "$b$7$/b$3 "
+current_item_suffix = "  $8"
+
+song_columns_list_format = "(50)[]{t|fr:Title} (0)[magenta]{a}"
+song_list_format = " {%t $R   $8%a$8}|{%f $R   $8%l$8} $8"
+song_status_format = "$b$2 $7 {$b$6$8 %t $6} $7 $8"
+song_window_title_format = "Now Playing .."
+
+# vim:ft=conf
