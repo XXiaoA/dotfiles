@@ -1,29 +1,46 @@
 #!/usr/bin/env bash
 
+## Author : Aditya Shakya (adi1090x)
+## Github : @adi1090x
+#
+## Rofi   : Power Menu
+#
+## Available Styles
+#
+## style-1   style-2   style-3   style-4   style-5
+
+# Current Theme
+dir="~/dotfiles/rofi/powermenu/"
+theme='config'
+
+# CMDs
+uptime="`uptime -p | sed -e 's/up //g'`"
+
 # Options
-hibernate=' Hibernate'
-shutdown='⏻ Shutdown'
-reboot=' Reboot'
-suspend='⏾ Suspend'
-logout=' Logout'
-yes='✔ Yes'
-no='🗙 No'
+shutdown=''
+reboot=''
+lock=''
+suspend=''
+hibernate=''
+logout=''
+yes=''
+no=''
 
 # Rofi CMD
+
 rofi_cmd() {
-	rofi -dmenu
+	rofi -dmenu \
+		-p "Goodbye ${USER}" \
+		-mesg "Uptime: $uptime" \
+		-theme ${dir}/${theme}.rasi
 }
 
 # Confirmation CMD
 confirm_cmd() {
-	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
-		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
-		-theme-str 'listview {columns: 2; lines: 1;}' \
-		-theme-str 'element-text {horizontal-align: 0.5;}' \
-		-theme-str 'textbox {horizontal-align: 0.5;}' \
-		-dmenu \
+	rofi -dmenu \
 		-p 'Confirmation' \
-		-mesg 'Are you Sure?'
+		-mesg 'Are you Sure?' \
+		-theme ${dir}/confirm.rasi
 }
 
 # Ask for confirmation
@@ -33,7 +50,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$shutdown\n$reboot\n$suspend\n$hibernate\n$logout" | rofi_cmd
+	echo -e "$shutdown\n$lock\n$reboot\n$logout\n$suspend\n$hibernate" | rofi_cmd
 }
 
 # Execute Command
@@ -46,13 +63,13 @@ run_cmd() {
 		elif [[ $1 == '--reboot' ]]; then
 			mpc -q pause
 			systemctl reboot
-		elif [[ $1 == '--hibernate' ]]; then
-			mpc -q pause
-			systemctl hibernate
 		elif [[ $1 == '--suspend' ]]; then
 			mpc -q pause
 			# amixer set Master mute
 			systemctl suspend
+		elif [[ $1 == '--hibernate' ]]; then
+			mpc -q pause
+			systemctl hibernate
 		elif [[ $1 == '--logout' ]]; then
 			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
 				openbox --exit
@@ -69,6 +86,7 @@ run_cmd() {
 	fi
 }
 
+# Actions
 chosen="$(run_rofi)"
 case ${chosen} in
     $shutdown)
@@ -77,11 +95,18 @@ case ${chosen} in
     $reboot)
 		run_cmd --reboot
         ;;
-    $hibernate)
-        run_cmd --hibernate
+    $lock)
+		if [[ -x '/usr/bin/betterlockscreen' ]]; then
+			betterlockscreen -l
+		elif [[ -x '/usr/bin/i3lock' ]]; then
+			i3lock
+		fi
         ;;
     $suspend)
 		run_cmd --suspend
+        ;;
+    $hibernate)
+        run_cmd --hibernate
         ;;
     $logout)
 		run_cmd --logout
