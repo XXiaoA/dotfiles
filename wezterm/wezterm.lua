@@ -47,6 +47,11 @@ return {
         "LXGW WenKai Mono", -- for Chinese
         "Noto Color Emoji",
         "JetBrains Mono",
+
+        -- icons
+        "Material Design Icons Desktop",
+        "MesloLGSDZ Nerd Font Mono",
+        "feather",
     }),
     font_size = 16.5,
 
