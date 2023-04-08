@@ -24,7 +24,7 @@
     line_height = 4
     markup = full
     # default
-    format = "<b>%a:</b> %s\n%b"
+    format = "<b>%a</b>: %s\n%b"
     alignment = center
     vertical_alignment = center
     show_age_threshold = 60

@@ -72,15 +72,12 @@ run_rofi() {
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
         mpc -q toggle 
-        if [[ $option_1 == "" ]]; then
-            musiccontrol nccover && dunstify -a Music --replace=23333 -i /tmp/cover.png -u normal -t 1000 " `mpc current`"
-        fi
 	elif [[ "$1" == '--opt2' ]]; then
 		mpc -q stop
 	elif [[ "$1" == '--opt3' ]]; then
-		mpc -q prev && musiccontrol nccover && dunstify -a Music --replace=23333 -i /tmp/cover.png -u normal -t 1000 " `mpc current`"
+		mpc -q prev
 	elif [[ "$1" == '--opt4' ]]; then
-		mpc -q next && musiccontrol nccover && dunstify -a Music --replace=23333 -i /tmp/cover.png -u normal -t 1000 " `mpc current`"
+		mpc -q next
 	elif [[ "$1" == '--opt5' ]]; then
 		mpc -q repeat
 	elif [[ "$1" == '--opt6' ]]; then
