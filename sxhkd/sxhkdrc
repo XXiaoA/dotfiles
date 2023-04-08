@@ -182,5 +182,5 @@ super + ctrl + c
     ~/dotfiles/scripts/tocenter
 
 # lockscreen
-alt + shift + x
+super + shift + x
     betterlockscreen -l dim
