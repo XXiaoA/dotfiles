@@ -180,3 +180,7 @@ super + alt + {b, f, t, s}
 # move the floating focused window to center
 super + ctrl + c
     ~/dotfiles/scripts/tocenter
+
+# lockscreen
+alt + shift + x
+    betterlockscreen -l dim
