@@ -1,10 +1,26 @@
 #!/usr/bin/env bash
+# notify when mpd music changed
+
+cover_path=/tmp/cover.png
+# mpd music directory
+mpd_dir=~/Music
+# if cover not found in metadata use this instead
+backup_cover=~/.cache/music_cover.png
+
+if [[ ! -f "$backup_cover" ]]; then
+    wget -O ~/.cache/music_cover.webp "https://raw.githubusercontent.com/gh0stzk/dotfiles/master/config/bspwm/assets/fallback.webp"
+    ffmpeg -i ~/.cache/music_cover.webp $backup_cover
+fi
+
+create_cover() {
+    ffmpeg -i "$mpd_dir"/"$(mpc current -f %file%)" -vf scale=500:500 "${cover_path}" -y -hide_banner -loglevel panic || cp $backup_cover $cover_path || exit
+}
 
 while "true"; do
     status="`mpc status`"
     if [[ ${status} == *"[playing]"* ]]; then
-        musiccontrol nccover
-        dunstify -a Music --replace=27072 -i /tmp/cover.png 'Playing..' $(mpc --format '%title% \n%artist%' current)
+        create_cover
+        dunstify -a Music --replace=27072 -t 2000 -i /tmp/cover.png 'Playing..' $(mpc --format '%title% \n%artist%' current)
     fi
-    mpc idle
+    mpc idle > /dev/null
 done
