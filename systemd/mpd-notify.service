@@ -1,0 +1,10 @@
+[Unit]
+Description=mpd-notify
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=%h/dotfiles/scripts/mpd-notify
+
+[Install]
+WantedBy=default.target
