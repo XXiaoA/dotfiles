@@ -22,7 +22,7 @@ bspc rule -a feh state=floating center=true
 bspc rule -a SimpleScreenRecorder state=floating
 
 
-feh --bg-fill $HOME/Pictures/wallpaper/焦茶_71295163_浅瀬0.jpg
+feh --bg-fill $HOME/Pictures/wallpaper/友利厨_106915464_Charlotte0.png
 # feh --randomize --bg-fill ~/Pictures/wallpaper/*
 xsetroot -cursor_name left_ptr
 keymapper &

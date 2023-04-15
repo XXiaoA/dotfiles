@@ -2,16 +2,30 @@
 
 https://user-images.githubusercontent.com/62557596/232208364-9740e0d0-6167-4833-b7ad-623b6579fc65.mp4
 
+* **Operating System** \- Arch Linux
+* **Window Manager** \- bspwm
+* **Terminal** \- wezterm
+* **Shell** \- fish
+* **Editor** \- nvim ( [dotfile here](https://github.com/XXiaoA/nvimrc) )
+* **Bar** \- polybar ( Steal a lot from [gh0stzk](https://github.com/gh0stzk/dotfiles) )
+* **Launcher** \- rofi
+* **compositor** \- [dccsillag/picom](https://github.com/dccsillag/picom)
+
+
+## Install
+Use [xdm](https://github.com/XXiaoA/xdm) to manage dotfiles.
+
+Run `xdm s` to fast create soft link.
+
 
 ## Fonts
-https://github.com/lxgw/LxgwWenKai
-arch: `ttf-lxgw-wenkai`
+Run `fc-cache -fv fonts` and then install the following fonts:
 
-https://www.nerdfonts.com/font-downloads
-arch: `nerd-fonts-complete`
+- https://github.com/lxgw/LxgwWenKai <br>
+Arch package: `ttf-lxgw-wenkai`
 
-https://github.com/subframe7536/Maple-font
-arch: `ttf-maple`
+- https://www.nerdfonts.com/font-downloads <br>
+Arch package: `nerd-fonts-complete`
 
-## Manage
-use [xdm](https://github.com/XXiaoA/xdm) to manage dotfiles
+- https://github.com/subframe7536/Maple-font <br>
+Arch package: `ttf-maple`
