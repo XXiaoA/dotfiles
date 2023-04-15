@@ -1,5 +1,7 @@
 # dotfiles
-My personal dotfiles
+
+https://user-images.githubusercontent.com/62557596/232208364-9740e0d0-6167-4833-b7ad-623b6579fc65.mp4
+
 
 ## Fonts
 https://github.com/lxgw/LxgwWenKai
