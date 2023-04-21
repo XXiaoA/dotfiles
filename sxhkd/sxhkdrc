@@ -127,7 +127,7 @@ super + {_,shift + }{1-9,0}
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
+super + ctrl + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
@@ -174,13 +174,30 @@ alt + ctrl + shift + { Right,Left }
     bspc node -d "$DIR" --follow
 
 # open app fast
-super + alt + {b, f, t, s}
-    { bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- btop,firefox,telegram-desktop,simplescreenrecorder }
+super + alt + {b, f, t, s, m}
+    { bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- btop, \
+      firefox, \
+      telegram-desktop, \
+      simplescreenrecorder, \
+      ~/dotfiles/rofi/mpd/mpd }
 
 # move the floating focused window to center
 super + ctrl + c
     ~/dotfiles/scripts/tocenter
 
-# lockscreen
-super + shift + x
-    betterlockscreen -l dim
+# powermenu
+ctrl + super + alt + p
+    ~/dotfiles/rofi/powermenu/powermenu
+
+# hide/show bar
+super + ctrl + {h,s}
+    { polybar-msg cmd hide | bspc config top_padding 5, polybar-msg cmd show | bspc config top_padding 60 }
+
+
+# make split ratios equal
+super + equal
+	bspc node @/ --equalize
+
+# make split ratios balanced
+super + minus
+	bspc node @/ --balance
