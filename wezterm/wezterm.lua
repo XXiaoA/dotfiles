@@ -122,7 +122,6 @@ return {
             mods = "CTRL|SHIFT",
             action = wezterm.action({ ActivateTabRelative = -1 }),
         },
-        { key = "F11", mods = "CTRL|SHIFT", action = "ToggleFullScreen" },
         {
             key = "E",
             mods = "CTRL",
