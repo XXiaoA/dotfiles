@@ -53,3 +53,5 @@ link:
   ./ncmpcpp/: ~/.config/ncmpcpp
 
   ./feh/: ~/.config/feh
+
+  ./imv/: ~/.config/imv

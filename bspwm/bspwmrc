@@ -19,6 +19,7 @@ bspc rule -a Screenkey manage=off
 bspc rule -a vlc state=floating
 bspc rule -a mpv state=floating
 bspc rule -a feh state=floating center=true
+bspc rule -a imv state=floating center=true
 bspc rule -a SimpleScreenRecorder state=floating
 
 
