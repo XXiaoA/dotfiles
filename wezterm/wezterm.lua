@@ -41,7 +41,15 @@ return {
     font = wezterm.font_with_fallback({
         {
             family = "Maple Mono",
-            harfbuzz_features = { "cv01=1", "cv02=1", "ss01=1", "ss02=1" },
+            harfbuzz_features = {
+                "cv01=1",
+                "cv02=1",
+                "ss01=1",
+                "ss02=1",
+                "ss03=1",
+                "ss04=1",
+                "ss05=1",
+            },
         },
         "JetBrainsMono Nerd Font",
         "LXGW WenKai Mono", -- for Chinese
