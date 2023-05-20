@@ -20,7 +20,7 @@ while "true"; do
     status="`mpc status`"
     if [[ ${status} == *"[playing]"* ]]; then
         create_cover
-        dunstify -a Music --replace=27072 -t 2000 -i /tmp/cover.png 'Playing..' $(mpc --format '%title% \n%artist%' current)
+        dunstify -a Music --replace=27072 -t 2000 -i /tmp/cover.png 'Playing..' $(mpc --format '%title%-%artist%' current)
     fi
     mpc idle > /dev/null
 done
