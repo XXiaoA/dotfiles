@@ -20,11 +20,12 @@
     frame_color = "#11111b"
     separator_color = frame
     sort = yes
-    font = Sugar Snow 12
+    font = Maple Mono 12
     line_height = 4
     markup = full
     # default
-    format = "<b>%a</b>: %s\n%b"
+    # format = "<b>%a</b>: %s\n%b"
+    format = "<span size='110%' font_desc='Maple Mono' weight='600'>%s</span>\n%b"
     alignment = center
     vertical_alignment = center
     show_age_threshold = 60
@@ -37,7 +38,6 @@
     max_icon_size = 96
     sticky_history = yes
     history_length = 6
-    dmenu = /usr/bin/dmenu -p dunst:
     browser = /usr/bin/firefox -new-tab
     always_run_script = true
     title = Dunst
