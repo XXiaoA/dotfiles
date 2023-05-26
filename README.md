@@ -24,7 +24,7 @@ https://user-images.githubusercontent.com/62557596/232208364-9740e0d0-6167-4833-
 * **Editor** \- nvim ( [dotfile here](https://github.com/XXiaoA/nvimrc) )
 * **Bar** \- polybar ( Steal a lot from [gh0stzk](https://github.com/gh0stzk/dotfiles) )
 * **Launcher** \- rofi
-* **compositor** \- [dccsillag/picom](https://github.com/dccsillag/picom)
+* **compositor** \- [dccsillag/picom](https://github.com/dccsillag/picom) `picom-animations-git`
 
 
 ## Install
