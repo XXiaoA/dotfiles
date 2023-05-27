@@ -17,10 +17,10 @@
     horizontal_padding = 15
     text_icon_padding = 0
     frame_width = 3
-    frame_color = "#11111b"
+    frame_color = "#21202e"
     separator_color = frame
     sort = yes
-    font = Maple Mono 12
+    font = Maple Mono 13
     line_height = 4
     markup = full
     # default
@@ -54,19 +54,19 @@
     per_monitor_dpi = true
 
 [urgency_low]
-    background = "#222222"
-    foreground = "#888888"
+    background = "#191724"
+    foreground = "#ffffff"
     timeout = 10
 
 [urgency_normal]
-    background = "#285577"
+    background = "#575294"
     foreground = "#ffffff"
     timeout = 10
 
 [urgency_critical]
-    background = "#900000"
+    background = "#eb6f92"
     foreground = "#ffffff"
-    frame_color = "#ff0000"
+    frame_color = "#eb4e92"
     timeout = 0
 
 # vim: ft=cfg

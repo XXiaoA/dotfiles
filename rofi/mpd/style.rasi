@@ -2,7 +2,7 @@
  *
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
- * 
+ *
  * Rofi Theme File
  * Rofi Version: 1.7.3
  **/
@@ -16,12 +16,12 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    background:     #2E3440FF;
-    background-alt: #383E4AFF;
-    foreground:     #E5E9F0FF;
-    selected:       #81A1C1FF;
-    active:         #A3BE8CFF;
-    urgent:         #BF616AFF;
+    background:     #2a273f;
+    background-alt: #393552;
+    foreground:     #e0def4;
+    active:         #3e8fb0;
+    selected:       #f6c177;
+    urgent:         #eb6f92;
 
     font: "Maple Mono 14";
 }
@@ -110,7 +110,7 @@ listview {
     cycle:                       true;
     scrollbar:                   false;
     layout:                      vertical;
-    
+
     spacing:                     15px;
     background-color:            transparent;
     cursor:                      "default";
