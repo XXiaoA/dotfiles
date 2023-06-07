@@ -52,7 +52,7 @@ return {
             },
         },
         "JetBrainsMono Nerd Font",
-        "LXGW WenKai Mono", -- for Chinese
+        "Maple Mono SC NF", -- for Chinese
         "Noto Color Emoji",
         "JetBrains Mono",
 

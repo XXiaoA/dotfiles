@@ -38,11 +38,8 @@ Run `xdm s` to fast create soft link.
 ## Fonts
 Run `fc-cache -fv fonts` and then install the following fonts:
 
-- https://github.com/lxgw/LxgwWenKai <br>
-Arch package: `ttf-lxgw-wenkai`
-
 - https://www.nerdfonts.com/font-downloads <br>
 Arch package: `nerd-fonts-complete`
 
 - https://github.com/subframe7536/Maple-font <br>
-Arch package: `ttf-maple`
+Arch package: `ttf-maple` & `ttf-maple-sc-nerd`
