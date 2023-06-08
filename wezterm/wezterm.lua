@@ -57,6 +57,7 @@ return {
         "JetBrains Mono",
 
         -- icons
+        "Font Awesome 6 Pro Solid",
         "Material Design Icons Desktop",
         "MesloLGSDZ Nerd Font Mono",
         "feather",
