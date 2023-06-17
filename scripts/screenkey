@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ ! `pgrep screenkey` ]]; then
+    /usr/bin/screenkey --geometry 510x900+740+250 -s medium --opacity 0.5
+else
+    killall screenkey 2> /dev/null
+fi
