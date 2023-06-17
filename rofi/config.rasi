@@ -1,7 +1,8 @@
 configuration {
     show-icons: true;
+    icon-theme: "Papirus";
     terminal: "wezterm start";
-	drun-display-format:        "{name}";
+    drun-display-format:        "{name}";
     disable-history: false;
     hide-scrollbar: true;
     window-format: " [{w}]\t\t{t:0}";
