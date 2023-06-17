@@ -22,5 +22,5 @@ while "true"; do
         create_cover
         dunstify -a Music --replace=27072 -t 2000 -i /tmp/cover.png 'Playing..' $(mpc --format '%title%-%artist%' current)
     fi
-    mpc idle > /dev/null
+    mpc current --wait > /dev/null
 done
