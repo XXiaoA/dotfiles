@@ -3,12 +3,12 @@ export SXHKD_SHELL=/usr/bin/bash
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6 # 7 8 9 10
 
 bspc config border_width         2
 bspc config focused_border_color "#9ccfd8"
 bspc config normal_border_color "#908caa"
-bspc config window_gap          12
+bspc config window_gap          8
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -30,8 +30,9 @@ feh --bg-fill $HOME/Pictures/wallpaper/f7uah100h03b1.jpg
 xsetroot -cursor_name left_ptr
 keymapper &
 dunst &
-$HOME/.config/polybar/launch.sh
-nm-applet &
 picom -b --experimental-backends &
 fcitx5 &
 udiskie &
+# nm-applet &
+# $HOME/.config/polybar/launch.sh
+eww open-many bar && bspc config -m HDMI-0 top_padding 53

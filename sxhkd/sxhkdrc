@@ -190,11 +190,11 @@ super + ctrl + c
 
 # powermenu
 ctrl + super + alt + p
-    ~/dotfiles/rofi/powermenu/powermenu
+    eww open powermenu
 
 # hide/show bar
-super + ctrl + {h,s}
-    { polybar-msg cmd hide | bspc config top_padding 5, polybar-msg cmd show | bspc config top_padding 60 }
+super + ctrl + t
+    ~/dotfiles/eww/toggle_bar
 
 
 # make split ratios equal

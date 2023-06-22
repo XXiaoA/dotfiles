@@ -1,0 +1,12 @@
+#!/bin/bash
+
+## Run eww daemon if not running already
+if [[ ! `pidof eww` ]]; then
+	eww daemon
+    eww open-many bar && bspc config -m HDMI-0 top_padding 53
+    echo "Bar launched..."
+else
+    eww close bar system calendar audio_ctl music_win > /dev/null
+    killall -q eww && bspc config top_padding 3
+    echo "Bar closed..."
+fi

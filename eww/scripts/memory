@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf "%.0f\n" $(free -m |  grep --extended-regexp 'Mem|内存：'  | awk '{print ($3/$2)*100}')

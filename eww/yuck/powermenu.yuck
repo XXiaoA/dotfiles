@@ -1,0 +1,135 @@
+(defvar profile_image "./images/profile.jpg")
+
+(defwidget powermenu-close []
+  (box
+   :class "close-box"
+   :valign "start"
+   :halign "start"
+   (eventbox
+    :cursor "pointer"
+    (button
+     :class "powermenu-close"
+     :tooltip "close"
+     :onclick "eww close powermenu"
+     ""))))
+
+(defwidget powermenu-clock []
+  (box
+   :class "powermenu-today"
+   :space-evenly false
+   :halign "center"
+   :spacing 10
+   (label
+    :class "time"
+    :text clock_time)
+
+   (box
+    :class "timeboxes"
+    :space-evenly false
+    :valign "center"
+    :orientation "v"
+    :spacing 5
+    (label
+     :class "clock_time_sep"
+     :text ""))
+   (label
+    :class "time"
+    :text clock_minute)))
+
+(defwidget powermenu-profile []
+  (box
+   :class "powermenu-profile-box"
+   :space-evenly false
+   :orientation "v"
+   (box
+    :space-evenly false
+    :orientation "v"
+    :spacing 20
+    (box
+     :space-evenly false
+     :halign "center"
+     (box
+          :class "powermenu-profile-img"
+          :style "background-image: url('${profile_image}');"))
+    (box
+     :class "powermenu-profile-info"
+     :space-evenly false
+     :orientation "v"
+     :spacing 5
+     (label
+          :class "powermenu-profile-name"
+          :text "XXiaoA"
+          :halign "center")))))
+
+(defwidget powermenu-buttons []
+  (box
+   :class "buttons-box"
+   :spacing 50
+   :halign "center"
+   (eventbox
+    :cursor "pointer"
+    (button
+     :class "shutdown"
+     :tooltip "shutdown"
+     :onclick "systemctl poweroff -i"
+     ""))
+
+   (eventbox
+    :cursor "pointer"
+    (button
+     :class "reboot"
+     :tooltip "reboot"
+     :onclick "systemctl reboot -i"
+     ""))
+
+   (eventbox
+    :cursor "pointer"
+    (button
+     :class "lock"
+     :tooltip "lock"
+     :onclick "betterlockscreen -l dim"
+     ""))
+
+   (eventbox
+    :cursor "pointer"
+    (button
+     :class "suspend"
+     :tooltip "suspend"
+     :onclick "systemctl suspend"
+     ""))
+
+   (eventbox
+    :cursor "pointer"
+    (button
+     :class "hibernate"
+     :tooltip "hibernate"
+     :onclick "systemctl hibernate"
+     ""))
+
+   (eventbox
+    :cursor "pointer"
+    (button
+     :class "logout"
+     :tooltip "logout"
+     :onclick "bspc quit"
+     ""))))
+
+(defwidget powermenu []
+   (eventbox
+       :onrightclick "eww close powermenu"
+       :onmiddleclick "eww close powermenu"
+      (box
+       :class "powermenu-box"
+       :space-evenly false
+       :orientation "v"
+           (powermenu-close)
+           (powermenu-clock)
+           (powermenu-profile)
+           (powermenu-buttons))))
+
+(defwindow powermenu
+  :stacking "fg"
+  :wm-ignore true
+  :windowtype "normal"
+  :geometry (geometry :width "100%" :height "100%")
+  (powermenu))

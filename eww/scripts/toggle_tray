@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ ! `pgrep stalonetray` ]]; then
+    stalonetray &
+    eww update tray_icon=""
+else
+    killall stalonetray 2> /dev/null
+    eww update tray_icon=""
+fi

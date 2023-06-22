@@ -1,0 +1,92 @@
+.powermenu-box {
+    background: rgba(#0f0f0f, .7);
+    padding: 5rem;
+}
+
+.powermenu-profile-box {
+    padding: 2rem 0rem 4rem 0rem;
+
+    .powermenu-profile-img {
+        border-radius: 2rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-height: 14rem;
+        min-width: 14rem;
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .powermenu-profile-info {
+        font-family: "Maple Mono SC NF";
+        color: #f0f0f0;
+    }
+
+    .powermenu-profile-name {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+}
+
+.shutdown {
+    color: #dd6777;
+}
+
+.reboot {
+    color: #9ec49f;
+}
+
+.logout {
+    color: #7aa2f7;
+}
+
+.lock {
+    color: #6C77BB;
+}
+
+.hibernate {
+    color: #a39ec4;
+}
+
+.suspend {
+    color: #ceb188;
+}
+
+.reboot, .shutdown, .logout, .lock, .hibernate, .suspend {
+    font-family: "feather";
+    // font-weight: bold;
+    font-size: 5.5rem;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    min-width: 9rem;
+    min-height: 9rem;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+    margin: 0rem 1rem 1rem 0rem;
+    transition: 100ms;
+    background-color: rgba(#cacaca, .08);
+
+    &:hover {
+        transition: 100ms;
+        font-size: 6rem;
+        background-color: rgba(#cacaca, .1);
+    }
+}
+
+.close-box {
+    margin: -3rem 1rem 1rem 0rem;
+
+    .powermenu-close {
+        font-family: "Font Awesome 6 Pro Solid";
+        font-size: 2.5rem;
+        color: rgba(#dd6777, 0.8);
+        border-radius: 6rem;
+
+        &:hover {
+            color: #dd6777;
+        }
+    }
+}
+
+.time {
+    font-size: 48;
+    font-weight: bold;
+}

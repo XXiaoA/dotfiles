@@ -1,0 +1,24 @@
+(defpoll song_artist :interval "1s"  "scripts/music_info --artist")
+(defpoll song_length :interval "1s"  "scripts/music_info --ttime")
+(defpoll song_current_time :interval "1s"  "scripts/music_info --ctime")
+(defpoll song_percent :interval "1s" :initial 1 "scripts/music_info --time")
+
+(defwidget player_box []
+ (box :class "player_box" :orientation "h" :space-evenly false :vexpand false :hexpand false
+  (box :class "player_cover_art" :vexpand false :hexpand false :style "background-image: url('${cover_art}');")
+  (box :orientation "v" :spacing 20 :space-evenly false :vexpand false :hexpand false
+   (label :halign "center" :class "player_title" :wrap true :limit-width 13 :text song)
+   (label :halign "center" :class "player_artist" :wrap true :limit-width 15 :text song_artist)
+   (box :orientation "h" :spacing 15 :halign "center" :space-evenly false :vexpand false :hexpand false
+    (button :class "player_btn_prev" :onclick "scripts/music_info --prev" "")
+    (button :class "player_btn_play" :onclick "scripts/music_info --toggle" song_status)
+    (button :class "player_btn_next" :onclick "scripts/music_info --next" ""))
+   (box :class "player_seek_bar" :halign "center" :vexpand false :hexpand false :space-evenly true
+     (scale
+      :tooltip "${song_current_time}/${song_length}"
+      :orientation "h" :onchange "mpc -q seek {}%" :min 0 :active true :max 100 :value song_percent)))))
+
+;;  music
+(defwindow player :stacking "fg" :focusable false :screen 1
+     :geometry (geometry :x "0" :y "6%" :width 428 :height 104 :anchor "top center")
+     (player_box))

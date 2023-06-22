@@ -1,0 +1,275 @@
+/** Created by saimoom **/
+*{
+    all: unset;
+    font-family: feather, Maple Mono SC NF;
+}
+
+/** General **/
+.bar_class {
+    background-color: #1b1a27;
+    border-radius: 16px;
+}
+.module {
+    margin: 0px 0px 0px 0px;
+    border-radius: 10px 16px 0px 10px;
+}
+
+/** tooltip!! **/
+tooltip.background {
+    background-color: #1b1a27;
+    font-size: 18;
+    border-radius: 10px;
+    color: #bfc9db;
+}
+
+tooltip label {
+    margin: 6px;
+}
+
+
+/** Widgets **/
+
+.clock_time_sep {
+    font-size: 16;
+    color: #bfc9db;
+    margin: 0px 4px 1px 4px;
+}
+.clock_time_class, .clock_minute_class {
+    font-size: 23;
+}
+.clock_date_class {
+    font-size: 18;
+    margin: 0px 20px 0px -1px;
+    color: #d7beda;
+}
+.clock_minute_class {
+    margin: 0px 20px 0px 3px;
+    color: #bfc9db;
+}
+
+.clock_time_class {
+    color: #bfc9db;
+    font-weight: bold;
+    margin: 0px 5px 0px 0px;
+}
+
+
+.membar {
+    color: #e0b089;
+    background-color: #38384d;
+    border-radius: 10px;
+}
+.volbar trough highlight {
+    background-image: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100% *50);
+    border-radius: 10px;
+}
+.volume_icon {
+    font-size: 22;
+    color: #a1bdce;
+    margin: 0px 10px 0px 10px;
+}
+
+.tray {
+    font-size: 22;
+    color: rgba(#a1bdce, 0.85);
+    margin: 0px 10px 0px 10px;
+}
+
+
+.module_essid {
+    font-size: 18;
+    color: #a1bdce;
+    margin: 0px 10px 0px 0px;
+}
+.module-wif {
+    font-size: 22;
+    color: #a1bdce;
+    border-radius: 100%;
+    margin: 0px 10px 0px 5px;
+}
+
+.iconmem {
+    color: #e0b089;
+}
+.iconmem {
+    font-size: 15;
+    margin: 10px;
+}
+.bright_icon {
+    font-size: 22;
+    color: #e4c9af;
+    margin: 0px 10px 0px 10px;
+}
+
+
+.separ {
+    color: #3e424f;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0px 8px 0px 8px;
+}
+
+.mem_module {
+    background-color: #1b1a27;
+    border-radius: 16px;
+    margin: 0px 10px 0px 3px;
+}
+
+
+scale trough {
+    all: unset;
+    background-color: #22242b;
+    box-shadow: 0 2px 3px 2px #06060b;
+    border-radius: 16px;
+    min-height: 10px;
+    min-width: 70px;
+    margin: 0px 10px 0px 0px;
+}
+
+.works {
+    font-size: 27px;
+    font-weight: normal;
+    margin: 5px 0px 0px 5px;
+    background-color: #1b1a27;
+}
+
+.0 , .01, .02, .03, .04, .05, .06,
+.011, .022, .033, .044, .055, .066{
+    margin: 0px 10px 0px 0px;
+}
+
+/* Unoccupied */
+.0 {
+    color: #3e424f;
+}
+
+/* Occupied */
+.01, .02, .03, .04, .05, .06 {
+    color: #bfc9db;
+}
+
+/* Focused */
+.011, .022, .033, .044, .055, .066 {
+    color: #a1bdce;
+}
+
+.powermenu_botton {
+    color: #eb6f92;
+    font-size : 18px;
+    font-weight : bold;
+    margin: 2px 0px 0px 25px;
+}
+
+
+.song_cover_art {
+    background-size: cover;
+    background-position: center;
+    min-height: 24px;
+    min-width: 24px;
+    margin: 10px;
+    border-radius: 100px;
+}
+
+.song {
+    color: #a1bdce;
+    font-size : 18px;
+    font-weight : bold;
+    margin : 3px 5px 0px 0px;
+}
+
+.song_btn_play {
+    color: #a1bdce;
+    font-size : 32px;
+    margin : 3px 0px 0px 5px;
+
+}
+
+
+.song_btn_prev, .song_btn_next {
+    color: #bfc9db;
+    font-size : 24px;
+    margin : 3px 0px 0px 5px;
+
+}
+// Calendar
+.cal {
+    background-color: #1b1a27;
+    font-family: Maple Mono SC NF;
+    font-size: 18px;
+    font-weight: normal;
+
+    .cal-in {
+        padding: 0px 10px 0px 10px;
+        color: #bfc9db;
+
+        .cal {
+            &.highlight {
+                padding: 20px;
+            }
+
+            padding: 5px 5px 5px 5px;
+            margin-left: 10px;
+        }
+    }
+}
+
+calender {
+    color: #bfc9db;
+}
+calendar:selected {
+    color: #7aa2f7;
+}
+
+calendar.header {
+    color: #a1bdce;
+    font-weight: bold;
+}
+
+calendar.button {
+    color: #afbea2;
+}
+
+calendar.highlight {
+    color: #a1bdce;
+    font-weight: bold;
+}
+
+calendar:indeterminate {
+    color: #bfc9db;
+}
+
+
+.sys_sep {
+    color: #38384d;
+    font-size: 18;
+    margin: 0px 10px 0px 10px;
+}
+.sys_text_mem_sub {
+    font-size: 16;
+    color: #bbc5d7;
+    margin: 5px 0px 0px 25px;
+}
+.sys_text_mem {
+    font-size: 21;
+    font-weight: bold;
+    margin: 14px 0px 0px 25px;
+}
+.sys_icon_mem {
+    font-size: 30;
+    margin: 30px;
+}
+.sys_win {
+    background-color: #1b1a27;
+}
+.sys_mem {
+    color: #e4c9af;
+    background-color: #38384d;
+    border-radius: 10px;
+}
+.sys_icon_mem, .sys_text_mem {
+    color: #e4c9af;
+}
+.sys_mem_box {
+    border-radius: 16px;
+    margin: 10px 10px 15px 20px;
+}
