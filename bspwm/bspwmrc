@@ -33,6 +33,5 @@ dunst &
 picom -b --experimental-backends &
 fcitx5 &
 udiskie &
-# nm-applet &
 # $HOME/.config/polybar/launch.sh
 eww open-many bar && bspc config -m HDMI-0 top_padding 53
