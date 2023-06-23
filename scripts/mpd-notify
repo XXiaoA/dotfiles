@@ -1,26 +1,28 @@
 #!/usr/bin/env bash
 # notify when mpd music changed
 
-cover_path=/tmp/cover.png
+COVER="/tmp/cover.png"
 # mpd music directory
-mpd_dir=~/Music
+MUSIC_DIR="$HOME/Music"
 # if cover not found in metadata use this instead
-backup_cover=~/.cache/music_cover.png
+BACKUP_COVER="~/dotfiles/eww/images/music.png"
 
-if [[ ! -f "$backup_cover" ]]; then
-    wget -O ~/.cache/music_cover.webp "https://raw.githubusercontent.com/gh0stzk/dotfiles/master/config/bspwm/assets/fallback.webp"
-    ffmpeg -i ~/.cache/music_cover.webp $backup_cover
-fi
+get_cover() {
+	ffmpeg -i "${MUSIC_DIR}"/"$(mpc current -f %file%)" "${COVER}" -y &> /dev/null
+	STATUS=$?
 
-create_cover() {
-    ffmpeg -i "$mpd_dir"/"$(mpc current -f %file%)" -vf scale=500:500 "${cover_path}" -y -hide_banner -loglevel panic || cp $backup_cover $cover_path || exit
+	# Check if the file has a embbeded album art
+	if [ "$STATUS" -eq 0 ];then
+		echo "$COVER"
+	else
+		echo "$BACKUP_COVER"
+	fi
 }
 
 while "true"; do
     status="`mpc status`"
     if [[ ${status} == *"[playing]"* ]]; then
-        create_cover
-        dunstify -a Music --replace=27072 -t 2000 -i /tmp/cover.png $(mpc --format '%title%-%artist%' current)
+        dunstify -a Music --replace=27072 -t 2000 -i $(get_cover) $(mpc --format '%title%-%artist%' current)
     fi
     mpc current --wait > /dev/null
 done
