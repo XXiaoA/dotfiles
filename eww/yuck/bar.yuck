@@ -30,7 +30,7 @@
 (defwidget wifi []
   (eventbox :onhover "eww update wifi_rev=true"
         :onhoverlost "eww update wifi_rev=false"
-        :onclick "bspc rule -a Nm-connection-editor -o state=floating follow=on center=true && nm-connection-editor &" 
+        :onclick "bspc rule -a Nm-connection-editor -o state=floating follow=on center=true && nm-connection-editor &"
         :cursor "pointer"
     (box :vexpand false :hexpand false :space-evenly false
      (button :class "module-wif" :onclick "bspc rule -a Nm-connection-editor -o state=floating follow=on center=true && nm-connection-editor &" :wrap false :limit-width 12 :style "color: ${COL_WLAN};" WLAN_ICON)
@@ -83,9 +83,9 @@
 
 (defwidget tray []
   (eventbox
-    :cursor "pointer" :onclick "scripts/toggle_tray" :class "tray"
+    :cursor "pointer" :onclick "scripts/toggle_tray"
     (label
-      :class "tray"
+      :class "tray_icon"
       :text "${tray_icon}")))
 
 (defwidget volume []
@@ -123,9 +123,10 @@
 
 (defwidget right []
   (box :orientation "h"
-   :space-evenly false
-      :halign "end"
+       :space-evenly false
+       :halign "end"
    (tray)
+   (sep)
    (volume)
    (wifi)
    (sep)
@@ -135,11 +136,11 @@
 
 (defwidget left []
   (box :orientation "h"
-   :space-evenly false
-      :halign "start"
-      (powermenu_botton)
-      (sep)
-      (workspaces)))
+       :space-evenly false
+       :halign "start"
+   (powermenu_botton)
+   (sep)
+   (workspaces)))
 
 (defwidget center []
   (box :orientation "h"

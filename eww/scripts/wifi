@@ -11,7 +11,7 @@ if [ $status ] ; then
 else
     icon=""
     text="${essid}"
-    col="#a1bdce"
+    col="#9ece6a"
 fi
 
 if [[ "$1" == "--COL" ]]; then
