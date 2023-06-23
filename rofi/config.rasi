@@ -23,4 +23,4 @@ configuration {
     me-accept-entry: "!MousePrimary";
 }
 
-@theme "~/dotfiles/rofi/launchers.rasi"
+@theme "~/dotfiles/rofi/theme.rasi"
