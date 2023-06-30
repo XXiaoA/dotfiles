@@ -30,12 +30,12 @@ https://github.com/XXiaoA/dotfiles/assets/62557596/b948b08b-9884-4a21-bf89-b6106
 
 
 ## Install
+### Softlink
 Use [xdm](https://github.com/XXiaoA/xdm) to manage dotfiles.
 
 Run `xdm s` to fast create soft link.
 
-
-## Fonts
+### Fonts
 Run `fc-cache -fv fonts` and then install the following fonts:
 
 - https://www.nerdfonts.com/font-downloads <br>
@@ -43,3 +43,8 @@ Arch package: `nerd-fonts-complete`
 
 - https://github.com/subframe7536/Maple-font <br>
 Arch package: `ttf-maple` & `ttf-maple-sc-nerd`
+
+
+## Credit
+- [saimoomedits/eww-widgets](https://github.com/saimoomedits/eww-widgets)
+- [juminai/bspdots](https://github.com/juminai/bspdots)
