@@ -16,7 +16,7 @@
 </p>
 
 ## SHOWCASE
-> https://github.com/XXiaoA/dotfiles/issues/3
+> check https://github.com/XXiaoA/dotfiles/issues/3 to see more
 
 ### eww version
 
