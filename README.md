@@ -15,9 +15,25 @@
 		<img alt="Repo Size" src="https://img.shields.io/github/repo-size/XXiaoA/dotfiles?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41"/></a>
 </p>
 
+## SHOWCASE
+> https://github.com/XXiaoA/dotfiles/issues/3
+
+### eww version
+
+![SHOWCASE](https://github.com/XXiaoA/dotfiles/assets/62557596/70322183-33d3-4bd8-9d6a-c32a5bcd3d41)
+* **Operating System** \- Arch Linux
+* **Window Manager** \- bspwm
+* **Terminal** \- wezterm
+* **Shell** \- fish
+* **Editor** \- nvim ( [dotfile here](https://github.com/XXiaoA/nvimrc) )
+* **Bar** \- eww
+* **Launcher** \- rofi
+* **compositor** \- [dccsillag/picom](https://github.com/dccsillag/picom) `picom-animations-git`
+
+
+### polybar version
 
 https://github.com/XXiaoA/dotfiles/assets/62557596/b948b08b-9884-4a21-bf89-b6106733e995
-
 
 * **Operating System** \- Arch Linux
 * **Window Manager** \- bspwm
