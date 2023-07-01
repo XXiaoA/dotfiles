@@ -59,12 +59,12 @@ tooltip label {
     border-radius: 10px;
 }
 .volbar trough highlight {
-    background-image: linear-gradient(to right, #3e8fb0 30%, #3e8fb0 50%, #286983 100% *50);
+    background-image: linear-gradient(to right, #c4a7e7 30%, #c4a7e7 50%, #907aa9 100% *50);
     border-radius: 10px;
 }
 .volume_icon {
     font-size: 22;
-    color: #56949f;
+    color: #c4a7e7;
     margin: 0px 10px 0px 10px;
 }
 
@@ -75,16 +75,21 @@ tooltip label {
 }
 
 
-.module_essid {
+.ssid_text {
     font-size: 18;
     color: #cecacd;
     margin: 0px 10px 0px 0px;
 }
-.module-wif {
+.wifi_icon, .wifi_off_icon {
     font-size: 22;
-    color: #a1bdce;
     border-radius: 100%;
     margin: 0px 10px 0px 5px;
+}
+.wifi_icon {
+    color: #7dc5a0;
+}
+.wifi_off_icon {
+    color: #575268;
 }
 
 .iconmem {

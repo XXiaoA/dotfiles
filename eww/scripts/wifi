@@ -1,23 +1,66 @@
 #!/bin/bash
 
-status=$(nmcli g | grep -oE --extended-regexp "disconnected|已断开")
-essid=$(nmcli c | grep wlp0s20f0u1 | awk '{print ($1)}')
+export LANG=EN_US
 
-if [ $status ] ; then
-    icon=""
-    text=""
-    col="#575268"
+DEVICE="wlp0s20f0u1"
+device_path="/sys/class/net/$DEVICE/statistics/"
 
-else
-    icon=""
-    text="${essid}"
-    col="#9ece6a"
-fi
+current_speed (){
+    while true; do
+        rx1=$(cat ${device_path}rx_bytes)
+        tx1=$(cat ${device_path}tx_bytes)
+        sleep 1
+        rx2=$(cat ${device_path}rx_bytes)
+        tx2=$(cat ${device_path}tx_bytes)
 
-if [[ "$1" == "--COL" ]]; then
-    echo $col
-elif [[ "$1" == "--ESSID" ]]; then
-	echo $text
-elif [[ "$1" == "--ICON" ]]; then
-	echo $icon
-fi
+        d_speed=$(((rx2 - rx1) / 1024))
+        u_speed=$(((tx2 - tx1) / 1024))
+
+        d_unit="KB/s"
+        u_unit="KB/s"
+
+        if [[ $d_speed -gt 1024 ]]; then
+            d_speed=$(((d_speed) / 1024))
+            d_unit="MB/s"
+        fi
+        if [[ $u_speed -gt 1024 ]]; then
+            u_speed=$(((u_speed) / 1024))
+            u_unit="MB/s"
+        fi
+
+        echo $u_speed$u_unit
+    done
+}
+
+config_connection (){
+    if [[ $(nmcli | grep -i "connected to" | awk '{print$NF}') ]]; then
+        SSID=$(nmcli c | grep $DEVICE | awk '{print ($1)}')
+
+        echo "true"
+        eww update ssid=$SSID
+    else
+        echo "false"
+    fi
+}
+
+monitor_net (){
+    nmcli monitor | while read -r line; do
+        if [[ $line == "Connectivity is now 'full'" ]]; then
+            echo "true"
+            config_connection
+            eww update ssid=$SSID
+        elif [[ $line == "Connectivity is now 'none'" ]]; then
+            echo "false"
+        fi
+    done
+}
+
+case "$@" in
+    --monitor|-m)
+        config_connection
+        monitor_net
+        ;;
+    --speed|-ns)
+        current_speed
+        ;;
+esac

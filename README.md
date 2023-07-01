@@ -38,13 +38,17 @@ Run `xdm s` to fast create soft link.
 ### Fonts
 Run `fc-cache -fv fonts` and then install the following fonts:
 
-- https://www.nerdfonts.com/font-downloads <br>
-Arch package: `nerd-fonts-complete`
-
 - https://github.com/subframe7536/Maple-font <br>
 Arch package: `ttf-maple` & `ttf-maple-sc-nerd`
+
+- Optional:
+    - https://www.nerdfonts.com/font-downloads <br>
+      Arch package: `nerd-fonts-complete`
 
 
 ## Credit
 - [saimoomedits/eww-widgets](https://github.com/saimoomedits/eww-widgets)
 - [juminai/bspdots](https://github.com/juminai/bspdots)
+- [beyond9thousand/dotfiles](https://github.com/beyond9thousand/dotfiles)
+- [gh0stzk/dotfiles](https://github.com/gh0stzk/dotfiles)
+- [adi1090x/rofi](https://github.com/adi1090x/rofi)

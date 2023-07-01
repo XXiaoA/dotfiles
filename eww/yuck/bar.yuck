@@ -13,9 +13,9 @@
 (defvar time_rev false)
 (deflisten workspace "scripts/workspaces")
 
-(defpoll COL_WLAN :interval "1m" "scripts/wifi --COL")
-(defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
-(defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
+(deflisten wifi_connected "scripts/wifi -m")
+(deflisten wifi_speed "scripts/wifi -ns")
+(defvar ssid "")
 
 (defvar tray_icon '')
 
@@ -28,17 +28,20 @@
 
 ;; widgets
 (defwidget wifi []
-  (eventbox :onhover "eww update wifi_rev=true"
+  (eventbox
+        :onhover "eww update wifi_rev=true"
         :onhoverlost "eww update wifi_rev=false"
-        :onclick "bspc rule -a Nm-connection-editor -o state=floating follow=on center=true && nm-connection-editor &"
         :cursor "pointer"
+        :tooltip wifi_speed
     (box :vexpand false :hexpand false :space-evenly false
-     (button :class "module-wif" :onclick "bspc rule -a Nm-connection-editor -o state=floating follow=on center=true && nm-connection-editor &" :wrap false :limit-width 12 :style "color: ${COL_WLAN};" WLAN_ICON)
+     (button
+         :class "${wifi_connected == "true" ? "wifi_icon" : "wifi_off_icon"}"
+         :wrap false :limit-width 12 "${wifi_connected == "true" ? "" : ""}")
      (revealer :transition "slideright"
         :reveal wifi_rev
         :duration "350ms"
-      (label :class "module_essid"
-         :text ESSID_WLAN
+      (label :class "ssid_text"
+         :text "${wifi_connected == "true" ? "${ssid}" : ""}"
          :orientation "h")))))
 
 (defwidget powermenu_botton []
