@@ -87,7 +87,7 @@
     (button
      :class "lock"
      :tooltip "lock"
-     :onclick "betterlockscreen -l dim"
+     :onclick "eww close powermenu && betterlockscreen -l dim"
      ""))
 
    (eventbox
@@ -95,7 +95,7 @@
     (button
      :class "suspend"
      :tooltip "suspend"
-     :onclick "systemctl suspend"
+     :onclick "eww close powermenu && systemctl suspend"
      ""))
 
    (eventbox
@@ -103,7 +103,7 @@
     (button
      :class "hibernate"
      :tooltip "hibernate"
-     :onclick "systemctl hibernate"
+     :onclick "eww close powermenu && systemctl hibernate"
      ""))
 
    (eventbox
