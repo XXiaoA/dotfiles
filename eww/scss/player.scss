@@ -13,36 +13,36 @@
 }
 
 .player_title {
-    color: #a1bdce;
+    color: #cecacd;
     font-size : 20px;
     font-weight : bold;
     margin : 20px 0px 0px -15px;
 }
 
 .player_artist {
-    color: #bbc5d7;
+    color: #dfdad9;
     font-size : 16px;
     font-weight : normal;
     margin : 0px 0px 0px 0px;
 }
 
 .player_btn_prev, .music_btn_play, .music_btn_next {
-    font-family: Maple Mono SC NF;
+    font-family: "Maple Mono SC NF";
 }
 .player_btn_prev {
-    color: #bbc5d7;
+    color: #dfdad9;
     font-size : 32px;
     font-weight : normal;
     margin: 0px 0px 0px 0px;
 }
 .player_btn_play {
-    color: #a1bdce;
+    color: #cecacd;
     font-size : 48px;
     font-weight : normal;
     margin: 0px 0px 0px 0px;
 }
 .player_btn_next {
-    color: #bbc5d7;
+    color: #dfdad9;
     font-size : 32px;
     font-weight : normal;
     margin: 0px 0px 0px 0px;
@@ -50,7 +50,7 @@
 
 .player_seek_bar scale trough highlight {
     all: unset;
-    background-image: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100% *50);
+    background-image: linear-gradient(to right, #f4ede8 30%, #dfdad9 50%, #cecacd 100% *50);
     border-radius: 24px;
 }
 .player_seek_bar scale trough {
