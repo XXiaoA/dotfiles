@@ -27,8 +27,7 @@ current_speed (){
             u_speed=$(((u_speed) / 1024))
             u_unit="MB/s"
         fi
-
-        echo $u_speed$u_unit
+        echo "$d_speed$d_unit $u_speed$u_unit "
     done
 }
 
