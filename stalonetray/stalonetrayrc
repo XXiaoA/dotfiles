@@ -2,7 +2,7 @@
 
 background "#1b1a27"
 vertical true
-geometry 1x1-338+56
+geometry 1x1-341+56
 grow_gravity NE
 icon_gravity NE
 slot_size 32
