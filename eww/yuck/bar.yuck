@@ -113,9 +113,10 @@
   (eventbox :onhover "eww update music_reveal=true"
         :onhoverlost "eww update music_reveal=false"
         :cursor "pointer"
+        :onclick "eww open-many --toggle player"
     (box :class "module-2" :orientation "h" :space-evenly false :vexpand false :hexpand false
      (box :class "song_cover_art" :vexpand false :hexpand false :style "background-image: url('${cover_art}');")
-     (button :class "song" :wrap true :onclick "eww open-many --toggle player" song)
+     (label :class "song" :wrap true :text song)
      (revealer :transition "slideright"
         :reveal music_reveal
         :duration "350ms"
