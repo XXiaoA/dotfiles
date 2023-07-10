@@ -207,3 +207,7 @@ super + equal
 # make split ratios balanced
 super + minus
 	bspc node @/ --balance
+
+# volume
+XF86Audio{LowerVolume,RaiseVolume,Mute}
+    ~/dotfiles/scripts/volume_dunst {down,up,mute}
