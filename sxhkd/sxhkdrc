@@ -194,6 +194,9 @@ ctrl + super + alt + p
 
 # hide/show bar
 super + ctrl + t
+    eww open-many --toggle bar
+
+super + ctrl + r
     ~/dotfiles/eww/toggle_bar
 
 
