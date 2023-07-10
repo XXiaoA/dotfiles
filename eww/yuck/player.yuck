@@ -10,9 +10,12 @@
    (label :halign "center" :class "player_title" :wrap true :limit-width 13 :text song)
    (label :halign "center" :class "player_artist" :wrap true :limit-width 15 :text song_artist)
    (box :orientation "h" :spacing 15 :halign "center" :space-evenly false :vexpand false :hexpand false
-    (button :class "player_btn_prev" :onclick "scripts/music_info --prev" "")
-    (button :class "player_btn_play" :onclick "scripts/music_info --toggle" song_status)
-    (button :class "player_btn_next" :onclick "scripts/music_info --next" ""))
+    (eventbox :cursor "pointer" :onclick "scripts/music_info --prev"
+        (label :class "player_btn_prev" :text ""))
+    (eventbox :cursor "pointer" :onclick "scripts/music_info --toggle"
+        (label :class "player_btn_play" :text song_status))
+    (eventbox :cursor "pointer" :onclick "scripts/music_info --next"
+        (label :class "player_btn_next" :text "")))
    (box :class "player_seek_bar" :halign "center" :vexpand false :hexpand false :space-evenly true
      (scale
       :tooltip "${song_current_time}/${song_length}"
