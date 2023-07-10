@@ -36,3 +36,4 @@ fcitx5 &
 udiskie &
 # $HOME/.config/polybar/launch.sh
 eww open-many bar && bspc config -m HDMI-0 top_padding 53
+fullscreen &
