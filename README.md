@@ -20,7 +20,7 @@
 
 ### eww version
 
-![SHOWCASE](https://github.com/XXiaoA/dotfiles/assets/62557596/70322183-33d3-4bd8-9d6a-c32a5bcd3d41)
+![SHOWCASE](https://github.com/XXiaoA/dotfiles/assets/62557596/6a72586a-e977-4839-9fa0-ca7a78ae40f9)
 * **Operating System** \- Arch Linux
 * **Window Manager** \- bspwm
 * **Terminal** \- wezterm
