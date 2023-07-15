@@ -101,6 +101,7 @@ return {
         },
     },
 
+    disable_default_key_bindings = true,
     keys = {
         {
             key = "Enter",
