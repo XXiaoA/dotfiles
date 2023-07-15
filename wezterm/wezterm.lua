@@ -1,16 +1,6 @@
 ---@diagnostic disable: unused-local
 local wezterm = require("wezterm")
 
-wezterm.on("toggle-ligature", function(window, pane)
-    local overrides = window:get_config_overrides() or {}
-    if not overrides.harfbuzz_features then
-        overrides.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-    else
-        overrides.harfbuzz_features = nil
-    end
-    window:set_config_overrides(overrides)
-end)
-
 local function modify_colorscheme(colorscheme)
     local file_path = os.getenv("HOME") .. "/.config/wezterm/wezterm.lua"
     local _f = assert(io.open(file_path, "r"))
@@ -122,11 +112,6 @@ return {
             key = "Tab",
             mods = "CTRL|SHIFT",
             action = wezterm.action({ ActivateTabRelative = -1 }),
-        },
-        {
-            key = "E",
-            mods = "CTRL",
-            action = wezterm.action.EmitEvent("toggle-ligature"),
         },
     },
 }
