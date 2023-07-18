@@ -1,7 +1,7 @@
 ;; Variables
 (defpoll clock_time :interval "5m" "date +\%H")
 (defpoll clock_minute :interval "5s" "date +\%M")
-(defpoll clock_date :interval "10h" "date '+%Y/%d/%m'")
+(defpoll clock_date :interval "10h" "date '+%Y/%m/%d'")
 (defpoll volume_percent :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll memory :interval "15s" "scripts/memory")
 (defpoll memory_used_mb :interval "2m" "scripts/mem-ad used")
