@@ -31,7 +31,7 @@ feh --bg-fill $HOME/Pictures/wallpaper/tf2uyksmqs7b1.jpg
 xsetroot -cursor_name left_ptr
 keymapper &
 dunst &
-picom -b --experimental-backends &
+picom -b &
 fcitx5 &
 udiskie &
 # $HOME/.config/polybar/launch.sh
