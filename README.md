@@ -28,7 +28,7 @@
 * **Editor** \- nvim ( [dotfile here](https://github.com/XXiaoA/nvimrc) )
 * **Bar** \- eww
 * **Launcher** \- rofi
-* **compositor** \- [dccsillag/picom](https://github.com/dccsillag/picom) `picom-animations-git`
+* **compositor** \- [FT-Labs/picom](https://github.com/FT-Labs/picom) `picom-ftlabs-git`
 
 
 ### polybar version
