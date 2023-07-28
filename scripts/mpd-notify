@@ -22,7 +22,7 @@ get_cover() {
 while "true"; do
     status="`mpc status`"
     if [[ ${status} == *"[playing]"* ]]; then
-        dunstify -a Music --replace=27072 -t 2000 -i $(get_cover) $(mpc --format '%title%-%artist%' current)
+        dunstify -a Music --replace=27072 -t 2000 -i $(get_cover) "$(mpc --format '%title%-%artist%' current)"
     fi
     mpc current --wait > /dev/null
 done
