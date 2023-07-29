@@ -59,3 +59,5 @@ link:
   ./eww/: ~/.config/eww
 
   ./stalonetray/stalonetrayrc: ~/.config/stalonetrayrc
+
+  ./yt-dlp/yt-dlp.conf: ~/.config/yt-dlp/config
