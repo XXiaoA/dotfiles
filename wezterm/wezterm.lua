@@ -30,7 +30,7 @@ local color_scheme = "Rosé Pine Moon"
 return {
     font = wezterm.font_with_fallback({
         {
-            family = "Maple Mono",
+            family = "Maple Mono NF",
             harfbuzz_features = {
                 "cv01=1",
                 "cv02=1",
@@ -41,8 +41,8 @@ return {
                 "ss05=1",
             },
         },
-        "JetBrainsMono Nerd Font",
         "Maple Mono SC NF", -- for Chinese
+        "JetBrainsMono Nerd Font",
         "Noto Color Emoji",
         "JetBrains Mono",
 

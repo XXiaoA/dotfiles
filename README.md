@@ -55,7 +55,7 @@ Run `xdm s` to fast create soft link.
 Run `fc-cache -fv fonts` and then install the following fonts:
 
 - https://github.com/subframe7536/Maple-font <br>
-Arch package: `ttf-maple` & `ttf-maple-sc-nerd`
+Arch package: `ttf-maple-nerd` & `ttf-maple-sc-nerd`
 
 - Optional:
     - https://www.nerdfonts.com/font-downloads <br>
