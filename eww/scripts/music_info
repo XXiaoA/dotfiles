@@ -8,18 +8,18 @@ MUSIC_DIR="$HOME/Music"
 ## Get status
 get_status() {
 	if [[ $(mpc status) == *"[playing]"* ]]; then
-		echo ""
+		echo "󰏦"
 	else
-		echo "奈"
+		echo "󰐍"
 	fi
 }
 
 toggle() {
     mpc -q toggle
     if [[ $(mpc status) == *"[playing]"* ]]; then
-        eww update song_status=""
+        eww update song_status="󰏦"
     else
-        eww update song_status="奈"
+        eww update song_status="󰐍"
     fi
 }
 
