@@ -1,6 +1,6 @@
 [options]
 overlay = true
-overlay_font = Maple Mono:10
+overlay_font = Maple Mono SC NF:10
 
 [binds]
 <Shift+less> = rotate by -90

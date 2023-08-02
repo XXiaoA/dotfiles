@@ -26,8 +26,8 @@ configuration {
     element-padding:             35px 40px;
     element-border-radius:       20px;
 
-    prompt-font:                 "Maple Mono 72";
-    textbox-font:                "Maple Mono 12";
+    prompt-font:                 "Maple Mono NF 72";
+    textbox-font:                "Maple Mono NF 12";
     element-text-font:           "feather 64";
 
     background-window:           black/50%;

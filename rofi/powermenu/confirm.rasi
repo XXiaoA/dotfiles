@@ -21,7 +21,7 @@ configuration {
     foreground:     #e0def4;
     selected:       #9ccfd8;
 
-    font: "Maple Mono 24";
+    font: "Maple Mono NF 24";
 }
 
 /*****----- Main Window -----*****/
