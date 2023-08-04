@@ -17,10 +17,10 @@ end
 
 if command -sq exa
     alias ls="exa --color=auto"
-    alias l='exa -lbh --icons'
-    alias la='exa -labh --icons'
+    alias l='exa -lh --icons'
+    alias la='exa -lah --icons'
     alias lsa='exa -lbaR --icons'
-    alias lst='exa -lTabh --icons' # 输入lst,将展示类似于tree的树状列表。
+    alias lst='exa -lTah --icons' # 输入lst,将展示类似于tree的树状列表。
 
     alias tree "exa -T"
 
