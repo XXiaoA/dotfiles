@@ -23,7 +23,7 @@ configuration {
     selected:       #f6c177;
     urgent:         #eb6f92;
 
-    font: "Maple Mono NF 14";
+    font: "Maple Mono SC NF 14";
 }
 
 /*****----- Main Window -----*****/

@@ -14,7 +14,7 @@
     foreground:     #e0def4;
     selected:       #3e8fb0;
 
-    font: "Maple Mono NF 12";
+    font: "Maple Mono SC NF 12";
 }
 
 /*****----- Main Window -----*****/
