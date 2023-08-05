@@ -53,18 +53,20 @@
     (literal :content workspace))
 
 (defwidget mem []
-    (box :class "mem_module" :vexpand false :hexpand false
-      (circular-progress :value memory
-          :class "membar"
-          :thickness 4
-       (button
-           :class "iconmem"
-           :limit-width 2
-           :tooltip "using ${memory}% ram"
-           :onclick "eww open-many --toggle system"
-           :show_truncated false
-           :wrap false
-           ""))))
+  (box :class "mem_module" :vexpand false :hexpand false
+    (circular-progress :value memory
+      :class "membar"
+      :thickness 4
+      (eventbox
+        :cursor "pointer"
+        :onclick "eww open-many --toggle system"
+        (label
+          :class "iconmem"
+          :limit-width 2
+          :tooltip "using ${memory}% ram"
+          :show_truncated false
+          :wrap false
+          :text "")))))
 
 (defwidget sep []
   (box :class "module-2" :vexpand false :hexpand false
