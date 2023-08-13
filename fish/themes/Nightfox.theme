@@ -2,18 +2,18 @@
 
 # Syntax Highlighting Colors
 fish_color_normal cdcecf
-fish_color_command 63cdcf
+fish_color_command 719cd6
 fish_color_keyword d67ad2
-fish_color_quote dbc074
+fish_color_quote 81b29a
 fish_color_redirection cdcecf
 fish_color_end f4a261
 fish_color_error c94f6d
-fish_color_param 9d79d6
+fish_color_param d5b47a
 fish_color_comment 738091
 fish_color_selection --background=2b3b51
 fish_color_search_match --background=2b3b51
-fish_color_operator 81b29a
-fish_color_escape d67ad2
+fish_color_operator dbc074
+fish_color_escape be81cf
 fish_color_autosuggestion 738091
 
 # Completion Pager Colors
