@@ -21,3 +21,4 @@ fish_pager_color_progress 738091
 fish_pager_color_prefix 63cdcf
 fish_pager_color_completion cdcecf
 fish_pager_color_description 738091
+fish_pager_color_selected_background --background=2b3b51
