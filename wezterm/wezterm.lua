@@ -30,10 +30,9 @@ local color_scheme = "Nightfox"
 return {
     font = wezterm.font_with_fallback({
         {
-            family = "Maple Mono NF",
+            family = "Maple Mono",
             harfbuzz_features = {
                 "cv01=1",
-                "cv02=1",
                 "ss01=1",
                 "ss02=1",
                 "ss03=1",
@@ -41,8 +40,8 @@ return {
                 "ss05=1",
             },
         },
+        { family = "Symbols Nerd Font Mono", scale = 0.80 },
         "Maple Mono SC NF", -- for Chinese
-        "JetBrainsMono Nerd Font",
         "Noto Color Emoji",
         "JetBrains Mono",
 
@@ -53,6 +52,7 @@ return {
         "feather",
     }),
     font_size = 16.5,
+    allow_square_glyphs_to_overflow_width = "Never",
 
     color_scheme = color_scheme,
 
