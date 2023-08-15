@@ -24,6 +24,7 @@ bspc rule -a mpv state=floating
 bspc rule -a feh state=floating center=true
 bspc rule -a imv state=floating center=true
 bspc rule -a SimpleScreenRecorder state=floating
+bspc rule -a guvcview state=floating rectangle=480x270+1440+810 sticky=on layer=above
 
 
 feh --bg-fill $HOME/Pictures/wallpaper/焦茶_64337772_c920.jpg
