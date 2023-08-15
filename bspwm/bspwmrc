@@ -26,7 +26,7 @@ bspc rule -a imv state=floating center=true
 bspc rule -a SimpleScreenRecorder state=floating
 
 
-feh --bg-fill $HOME/Pictures/wallpaper/tf2uyksmqs7b1.jpg
+feh --bg-fill $HOME/Pictures/wallpaper/焦茶_64337772_c920.jpg
 # feh --randomize --bg-fill ~/Pictures/wallpaper/*
 xsetroot -cursor_name left_ptr
 keymapper &
