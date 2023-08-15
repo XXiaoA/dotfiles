@@ -91,8 +91,8 @@ super + ctrl + {m,x,y,z}
 #
 # focus/swap
 #
-
-# focus the node in the given direction
+ 
+# focus/swap the node in the given direction
 super + {_,shift + }{h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
@@ -123,8 +123,21 @@ super + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
 
 #
-# preselect
+# preselect/receptacle
 #
+
+# close all receptacle
+super + shift + i
+    for win in `bspc query -N -n .leaf.\!window`; do bspc node $win -k ; done;
+
+# insert receptacle
+super + alt + {Left,Down,Up,Right}
+    bspc node --presel-dir {west,south,north,east} -i
+
+# move to rectacle
+super + e
+    ID=$(bspc query -N -n); \
+    bspc node $ID -n $(bspc query -N -n .leaf.\!window)
 
 # preselect the direction
 super + ctrl + {Left,Down,Up,Right}
