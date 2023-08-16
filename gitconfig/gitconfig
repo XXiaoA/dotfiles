@@ -22,7 +22,7 @@
     cm = commit -m
 
     # View abbreviated SHA, description, and history graph of the latest 20 commits.
-    l = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    l = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr, %ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 
     # View the current working tree status using the short format.
     s = status -s
