@@ -30,6 +30,8 @@
     # Show the diff between the latest commit and the current state.
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
+    dt = difftool
+
     # `git di $number` shows the diff between the state `$number` revisions ago and the current state.
     di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
@@ -92,6 +94,11 @@
     unstaged = restore --staged
 
 [diff]
-	external = difft
+    external = difft
+    tool = nvimdiff
+
+[difftool]
+    prompt = false
+
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
