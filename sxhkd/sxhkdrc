@@ -10,9 +10,6 @@ super + Return
 super + shift + Return
     bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm
 
-ctrl + alt + t
-    wezterm
-
 # program launcher
 super + @space
     rofi -modes "drun,window,run" -show drun
@@ -127,7 +124,7 @@ super + {_,shift + }{1-9,0}
 #
 
 # close all receptacle
-super + shift + i
+super + alt + space
     for win in `bspc query -N -n .leaf.\!window`; do bspc node $win -k ; done;
 
 # insert receptacle
@@ -204,6 +201,10 @@ super + ctrl + c
 # powermenu
 ctrl + super + alt + p
     eww open powermenu
+
+# screen lock
+ctrl + super + alt + l
+    betterlockscreen -l dim
 
 # hide/show bar
 super + ctrl + t
