@@ -12,5 +12,5 @@ if [ $(bspc query --node focused.floating.\!hidden.window.local --nodes | wc -l)
     monitorheight=$(echo "$monitorinfo" | cut -d ":" -f19 | cut -d "," -f1 | tr -d "}")
     bspc node -v $(( ($monitorwidth/2) - $floatwinxcoords - ($floatwinwidth/2) )) $(( ($monitorheight/2) - $floatwinycoords - ($floatwinheight/2) ))
 else
-    dunstify -a "bspwm" -u normal --replace=102 "No Levatating Window is Currently Focused"
+    dunstify -a "bspwm" -u normal --replace=102 "tocenter" "No levatating window is currently focused"
 fi
