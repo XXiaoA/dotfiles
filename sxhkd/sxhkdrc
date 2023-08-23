@@ -176,14 +176,15 @@ alt + ctrl + shift + { Right,Left }
     bspc node -d "$DIR" --follow
 
 # open app fast
-super + alt + {b, f, t, s, m, M, a}
+super + alt + {b, f, t, s, m, M, a, g}
     { bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- btop, \
       firefox, \
       telegram-desktop, \
       simplescreenrecorder, \
       ~/dotfiles/rofi/mpd/mpd, \
       bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- "ncmpcpp", \
-      ~/dotfiles/scripts/screenkey
+      ~/dotfiles/scripts/screenkey, \
+      gromit-mpx &
     }
 
 # move the floating focused window to center
