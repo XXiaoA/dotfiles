@@ -187,7 +187,7 @@ super + alt + {b, f, t, s, m, M, a}
     }
 
 # move the floating focused window to center
-super +  c
+super + ctrl + c
     ~/dotfiles/scripts/tocenter
 
 # powermenu
