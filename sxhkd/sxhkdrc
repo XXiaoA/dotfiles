@@ -183,7 +183,7 @@ super + alt + {b, f, t, s, m, M, a, g}
       simplescreenrecorder, \
       ~/dotfiles/rofi/mpd/mpd, \
       bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- "ncmpcpp", \
-      ~/dotfiles/scripts/screenkey, \
+      ~/dotfiles/scripts/showkey, \
       gromit-mpx &
     }
 

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+exec 9>/tmp/screenkey.lock
+if ! flock -n 9; then
+    killall screenkey 2> /dev/null
+    exit 1
+fi
+
+dunstify "Screenkey" "Opened screenkey "
+screenkey --geometry 600x110+705-40 -s small --opacity 0.3
