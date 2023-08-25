@@ -33,7 +33,7 @@ xsetroot -cursor_name left_ptr
 keymapper &
 dunst &
 picom -b &
-fcitx5 &
+fcitx5 -b
 udiskie &
 # $HOME/.config/polybar/launch.sh
 eww open-many bar && bspc config -m HDMI-0 top_padding 53
