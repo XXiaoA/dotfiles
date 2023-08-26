@@ -6,10 +6,10 @@ if [[ ! `pidof eww` ]]; then
     eww open-many bar && bspc config -m HDMI-0 top_padding 53
     # for `fullscreen` script
     rm /tmp/eww.lock
-    dunstify -t 1000 "Eww" "Bar launched..."
+    dunstify -t 1000 --replace=1132 "Eww" "Bar launched..."
 else
     eww close bar system calendar audio_ctl music_win > /dev/null
     killall -q eww && bspc config top_padding 3
     touch /tmp/eww.lock
-    dunstify -t 1000 "Eww" "Bar closed..."
+    dunstify -t 1000 --replace=1132 "Eww" "Bar closed..."
 fi
