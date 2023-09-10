@@ -1,15 +1,13 @@
 #!/bin/bash
 
-## Run eww daemon if not running already
-if [[ ! `pidof eww` ]]; then
-    eww daemon
-    eww open-many bar && bspc config -m HDMI-0 top_padding 53
-    # for `fullscreen` script
-    rm /tmp/eww.lock
-    dunstify -t 1000 --replace=1132 "Eww" "Bar launched..."
-else
+LOCK=/tmp/eww_bar.lock
+if [ -f "$LOCK" ]; then
     eww close bar system calendar audio_ctl music_win > /dev/null
-    killall -q eww && bspc config top_padding 3
-    touch /tmp/eww.lock
+    bspc config top_padding 3
     dunstify -t 1000 --replace=1132 "Eww" "Bar closed..."
+    rm $LOCK
+else
+    eww open-many bar && bspc config -m HDMI-0 top_padding 53
+    dunstify -t 1000 --replace=1132 "Eww" "Bar launched..."
+    touch $LOCK
 fi

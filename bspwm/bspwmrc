@@ -35,6 +35,10 @@ dunst &
 picom -b &
 fcitx5 -b
 udiskie &
-# $HOME/.config/polybar/launch.sh
-eww open-many bar && bspc config -m HDMI-0 top_padding 53
+
+# lauch bar
+eww daemon
+rm /tmp/eww_bar.lock
+~/dotfiles/eww/toggle_bar
+
 ~/dotfiles/scripts/fullscreen &
