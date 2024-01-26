@@ -16,3 +16,6 @@ abbr yt yt-dlp
 abbr v nvim
 abbr rd rmdir
 abbr hy hyperfine
+
+abbr te trash-empty
+abbr tr trash-restore
