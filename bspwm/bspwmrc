@@ -3,7 +3,7 @@ export SXHKD_SHELL=/usr/bin/bash
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 # 7 8 9 10
+bspc monitor -d 1 # 2 3 4 5 6 7 8 9 10
 
 bspc config border_width         3
 bspc config focused_border_color "#56949f"
@@ -27,13 +27,13 @@ bspc rule -a SimpleScreenRecorder state=floating
 bspc rule -a guvcview state=floating rectangle=480x270+1440+810 sticky=on layer=above
 
 
-feh --bg-fill $HOME/Pictures/wallpaper/焦茶_64337772_c920.jpg
+feh --bg-fill "$HOME/Pictures/wallpaper/焦茶_74851178_前触れもなく去った人の　夏がのこした眼差しのように0.png"
 # feh --randomize --bg-fill ~/Pictures/wallpaper/*
 xsetroot -cursor_name left_ptr
 keymapper &
 dunst &
 picom -b &
-fcitx5 -b
+fcitx5 &
 udiskie &
 
 # lauch bar

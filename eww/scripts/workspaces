@@ -1,56 +1,61 @@
 #!/bin/sh
+# dynamic workspaces by XXiaoA
+# reference: https://github.com/Prayag2/bspdd/
+
+monitor_sel=""
+
 workspaces() {
-
-    ws1="1"
-    ws2="2"
-    ws3="3"
-    ws4="4"
-    ws5="5"
-    ws6="6"
-
-    # Unoccupied
-    un="0"
-
-    # check if Occupied
-    o1=$(bspc query -D -d .occupied --names | grep "$ws1" )
-    o2=$(bspc query -D -d .occupied --names | grep "$ws2" )
-    o3=$(bspc query -D -d .occupied --names | grep "$ws3" )
-    o4=$(bspc query -D -d .occupied --names | grep "$ws4" )
-    o5=$(bspc query -D -d .occupied --names | grep "$ws5" )
-    o6=$(bspc query -D -d .occupied --names | grep "$ws6" )
-
-    # check if Focused
-    f1=$(bspc query -D -d focused --names | grep "$ws1" )
-    f2=$(bspc query -D -d focused --names | grep "$ws2" )
-    f3=$(bspc query -D -d focused --names | grep "$ws3" )
-    f4=$(bspc query -D -d focused --names | grep "$ws4" )
-    f5=$(bspc query -D -d focused --names | grep "$ws5" )
-    f6=$(bspc query -D -d focused --names | grep "$ws6" )
-
-    ic_1=""
-    ic_2=""
-    ic_3=""
-    ic_4=""
-    ic_5=""
-    ic_6=""
-    if [ $f1 ]; then
-        ic_1=""
-    elif [ $f2 ]; then
-        ic_2=""
-    elif [ $f3 ]; then
-        ic_3=""
-    elif [ $f4 ]; then
-        ic_4=""
-    elif [ $f5 ]; then
-        ic_5=""
-    elif [ $f6 ]; then
-        ic_6=""
+    if [[ -z $monitor_sel ]]; then
+        monitors=$(bspc query -M)
+    else
+        monitors=$(bspc query -M -m "$monitor_sel")
     fi
 
-    echo  "(eventbox :cursor 'pointer' (box :class 'works' :orientation 'h' :spacing 5 :space-evenly 'false' (button :onclick 'bspc desktop -f $ws1' :class '$un$o1$f1' '$ic_1') (button :onclick 'bspc desktop -f $ws2' :class '$un$o2$f2'  '$ic_2') (button :onclick 'bspc desktop -f $ws3' :class '$un$o3$f3' '$ic_3') (button :onclick 'bspc desktop -f $ws4' :class '$un$o4$f4' '$ic_4') (button :onclick 'bspc desktop -f $ws5' :class '$un$o5$f5' '$ic_5')  (button :onclick 'bspc desktop -f $ws6' :class '$un$o6$f6' '$ic_6')))"
+    echo "$monitors" | while read monitor; do
+        total_desktops=$(bspc query -D -m "$monitor" | wc -l)
+        occupied_desktops=$(bspc query -D -d ".occupied" -m "$monitor" | wc -l)
+
+        if [[ $occupied_desktops -eq $total_desktops ]]; then
+            # add new desktop
+            bspc monitor "$monitor" -a "$((occupied_desktops + 1))"
+        elif [[ $occupied_desktops -lt $((total_desktops-1)) ]]; then
+            # remove unoccupied desktops
+            bspc query -D -d ".!occupied" -m "$monitor" | sed '$d' | while read desktopID; do
+                bspc desktop "$desktopID" -r
+            done
+            # rename the desktops to prevent the issue of removing a middle desktop
+            desktop_name=1
+            # note the argument of sed
+            bspc query -D -m "$monitor" | sed '$n' | while read desktopID; do
+                bspc desktop "$desktopID" --rename "$desktop_name"
+                desktop_name=$((desktop_name+1))
+            done
+        fi
+
+        echo -n "(eventbox :cursor 'pointer' (box :class 'works' :orientation 'h' :spacing 5 :space-evenly 'false' "
+        for i in $(seq 1 $occupied_desktops); do
+            # check if Focused
+            f=$(bspc query -D -d focused --names | grep "$i" )
+            if [ $f ]; then
+                echo -n "(button :onclick 'bspc desktop -f $i' :class 'work_focus' '') "
+            else
+                echo -n "(button :onclick 'bspc desktop -f $i' :class 'work_unfocus' '') "
+            fi
+        done
+        # for the new unoccupied desktop
+        f=$(bspc query -D -d focused --names | grep "$((occupied_desktops+1))" )
+        if [ $f ]; then
+            echo -n "(button :onclick 'bspc desktop -f $((occupied_desktops+1))' :class 'work_focus' '') "
+        else
+            echo -n "(button :onclick 'bspc desktop -f $((occupied_desktops+1))' :class 'work_unoccupied' '') "
+        fi
+        echo "))"
+
+    done;
+
 }
 
 workspaces
-bspc subscribe desktop_focus node_add node_remove 2> /dev/null | while read line; do
+bspc subscribe desktop_focus node_add node_remove node_transfer 2> /dev/null | while read line; do
     workspaces
 done

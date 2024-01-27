@@ -128,23 +128,22 @@ scale trough {
     margin: 5px 0px 0px 5px;
 }
 
-.0 , .01, .02, .03, .04, .05, .06,
-.011, .022, .033, .044, .055, .066{
+.work_focus, .work_unfocus, .work_unoccupied {
     margin: 0px 10px 0px 0px;
 }
 
 /* Unoccupied */
-.0 {
+.work_unoccupied {
     color: #3e424f;
 }
 
 /* Occupied */
-.01, .02, .03, .04, .05, .06 {
+.work_unfocus {
     color: #7aa2f7;
 }
 
 /* Focused */
-.011, .022, .033, .044, .055, .066 {
+.work_focus {
     color: #f6c177;
 }
 
