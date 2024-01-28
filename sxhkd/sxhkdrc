@@ -84,10 +84,13 @@ super + ctrl + {m,x,y,z}
 #
 # focus/swap
 #
- 
+
 # focus/swap the node in the given direction
 super + {_,shift + }{h,j,k,l}
-    bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+    bspc node -f {next,prev}.local.!hidden.window bspc node -{f,s} {west,south,north,east}
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -166,10 +169,13 @@ super + Print
 shift + Print
     ~/dotfiles/scripts/sshot -m full
 
-# send win to next or prev desktop & focus it
+# send win to next or prev desktop
+alt + ctrl + { Right,Left }
+    bspc node -d {next.local,prev.local}
+
+# send win to next or prev desktop and focus on it
 alt + ctrl + shift + { Right,Left }
-    DIR={next.local,prev.local}; \
-    bspc node -d "$DIR" --follow
+    bspc node -d {next.local,prev.local} --follow
 
 # open app fast
 super + alt + {b, f, t, s, m, M, a, g}
