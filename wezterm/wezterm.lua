@@ -25,7 +25,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
     window:set_config_overrides(overrides)
 end)
 
-local color_scheme = "Nightfox"
+local color_scheme = "Everforest"
 
 return {
     font = wezterm.font_with_fallback({
