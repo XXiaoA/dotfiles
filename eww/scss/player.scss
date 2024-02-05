@@ -1,26 +1,26 @@
 .player_box {
-    background-color: #1b1a27;
+    background-color: $bg;
     border-radius: 16px;
 }
 .player_cover_art {
     background-size: cover;
     background-position: center;
     min-height: 100px;
-    box-shadow: 5px 5px 5px 5px #06060b;
+    box-shadow: 5px 5px 5px 5px $shadow;
     min-width: 170px;
     margin: 20px;
     border-radius: 20px;
 }
 
 .player_title {
-    color: #cecacd;
+    color: $text;
     font-size : 20px;
     font-weight : bold;
     margin : 20px 0px 0px -15px;
 }
 
 .player_artist {
-    color: #dfdad9;
+    color: $text2;
     font-size : 16px;
     font-weight : normal;
     margin : 0px 0px 0px 0px;
@@ -30,19 +30,19 @@
     font-family: "Maple Mono SC NF";
 }
 .player_btn_prev {
-    color: #dfdad9;
+    color: $text2;
     font-size : 32px;
     font-weight : normal;
     margin: 0px 0px 0px 0px;
 }
 .player_btn_play {
-    color: #cecacd;
+    color: $text;
     font-size : 48px;
     font-weight : normal;
     margin: 0px 0px 0px 0px;
 }
 .player_btn_next {
-    color: #dfdad9;
+    color: $text2;
     font-size : 32px;
     font-weight : normal;
     margin: 0px 0px 0px 0px;
@@ -50,13 +50,13 @@
 
 .player_seek_bar scale trough highlight {
     all: unset;
-    background-image: linear-gradient(to right, #f4cde8 30%, #debdd9 50%, #d2acd9 100% *50);
+    background-image: linear-gradient(to right, $player_bar1 30%, $player_bar2 50%, $player_bar3 100% *50);
     border-radius: 24px;
 }
 .player_seek_bar scale trough {
     all: unset;
-    background-color: #232232;
-    box-shadow: 0 6px 5px 2px #06060b;
+    background-color: $bg2;
+    box-shadow: 0 6px 5px 2px $shadow;
     border-radius: 24px;
     min-height: 13px;
     min-width: 190px;

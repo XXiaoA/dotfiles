@@ -5,7 +5,7 @@
 
 /** General **/
 .bar_class {
-    background-color: #1b1a27;
+    background-color: $bg;
     border-radius: 16px;
 }
 .module {
@@ -15,10 +15,10 @@
 
 /** tooltip!! **/
 tooltip.background {
-    background-color: #1b1a27;
+    background-color: $bg;
     font-size: 18;
     border-radius: 10px;
-    color: #cecacd;
+    color: $text;
 }
 
 tooltip label {
@@ -30,7 +30,7 @@ tooltip label {
 
 .clock_time_sep {
     font-size: 16;
-    color: #bfc9db;
+    color: $color1;
     margin: 0px 4px 1px 4px;
 }
 .clock_time_class, .clock_minute_class {
@@ -39,45 +39,45 @@ tooltip label {
 .clock_date_class {
     font-size: 18;
     margin: 0px 20px 0px -1px;
-    color: #d7beda;
+    color: $color2;
 }
 .clock_minute_class {
     margin: 0px 20px 0px 3px;
-    color: #bfc9db;
+    color: $color1;
 }
 
 .clock_time_class {
-    color: #bfc9db;
+    color: $color1;
     font-weight: bold;
     margin: 0px 5px 0px 0px;
 }
 
 
 .membar {
-    color: #e0b089;
-    background-color: #38384d;
+    color: $muted_orange;
+    background-color: $grey;
     border-radius: 10px;
 }
 .volbar trough highlight {
-    background-image: linear-gradient(to right, #c4a7e7 30%, #c4a7e7 50%, #907aa9 100% *50);
+    background-image: linear-gradient(to right, $volbar1 30%, $volbar2 50%, $volbar3 100% *50);
     border-radius: 10px;
 }
 .volume_icon {
     font-size: 22;
-    color: #c4a7e7;
+    color: $volume_icon;
     margin: 0px 10px 0px 10px;
 }
 
 .tray_icon {
     font-size: 22;
-    color: rgba(#a1bdce, 0.85);
+    color: rgba($teal, 0.85);
     margin: 0px 10px 0px 10px;
 }
 
 
 .ssid_text {
     font-size: 18;
-    color: #cecacd;
+    color: $text;
     margin: 0px 10px 0px 0px;
 }
 .wifi_icon, .wifi_off_icon {
@@ -86,27 +86,27 @@ tooltip label {
     margin: 0px 10px 0px 5px;
 }
 .wifi_icon {
-    color: #7dc5a0;
+    color: $wifi_icon;
 }
 .wifi_off_icon {
-    color: #575268;
+    color: $wifi_off_icon;
 }
 
 .iconmem {
-    color: #e0b089;
+    color: $muted_orange;
     font-size: 15;
     margin: 10px;
 }
 
 .separ {
-    color: #3e424f;
+    color: $grey2;
     font-weight: bold;
     font-size: 22px;
     margin: 0px 8px 0px 8px;
 }
 
 .mem_module {
-    background-color: #1b1a27;
+    background-color: $bg;
     border-radius: 16px;
     margin: 0px 10px 0px 3px;
 }
@@ -114,8 +114,8 @@ tooltip label {
 
 scale trough {
     all: unset;
-    background-color: #22242b;
-    box-shadow: 0 2px 3px 2px #06060b;
+    background-color: $bg3;
+    box-shadow: 0 2px 3px 2px $shadow;
     border-radius: 16px;
     min-height: 10px;
     min-width: 70px;
@@ -134,21 +134,21 @@ scale trough {
 
 /* Unoccupied */
 .work_unoccupied {
-    color: #3e424f;
+    color: $grey2;
 }
 
 /* Occupied */
 .work_unfocus {
-    color: #7aa2f7;
+    color: $blue;
 }
 
 /* Focused */
 .work_focus {
-    color: #f6c177;
+    color: $work_focus;
 }
 
 .powermenu_botton {
-    color: #eb6f92;
+    color: $powermenu_icon;
     font-size : 18px;
     font-weight : bold;
     margin: 2px 0px 0px 25px;
@@ -165,14 +165,14 @@ scale trough {
 }
 
 .song {
-    color: #cecacd;
+    color: $text;
     font-size : 18px;
     font-weight : bold;
     margin : 3px 5px 0px 0px;
 }
 
 .song_btn_play {
-    color: #dfdad9;
+    color: $text2;
     font-size : 32px;
     margin : 3px 0px 0px 5px;
 
@@ -180,21 +180,21 @@ scale trough {
 
 
 .song_btn_prev, .song_btn_next {
-    color: #f4ede8;
+    color: $song_btn;
     font-size : 24px;
     margin : 3px 0px 0px 5px;
 
 }
 // Calendar
 .cal {
-    background-color: #1b1a27;
+    background-color: $bg;
     font-family: Maple Mono SC NF;
     font-size: 18px;
     font-weight: normal;
 
     .cal-in {
         padding: 0px 10px 0px 10px;
-        color: #bfc9db;
+        color: $color1;
 
         .cal {
             &.highlight {
@@ -208,39 +208,39 @@ scale trough {
 }
 
 calender {
-    color: #bfc9db;
+    color: $color1;
 }
 calendar:selected {
-    color: #7aa2f7;
+    color: $blue;
 }
 
 calendar.header {
-    color: #a1bdce;
+    color: $teal;
     font-weight: bold;
 }
 
 calendar.button {
-    color: #afbea2;
+    color: $calendar_btn;
 }
 
 calendar.highlight {
-    color: #a1bdce;
+    color: $teal;
     font-weight: bold;
 }
 
 calendar:indeterminate {
-    color: #bfc9db;
+    color: $color1;
 }
 
 
 .sys_sep {
-    color: #38384d;
+    color: $grey;
     font-size: 18;
     margin: 0px 10px 0px 10px;
 }
 .sys_text_mem_sub {
     font-size: 16;
-    color: #bbc5d7;
+    color: $text;
     margin: 5px 0px 0px 25px;
 }
 .sys_text_mem {
@@ -253,15 +253,15 @@ calendar:indeterminate {
     margin: 30px;
 }
 .sys_win {
-    background-color: #1b1a27;
+    background-color: $bg;
 }
 .sys_mem {
-    color: #e4c9af;
-    background-color: #38384d;
+    color: $system_info;
+    background-color: $grey;
     border-radius: 10px;
 }
 .sys_icon_mem, .sys_text_mem {
-    color: #e4c9af;
+    color: $system_info;
 }
 .sys_mem_box {
     border-radius: 16px;
