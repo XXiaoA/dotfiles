@@ -27,7 +27,7 @@ bspc rule -a SimpleScreenRecorder state=floating
 bspc rule -a guvcview state=floating rectangle=480x270+1440+810 sticky=on layer=above
 
 
-feh --bg-fill "$HOME/Pictures/wallpaper/46.png"
+~/.fehbg
 # feh --randomize --bg-fill ~/Pictures/wallpaper/*
 xsetroot -cursor_name left_ptr
 keymapper &
