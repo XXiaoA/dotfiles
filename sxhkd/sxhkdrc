@@ -14,6 +14,9 @@ super + shift + Return
 super + @space
     rofi -modes "drun,window,run" -show drun
 
+alt + @space
+    rofi -show window
+
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd && dunstify "sxhkd" "Reloaded successfully"
