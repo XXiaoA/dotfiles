@@ -185,7 +185,7 @@ alt + ctrl + shift + { Right,Left }
     bspc node -d {next.local,prev.local} --follow
 
 # open app fast
-super + alt + {b, f, t, s, m, M, a, g}
+super + alt + {b, f, t, s, m, M, a, g, p}
     { bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- btop, \
       firefox, \
       telegram-desktop, \
@@ -193,7 +193,8 @@ super + alt + {b, f, t, s, m, M, a, g}
       ~/dotfiles/rofi/mpd/mpd, \
       bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- "ncmpcpp", \
       ~/dotfiles/scripts/showkey, \
-      gromit-mpx &
+      gromit-mpx &, \
+      mpv --player-operation-mode=pseudo-gui
     }
 
 # move the floating focused window to center
