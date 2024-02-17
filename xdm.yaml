@@ -63,3 +63,5 @@ link:
   ./yt-dlp/yt-dlp.conf: ~/.config/yt-dlp/config
 
   ./gromoit-mpx/gromit-mpx.cfg: ~/.config/gromit-mpx.cfg
+
+  ./mpv/: ~/.config/mpv

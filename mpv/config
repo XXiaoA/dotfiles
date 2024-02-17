@@ -1,0 +1,11 @@
+[default]
+http-proxy=http://localhost:7890
+ytdl-raw-options-append=proxy=http://localhost:7890
+
+[twitch-live]
+profile-desc = twitch live videos
+profile-cond = path:match("https://www.twitch.tv/")~=nil
+profile-restore = copy
+ytdl-format = 1080p__source_
+
+# vim: se ft=dosini:
