@@ -2,6 +2,15 @@
 http-proxy=http://localhost:7890
 ytdl-raw-options-append=proxy=http://localhost:7890
 
+osc=no
+
+[Idle]
+profile-cond=p["idle-active"]
+profile-restore=copy-equal
+title=' '
+keepaspect=no
+background=0
+
 [twitch-live]
 profile-desc = twitch live videos
 profile-cond = path:match("https://www.twitch.tv/")~=nil
