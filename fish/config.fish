@@ -2,7 +2,7 @@ set fish_greeting ""
 
 export XDG_CONFIG_HOME=$HOME/.config
 
-set MANPAGER 'nvim +Man!'
+export MANPAGER='nvim +Man!'
 
 # editor
 export EDITOR="nvim"
