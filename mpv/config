@@ -1,19 +1,19 @@
 [default]
-http-proxy=http://localhost:7890
-ytdl-raw-options-append=proxy=http://localhost:7890
-
-ytdl-raw-options-append=yes-playlist=
+http-proxy = http://localhost:7890
+ytdl-raw-options = proxy=http://localhost:7890,yes-playlist=
 # mpv will by default pass "bestvideo+bestaudio/best", which selects h264 over vp9 because of its larger size
-ytdl-format=(bestvideo[height<=3840][vcodec^=vp]/bestvideo[height<=3840])+bestaudio/(best[height<=3840][vcodec^=vp]/best[height<=3840])
+ytdl-format = (bestvideo[height<=3840][vcodec^=vp]/bestvideo[height<=3840])+bestaudio/(best[height<=3840][vcodec^=vp]/best[height<=3840])
 
-osc=no
+script-opts = ytdl_hook-ytdl_path=yt-dlp
+
+osc = no
 
 [Idle]
-profile-cond=p["idle-active"]
-profile-restore=copy-equal
-title=' '
-keepaspect=no
-background=0
+profile-cond = p["idle-active"]
+profile-restore = copy-equal
+title = ' '
+keepaspect = no
+background = 0
 
 [twitch-live]
 profile-desc = twitch live videos
@@ -26,6 +26,6 @@ profile-desc = Bilibili videos
 profile-cond = path:match("https://www.bilibili.com")~=nil or path:match("https://bilibili.com")~=nil
 profile-restore = copy
 referrer = https://www.bilibili.com/
-ytdl-raw-options = cookies-from-browser=firefox
+ytdl-raw-options = sub-langs="all,-danmaku"
 
-# vim: se ft=dosini:
+# vim: ft=dosini commentstring=#%s
