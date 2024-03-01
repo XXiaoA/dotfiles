@@ -8,7 +8,12 @@ consequences=$4
 # dunstify "$wid $class $instance"
 
 case $class in
-    eudic|TelegramDesktop|steam)
+    eudic)
+        total_desktops=$(bspc query -D | wc -l)
+        echo "desktop=^$total_desktops follow=on"
+        ;;
+    TelegramDesktop|steam)
         total_desktops=$(bspc query -D | wc -l)
         echo "desktop=^$total_desktops"
+        ;;
 esac
