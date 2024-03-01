@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+wid=$1
+class=$2
+instance=$3
+consequences=$4
+
+# dunstify "$wid $class $instance"
+
+case $class in
+    eudic|TelegramDesktop|steam)
+        total_desktops=$(bspc query -D | wc -l)
+        echo "desktop=^$total_desktops"
+esac
