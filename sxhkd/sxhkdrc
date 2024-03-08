@@ -176,8 +176,12 @@ alt + ctrl + { Right,Left }
 alt + ctrl + shift + { Right,Left }
     bspc node -d {next.local,prev.local} --follow
 
+F9
+    gromit-mpx &
+
+
 # open app fast
-super + alt + {b, f, t, s, m, M, a, g, p}
+super + alt + {b, f, t, s, m, M, a, p}
     { bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- btop, \
       firefox, \
       telegram-desktop, \
@@ -185,7 +189,6 @@ super + alt + {b, f, t, s, m, M, a, g, p}
       ~/dotfiles/rofi/mpd/mpd, \
       bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- "ncmpcpp", \
       ~/dotfiles/scripts/showkey, \
-      gromit-mpx &, \
       mpv --player-operation-mode=pseudo-gui
     }
 
