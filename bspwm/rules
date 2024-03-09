@@ -8,12 +8,14 @@ consequences=$4
 # dunstify "$wid $class $instance"
 
 case $class in
-    eudic)
+    eudic|steam)
         total_desktops=$(bspc query -D | wc -l)
         echo "desktop=^$total_desktops follow=on"
         ;;
-    TelegramDesktop|steam)
-        total_desktops=$(bspc query -D | wc -l)
-        echo "desktop=^$total_desktops"
-        ;;
+    TelegramDesktop)
+        title=`xtitle $wid`
+        if [[ "$title" != "Media viewer" ]] && [[ "$title" != "Choose Files" ]]; then
+            total_desktops=$(bspc query -D | wc -l)
+            echo "desktop=^$total_desktops follow=on"
+        fi
 esac
