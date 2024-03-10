@@ -16,7 +16,6 @@ bspc subscribe node_state node_remove| while read -r event _ _ node_id state fla
         class_name=$(bspc query -T -n | rg -o 'className":"(.*?)",' | sed 's/className":"//;s/",//')
         if [ "$class_name" == "TelegramDesktop" ]; then
             eww open bar
-            echo "TG"
         fi
     elif [ "$event" == "node_state" ]; then
         if [ "$state" != "fullscreen" ]; then
