@@ -8,7 +8,7 @@ fish_color_end E69875
 fish_color_error E67E80
 fish_color_param 7FBBB3
 fish_color_comment 859289
-fish_color_selection --background=A7C080
+fish_color_selection --background=4c3743
 fish_color_search_match --background=543A48
 fish_color_operator A7C080
 fish_color_escape D699B6
