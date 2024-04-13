@@ -116,6 +116,7 @@
         :onhoverlost "eww update music_reveal=false"
         :cursor "pointer"
         :onclick "eww open-many --toggle player"
+        :onrightclick "bspc rule -a org.wezfurlong.wezterm -o state=floating follow=on center=true && wezterm start -- 'ncmpcpp'"
     (box :class "module-2" :orientation "h" :space-evenly false :vexpand false :hexpand false
      (box :class "song_cover_art" :vexpand false :hexpand false :style "background-image: url('${cover_art}');")
      (label :class "song" :wrap true :text song)
