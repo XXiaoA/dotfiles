@@ -163,7 +163,7 @@
                         :height "35px"
                         :anchor "top center")
     :stacking "bg"
-    :windowtype "dock"
+    :windowtype "desktop"
     (box :class "bar_class" :orientation "h"
      (left)
      (center)

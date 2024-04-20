@@ -38,5 +38,3 @@ udiskie &
 eww daemon
 rm /tmp/eww_bar.lock
 ~/dotfiles/eww/toggle_bar
-
-~/dotfiles/scripts/fullscreen &
