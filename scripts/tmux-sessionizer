@@ -4,7 +4,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     # selected=$(find ~/Workspace/ -mindepth 1 -maxdepth 1 -type d | fzf)
-    selected=$(fd --type d --max-depth 1 . ~/Workspace/ | fzf)
+    selected=$( { echo "$HOME/dotfiles/"; fd --type d --max-depth 1 . ~/Workspace/; } | fzf )
 fi
 
 if [[ -z $selected ]]; then
