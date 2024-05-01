@@ -4,6 +4,7 @@
     name = XXiaoA
 
 [core]
+    pager = delta
     editor = nvim
 
 [init]
@@ -28,7 +29,7 @@
     s = status -s
 
     # Show the diff between the latest commit and the current state.
-    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+    d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
 
     dt = difftool
 
@@ -94,11 +95,22 @@
     unstaged = restore --staged
 
 [diff]
-    external = difft
+    ; external = difft
     tool = nvimdiff
+    colorMoved = default
 
 [difftool]
     prompt = false
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    true-color = always
+
+[merge]
+    conflictstyle = diff3
 
 [push]
     autoSetupRemote = true
