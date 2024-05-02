@@ -108,8 +108,20 @@ super + {Tab,grave}
     bspc {node,desktop} -f last.local
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-    bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-9}
+    bspc {desktop -f,node -d} '^{1-9}'
+
+# send the node to the newest desktop
+super + shift + 0
+    bspc node -d $(bspc query -D | wc -l)
+
+# focus the newest/last desktop
+super + 0
+    if [ "$(bspc query -D -d focused --names)" = "$(bspc query -D | wc -l)" ]; then \
+        bspc desktop -f last.local; \
+    else \
+        bspc desktop -f $(bspc query -D | wc -l); \
+    fi
 
 #
 # preselect/receptacle
