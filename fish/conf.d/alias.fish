@@ -34,6 +34,10 @@ else
     alias lsa 'ls -lah'
 end
 
+if command -sq zoxide
+    alias cd z
+end
+
 # tmux
 alias tt "tmux a || tmux new -c"
 alias ta "tmux a"
