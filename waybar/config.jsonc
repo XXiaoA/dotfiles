@@ -1,0 +1,177 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": [
+        "custom/powermenu",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        // "hyprland/window",
+        "temperature",
+        "cpu",
+        "memory"
+    ],
+    "modules-right": [
+        "battery",
+        "backlight",
+        "wireplumber",
+        "network",
+        "tray",
+        "clock"
+    ],
+
+    // left modules
+    "custom/powermenu": {
+        "format": "󰣇",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "poweroff",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
+    },
+    "hyprland/workspaces": {
+        "format": "{id} {windows} ",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "wechat": "<span color='#7BC142'></span>",
+            "title<.*youtube.*>": "<span color='#f38ba8'></span>",
+            "title<.*github.*>": "<span color='black'></span>",
+            "class<firefox>": "<span color='#eba0ac'></span>",
+            "class<spotify>": "<span color='#a6e3a1'></span>",
+            "class<discord>": "<span color='#b4befe'></span>",
+            "class<vesktop>": "<span color='#b4befe'></span>",
+            "kitty": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+            "telegram-desktop": "<span color='#74c7ec'></span>",
+            "telegram": "<span color='#74c7ec'></span>",
+            "title<.* - (.*) - VSCodium>": "codium $1",
+            "class<kitty> title<.*nvim.*>": "<span color='#2686d3'></span>",
+            "class<kitty> title<.*vim.*>": "<span color='#019833'></span>",
+        },
+    },
+    // center modules
+    "temperature": {
+        "format": " <span color='#cdd6f4'>{temperatureC}°C</span>"
+    },
+    "memory": {
+        "interval": 10,
+        "format": "  <span color='#cdd6f4'>{used:0.2f}GiB</span>",
+        "max-length": 10,
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "  <span color='#cdd6f4'>{usage:>2}%</span>",
+    },
+    // right modules
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "<span color='#f38ba8'></span> ",
+                "<span color='#f38ba8'></span> ",
+                "<span color='#f9e2af'></span> ",
+                "<span color='#a6e3a1'></span> ",
+                "<span color='#a6e3a1'></span> "
+            ]
+        },
+        "max-length": 25,
+        "tooltip": true
+    },
+    "backlight": {
+        "format": "{icon}  {percent}%",
+        "format-icons": [
+            "<span color='#f5e0dc'>󰃞</span>",
+            "<span color='#f5c2e7'>󰃟</span>",
+            "<span color='#cba6f7'>󰃠</span>"
+        ],
+        "tooltip": false
+    },
+    "wireplumber": {
+        "format": "{icon}  <span color='#cdd6f4'>{volume}%</span>",
+        "format-muted": "",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5
+    },
+    "wireplumber#sink": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "on-click": "helvum",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "{volume}% ",
+        "format-muted": "",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 5
+    },
+    "clock": {
+        "format": "  {:%H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 4,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#b4befe'><b>{}</b></span>", // lavender
+                "days": "<span color='#cdd6f4'><b>{}</b></span>", // text
+                "weeks": "<span color='#a6e3a1'><b>W{}</b></span>", // green
+                "weekdays": "<span color='#cba6f7'><b>{}</b></span>", // mauve
+                "today": "<span color='#74c7ec'><b><u>{}</u></b></span>" // sapphire
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "network": {
+        "interval": 10,
+        "format-wifi": " ",
+        "format-ethernet": " ",
+        "format-disconnected": " ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} "
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10,
+        "icons": {}
+    }
+}

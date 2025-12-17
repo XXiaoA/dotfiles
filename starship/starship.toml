@@ -34,7 +34,8 @@ disabled = true
 disabled = true
 
 [python]
-disabled = true
+disabled = false
+symbol = " "
 
 [lua]
 disabled = true

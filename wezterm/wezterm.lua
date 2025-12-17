@@ -38,6 +38,7 @@ wezterm.on("update-right-status", function(window, pane)
 end)
 
 config = {
+    enable_wayland = true,
     font = wezterm.font_with_fallback({
         {
             family = "Maple Mono",
@@ -51,7 +52,7 @@ config = {
             },
         },
         { family = "Symbols Nerd Font Mono", scale = 0.80 },
-        "Maple Mono SC NF", -- for Chinese
+        "Maple Mono NF CN", -- for Chinese
         "Noto Color Emoji",
         "JetBrains Mono",
 
@@ -61,7 +62,7 @@ config = {
         "MesloLGSDZ Nerd Font Mono",
         "feather",
     }),
-    font_size = 13.5,
+    font_size = 23.5,
     allow_square_glyphs_to_overflow_width = "Never",
 
     color_scheme = color_scheme,

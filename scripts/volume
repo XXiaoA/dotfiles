@@ -1,0 +1,49 @@
+#!/bin/bash
+
+DIR="$HOME/dotfiles/dunst/icons"
+
+function get_volume() {
+    pactl get-sink-volume @DEFAULT_SINK@ \
+        | awk '{print $5}' \
+        | sed 's/%//'
+}
+
+function is_mute() {
+    pactl get-sink-mute @DEFAULT_SINK@ \
+        | grep -q "yes"
+}
+
+function send_notification() {
+    volume=$(get_volume)
+    if is_mute; then
+        icon_name="$DIR/notification-audio-volume-muted.svg"
+        notify-send -i "$icon_name" -t 1000 -r 70707 -u low --hint string:synchronous:audio-volume "Muted"
+    # fi
+    else
+        if [ "$volume" = "0" ]; then
+        icon_name="$DIR/notification-audio-volume-muted.svg"
+        elif [ "$volume" -lt "30" ]; then
+            icon_name="$DIR/notification-audio-volume-low.svg"
+        elif [ "$volume" -lt "70" ]; then
+            icon_name="$DIR/notification-audio-volume-medium.svg"
+        else
+            icon_name="$DIR/notification-audio-volume-high.svg"
+        fi
+        notify-send -i "$icon_name" -t 1000 -r 70707 -u low --hint int:value:"$volume" "Volume" "${volume}%"
+    fi
+}
+
+case $1 in
+    up)
+        pactl set-sink-mute @DEFAULT_SINK@ 0
+        pactl set-sink-volume @DEFAULT_SINK@ +5%
+        ;;
+    down)
+        pactl set-sink-mute @DEFAULT_SINK@ 0
+        pactl set-sink-volume @DEFAULT_SINK@ -5%
+        ;;
+    mute)
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
+        ;;
+esac
+send_notification

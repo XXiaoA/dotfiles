@@ -27,8 +27,6 @@ set expandtab
 set softtabstop=4
 " 光标所在的当前行高亮
 set cursorline
-" 粘贴模式
-set pastetoggle=<F9>
 " 垂直滚动时，光标距离顶部/底部的位置
 set scrolloff=7
 " 水平滚动时，光标距离行首或行尾的位置
@@ -78,15 +76,10 @@ imap jj <ESC>
 " save and quit the vim
 imap <C-s> :w<cr>
 imap <C-q> :qall<cr>
-nmap W :w<cr>
-nmap Q :qall<cr>
 
 " windows
-nmap sc <C-w>c
-nmap so <C-w>o
-nmap sv <C-w>v
-nmap sh <C-w>s
-nmap s= <C-w>=
+nmap <C-w>\ <C-w>v
+nmap <C-w>- <C-w>s
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 nmap <C-j> <C-w>j
@@ -110,10 +103,8 @@ let maplocalleader="\<space>"
 
 nmap <leader>sp :<C-U>set spell!<CR>
 
-" Autoindentation
-nmap <leader>i gg=G
 " no highlight
-nmap <leader>be :noh<cr>
+nmap <ESC>be :noh<cr>
 "}}}
 
 " autocmd{{{

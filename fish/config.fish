@@ -8,12 +8,14 @@ export MANPAGER='nvim +Man!'
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# fcitx5
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export SDL_IM_MODULE=fcitx
-export GLFW_IM_MODULE=ibus
+# fcitx5 (don't need for wayland)
+if test "$XDG_SESSION_TYPE" = x11
+    set -x GTK_IM_MODULE fcitx
+    set -x QT_IM_MODULE fcitx
+    set -x XMODIFIERS @im=fcitx
+    set -x SDL_IM_MODULE fcitx
+    set -x GLFW_IM_MODULE ibus
+end
 
 # Clash
 export http_proxy=http://127.0.0.1:7890

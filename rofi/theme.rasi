@@ -12,9 +12,9 @@
     background:     #2a273f;
     background-alt: #393552;
     foreground:     #e0def4;
-    selected:       #3e8fb0;
+    selected:       #89b4fa;
 
-    font: "Maple Mono SC NF 12";
+    font: "Maple Mono NF CN 12";
 }
 
 /*****----- Main Window -----*****/
@@ -31,7 +31,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               12px;
+    border-radius:               0px;
     border-color:                @selected;
     background-color:            @background;
     cursor:                      "default";

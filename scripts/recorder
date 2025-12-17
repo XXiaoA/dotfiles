@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+OUTPUT_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
+mkdir -p "$OUTPUT_DIR"
+
+running() {
+    pgrep -x wf-recorder >/dev/null
+}
+
+if running; then
+    pkill -SIGINT -x wf-recorder
+    notify-send -u normal "Screen Recording" "Recording stopped"
+else
+    choice=$(printf "Full Screen\nSelect Area\n" | rofi -dmenu -p "wf-recorder")
+    [[ -z $choice ]] && exit 0  # user canceled
+
+    TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+    OUTPUT_FILE="$OUTPUT_DIR/Recording_$TIMESTAMP.mkv"
+
+    case $choice in
+        "Full Screen")
+            exec wf-recorder -f "$OUTPUT_FILE"
+            ;;
+        "Select Area")
+            GEOM="$(slurp)" || { notify-send -u critical "Screen Recording" "❌ Selection canceled"; exit 1; }
+            exec wf-recorder -f "$OUTPUT_FILE" -g "$GEOM"
+            ;;
+    esac
+fi

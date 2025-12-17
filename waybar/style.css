@@ -1,0 +1,159 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color base-opacity rgba(30, 30, 46, 0.8);
+
+/* Global styles */
+* {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+#waybar {
+  border: none;
+  margin-top: 3px;
+  background-color: @base;
+  color: @text;
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+#custom-powermenu,
+#workspaces,
+#temperature,
+#cpu,
+#memory,
+#battery,
+#backlight,
+#wireplumber,
+#clock,
+#network,
+#tray {
+  margin: 5px 4px;
+  padding: 0px 5px;
+}
+
+/* Custom powermenu (left)*/
+#custom-powermenu {
+  color: @blue;
+  font-size: 18px;
+  margin-left: 5px;
+  padding: 0px 11px 0px 8px;
+}
+
+/* Workspaces */
+#workspaces {
+  padding: 0px 8px;
+  background-color: @surface0;
+  border-radius: 12px;
+}
+
+#workspaces button {
+  color: @overlay0;
+  margin: 0px 2px;
+  padding: 0px 4px;
+  border-radius: 0px;
+  border-bottom: 2px solid transparent;
+}
+
+#workspaces button.active {
+  color: @rosewater;
+  border-bottom: 2px solid @surface2;
+}
+
+#temperature {
+  color: @sapphire;
+}
+
+#cpu {
+  color: @yellow;
+}
+
+#memory {
+  color: @peach;
+}
+
+#wireplumber {
+  color: @pink;
+}
+
+#network {
+  color: @blue;
+}
+
+#network.wifi {
+  color: @sky;
+}
+
+#network.ethernet {
+  color: @blue;
+}
+
+#network.disconnected {
+  color: @maroon;
+}
+
+#network.disabled {
+  color: @surface0;
+}
+
+/* Clock & Window */
+#clock {
+  color: @overlay0;
+  background-color: @surface0;
+  padding: 0px 10px;
+  border-radius: 12px;
+}
+
+#clock:hover {
+  background-color: @surface1;
+}
+
+/* Backlight */
+#backlight {
+}
+
+#custom-powermenu:hover,
+#temperature:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#backlight:hover,
+#wireplumber:hover,
+#network:hover,
+#tray:hover {
+  background: @surface0;
+  border-radius: 12px;
+}
+
+tooltip {
+  background-color: @base-opacity;
+  color: @text;
+  border: 2px solid @lavender;
+  font-size: 13px;
+  padding: 10px;
+  border-radius: 0px;
+}

@@ -1,7 +1,7 @@
 configuration {
     show-icons: true;
     icon-theme: "Papirus";
-    terminal: "wezterm start";
+    terminal: "kitty";
     drun-display-format:        "{name}";
     disable-history: false;
     hide-scrollbar: true;

@@ -20,12 +20,12 @@
     frame_color = "#21202e"
     separator_color = frame
     sort = yes
-    font = Maple Mono NF 13
+    font = Maple Mono NF CN 13
     line_height = 4
     markup = full
     # default
     # format = "<b>%a</b>: %s\n%b"
-    format = "<span size='110%' font_desc='Maple Mono NF' weight='600'>%s</span>\n%b"
+    format = "<span size='110%' font_desc='Maple Mono NF CN' weight='600'>%s</span>\n%b"
     alignment = center
     vertical_alignment = center
     show_age_threshold = 60
