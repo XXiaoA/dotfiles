@@ -4,26 +4,56 @@ OUTPUT_DIR="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 mkdir -p "$OUTPUT_DIR"
 
 running() {
-    pgrep -x wf-recorder >/dev/null
+    pgrep -f 'gpu-screen-recorder' >/dev/null
+}
+
+get_mic() {
+    pactl get-default-source
+}
+
+get_system_audio() {
+    pactl get-default-sink
+}
+
+build_audio_args() {
+    local choice="$1"
+    case $choice in
+        "󰍬 Microphone")
+            echo "-a $(get_mic)"
+            ;;
+        "󰓃 System Audio")
+            echo "-a $(get_system_audio).monitor"
+            ;;
+        "󰓃󰍬 System + Mic")
+            echo "-a $(get_mic) -a $(get_system_audio).monitor"
+            ;;
+        *)
+            echo ""
+            ;;
+    esac
 }
 
 if running; then
-    pkill -SIGINT -x wf-recorder
+    pkill -SIGINT -f 'gpu-screen-recorder'
     notify-send -u normal "Screen Recording" "Recording stopped"
 else
-    choice=$(printf "Full Screen\nSelect Area\n" | rofi -dmenu -p "wf-recorder")
-    [[ -z $choice ]] && exit 0  # user canceled
+    choice=$(printf "󰍹 Full Screen\n󰒆 Select Area\n" | rofi -dmenu -p "Record")
+    [[ -z $choice ]] && exit 0
 
+    audio_choice=$(printf "󰖁 No Audio\n󰍬 Microphone\n󰓃 System Audio\n󰓃󰍬 System + Mic\n" | rofi -dmenu -p "Audio")
+    [[ -z $audio_choice ]] && exit 0
+
+    AUDIO_ARGS=$(build_audio_args "$audio_choice")
     TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
-    OUTPUT_FILE="$OUTPUT_DIR/Recording_$TIMESTAMP.mkv"
+    OUTPUT_FILE="$OUTPUT_DIR/Recording_$TIMESTAMP.mp4"
 
     case $choice in
-        "Full Screen")
-            exec wf-recorder -f "$OUTPUT_FILE"
+        "󰍹 Full Screen")
+            exec gpu-screen-recorder -w screen -f 60 -q high $AUDIO_ARGS -o "$OUTPUT_FILE"
             ;;
-        "Select Area")
-            GEOM="$(slurp)" || { notify-send -u critical "Screen Recording" "❌ Selection canceled"; exit 1; }
-            exec wf-recorder -f "$OUTPUT_FILE" -g "$GEOM"
+        "󰒆 Select Area")
+            GEOM="$(slurp -f "%wx%h+%x+%y")" || { notify-send -u critical "Screen Recording" "Selection canceled"; exit 1; }
+            exec gpu-screen-recorder -w region -region "$GEOM" -f 60 -q high $AUDIO_ARGS -o "$OUTPUT_FILE"
             ;;
     esac
 fi

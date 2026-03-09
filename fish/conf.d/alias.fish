@@ -50,3 +50,7 @@ alias color_test "curl https://gist.githubusercontent.com/lilydjwg/fdeaf79e921c2
 
 # usage: command | clip
 alias clip 'curl -F "c @-" "https://fars.ee/?u=1"'
+
+if command -sq kitten
+    alias icat 'kitten icat'
+end
