@@ -1,0 +1,29 @@
+# This file was created by fish when upgrading to version 4.3, to migrate
+# theme variables from universal to global scope.
+# Don't edit this file, as it will be written by the web-config tool (`fish_config`).
+# To customize your theme, delete this file and see
+#     help interactive#syntax-highlighting
+# or
+#     man fish-interactive | less +/^SYNTAX.HIGHLIGHTING
+# for appropriate commands to add to ~/.config/fish/config.fish instead.
+# See also the release notes for fish 4.3.0 (run `help relnotes`).
+
+set --global fish_color_autosuggestion 859289
+set --global fish_color_command A7C080
+set --global fish_color_comment 859289
+set --global fish_color_end E69875
+set --global fish_color_error E67E80
+set --global fish_color_escape D699B6
+set --global fish_color_keyword D699B6
+set --global fish_color_normal 7A8478
+set --global fish_color_operator A7C080
+set --global fish_color_param 7FBBB3
+set --global fish_color_quote DBBC7F
+set --global fish_color_redirection 7A8478
+set --global fish_color_search_match --background=543A48
+set --global fish_color_selection --background=4c3743
+set --global fish_pager_color_completion D3C6AA
+set --global fish_pager_color_description 859289
+set --global fish_pager_color_prefix 7FBBB3
+set --global fish_pager_color_progress 859289
+set --global fish_pager_color_selected_background --background=A7C080

@@ -43,17 +43,27 @@ else
     audio_choice=$(printf "󰖁 No Audio\n󰍬 Microphone\n󰓃 System Audio\n󰓃󰍬 System + Mic\n" | rofi -dmenu -p "Audio")
     [[ -z $audio_choice ]] && exit 0
 
+    quality_choice=$(printf " Ultra\n High\n Medium\n Low\n" | rofi -dmenu -p "Quality")
+    [[ -z $quality_choice ]] && exit 0
+
+    case $quality_choice in
+        " Ultra")   QUALITY="ultra" ;;
+        " High")    QUALITY="high" ;;
+        " Medium")  QUALITY="medium" ;;
+        " Low")     QUALITY="low" ;;
+    esac
+
     AUDIO_ARGS=$(build_audio_args "$audio_choice")
     TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
     OUTPUT_FILE="$OUTPUT_DIR/Recording_$TIMESTAMP.mp4"
 
     case $choice in
         "󰍹 Full Screen")
-            exec gpu-screen-recorder -w screen -f 60 -q high $AUDIO_ARGS -o "$OUTPUT_FILE"
+            exec gpu-screen-recorder -w screen -f 60 -q "$QUALITY" $AUDIO_ARGS -o "$OUTPUT_FILE"
             ;;
         "󰒆 Select Area")
-            GEOM="$(slurp -f "%wx%h+%x+%y")" || { notify-send -u critical "Screen Recording" "Selection canceled"; exit 1; }
-            exec gpu-screen-recorder -w region -region "$GEOM" -f 60 -q high $AUDIO_ARGS -o "$OUTPUT_FILE"
+            GEOM="$(slurp)" || { notify-send -u critical "Screen Recording" "Selection canceled"; exit 1; }
+            exec gpu-screen-recorder -w portal -region "$GEOM" -f 60 -q "$QUALITY" $AUDIO_ARGS -o "$OUTPUT_FILE"
             ;;
     esac
 fi

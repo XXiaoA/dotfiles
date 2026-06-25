@@ -15,6 +15,8 @@ overlay_font = Maple Mono NF CN:10
 w = scaling full
 p = prev
 n = next
-y = exec echo $imv_current_file
+y = exec basename "$imv_current_file" | wl-copy  # 复制当前图片文件名
+Y = exec realpath "$imv_current_file" | wl-copy  # 复制当前图片绝对路径
+v = exec wl-copy -t image/png < "$imv_current_file"  # 复制当前图片本身到剪贴板
 
 ; vim: se ft=dosini:
