@@ -1,14 +1,14 @@
 set fish_greeting ""
 
-export XDG_CONFIG_HOME=$HOME/.config
+set -gx XDG_CONFIG_HOME $HOME/.config
 
-export MANPAGER='nvim +Man!'
+set -gx MANPAGER 'nvim +Man!'
 
-# editor
-export EDITOR="nvim"
-export VISUAL="nvim"
+# Editor
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 
-# fcitx5 (don't need for wayland)
+# Fcitx5 is configured by Wayland natively; X11 clients still need these variables.
 if test "$XDG_SESSION_TYPE" = x11
     set -x GTK_IM_MODULE fcitx
     set -x QT_IM_MODULE fcitx
@@ -17,12 +17,12 @@ if test "$XDG_SESSION_TYPE" = x11
     set -x GLFW_IM_MODULE ibus
 end
 
-# Clash
-export http_proxy=http://127.0.0.1:7890
-export https_proxy=$http_proxy
-export ftp_proxy=$http_proxy
-export rsync_proxy=$http_proxy
-export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+# Local proxy
+set -gx http_proxy http://127.0.0.1:7890
+set -gx https_proxy $http_proxy
+set -gx ftp_proxy $http_proxy
+set -gx rsync_proxy $http_proxy
+set -gx no_proxy "localhost,127.0.0.1,localaddress,.localdomain.com"
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.local/share/nvim/mason/bin/
@@ -35,9 +35,15 @@ set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_replace underscore
 
-starship init fish | source
+if command -q starship
+    starship init fish | source
+end
 
-set -x _ZO_ECHO 1
-zoxide init fish | source
+if command -q zoxide
+    set -gx _ZO_ECHO 1
+    zoxide init fish | source
+end
 
-direnv hook fish | source
+if command -q direnv
+    direnv hook fish | source
+end
