@@ -65,3 +65,8 @@ link:
   ./gromoit-mpx/gromit-mpx.cfg: ~/.config/gromit-mpx.cfg
 
   ./mpv/: ~/.config/mpv
+
+  ./noctalia/:
+    path: ~/.config/noctalia
+
+  ./noctalia/settings.toml: ~/.local/state/noctalia/settings.toml

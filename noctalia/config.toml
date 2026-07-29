@@ -1,0 +1,88 @@
+# ── Bar ───────────────────────────────────────────────────────────────────────
+
+[bar.main]
+margin_ends = 0
+margin_edge = 0
+radius      = 0
+
+start  = ["session", "taskbar"]
+center = ["clock"]
+end    = ["media", "cpu_temp", "cpu_usage", "ram_used", "battery", "brightness", "volume", "network", "tray", "notifications"]
+
+# ── Widget definitions ────────────────────────────────────────────────────────
+
+[widget.taskbar]
+group_by_workspace    = true
+show_workspace_label  = true
+show_all_outputs      = false
+only_active_workspace = false
+hide_empty_workspaces = false
+
+[widget.clock]
+format         = "{:%H:%M}"
+tooltip_format = "{:%A, %B %d, %Y}"
+color          = "primary"
+font_weight    = 700
+
+[widget.cpu_temp]
+type       = "sysmon"
+stat       = "cpu_temp"
+icon_color = "tertiary"
+
+[widget.cpu_usage]
+type       = "sysmon"
+stat       = "cpu_usage"
+icon_color = "secondary"
+
+[widget.ram_used]
+type       = "sysmon"
+stat       = "ram_used"
+icon_color = "primary"
+
+[widget.battery]
+display_mode = "glyph"
+show_label   = true
+icon_color   = "secondary"
+
+[widget.brightness]
+show_label = true
+icon_color = "on_surface_variant"
+
+[widget.volume]
+show_label = true
+icon_color = "tertiary"
+
+[widget.network]
+show_label = false
+icon_color = "secondary"
+
+[widget.media]
+hide_when_no_media = true
+artist_first      = true
+
+[widget.notifications]
+hide_when_no_unread = true
+
+# ── Services ──────────────────────────────────────────────────────────────────
+
+[shell]
+clipboard_enabled = true
+
+[shell.animation]
+speed = 1.5
+
+[nightlight]
+enabled = false
+
+[notification]
+enable_daemon = true
+
+[audio]
+enable_overdrive = true
+
+[theme.templates]
+enable_builtin_templates = true
+
+[widget.session]
+color       = "error"
+scale       = 1.1

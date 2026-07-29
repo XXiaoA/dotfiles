@@ -7,9 +7,9 @@ package.path = package.path
 
 local smw = require("split-monitor-workspaces")
 
+local ipc = "noctalia msg "
 local terminal = "kitty"
 local file_manager = "dolphin"
-local menu = "rofi -show drun"
 local main_mod = "SUPER"
 
 local function focus_previous_window_on_monitor()
@@ -220,12 +220,12 @@ hl.bind(main_mod .. " + SHIFT + ESCAPE", hl.dsp.exit())
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(file_manager))
 hl.bind(main_mod .. " + S", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen())
-hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind("ALT + SPACE", hl.dsp.exec_cmd("rofi -show window"))
+hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind("ALT + SPACE", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher /win"))
 hl.bind(main_mod .. " + T", hl.dsp.window.pseudo())
-hl.bind(main_mod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind(main_mod .. " + V", hl.dsp.exec_cmd(ipc .. "panel-toggle clipboard"))
 -- Open the first empty workspace on the focused monitor.
-hl.bind(main_mod .. " + V", smw.workspace("empty"))
+hl.bind(main_mod .. " + N", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center notifications"))
 
 -- Save lossless PNG screenshots, copy them to the clipboard, and notify with a preview.
 hl.bind(
@@ -272,35 +272,14 @@ hl.bind(main_mod .. " + down", hl.dsp.window.move({ direction = "down" }))
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- Use the custom volume script so media-key behavior remains consistent with the old config.
-hl.bind(
-    "XF86AudioRaiseVolume",
-    hl.dsp.exec_cmd("~/dotfiles/scripts/volume up"),
-    { locked = true, repeating = true }
-)
-hl.bind(
-    "XF86AudioLowerVolume",
-    hl.dsp.exec_cmd("~/dotfiles/scripts/volume down"),
-    { locked = true, repeating = true }
-)
-hl.bind(
-    "XF86AudioMute",
-    hl.dsp.exec_cmd("~/dotfiles/scripts/volume mute"),
-    { locked = true, repeating = true }
-)
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"))
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"))
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"))
 hl.bind(
     "XF86AudioMicMute",
     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-    { locked = true, repeating = true }
-)
-hl.bind(
-    "XF86MonBrightnessUp",
-    hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),
-    { locked = true, repeating = true }
-)
-hl.bind(
-    "XF86MonBrightnessDown",
-    hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),
     { locked = true, repeating = true }
 )
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
@@ -336,15 +315,24 @@ hl.window_rule({
 })
 hl.window_rule({ name = "float-imv", match = { class = "^(imv)$" }, float = true, center = true })
 
+-- Noctalia Settings
+hl.window_rule({
+    match = { class = "dev.noctalia.Noctalia" },
+    float = true,
+    size = { 1080, 920 },
+})
+
+hl.bind(main_mod .. "+ Comma", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
+hl.bind(main_mod .. " + Period", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
+
 -- Start the session services previously launched through exec-once directives.
 hl.on("hyprland.start", function()
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-    hl.exec_cmd("hyprpaper")
     hl.exec_cmd("mihomo")
     hl.exec_cmd("keymapper")
-    hl.exec_cmd("waybar & swaync")
     hl.exec_cmd("fcitx5")
     hl.exec_cmd("syncthing")
     hl.exec_cmd([[sh -c 'echo "Xft.dpi: 144" | xrdb -merge']])
+    hl.exec_cmd("noctalia")
 end)
