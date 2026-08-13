@@ -18,8 +18,6 @@ link:
 
   ./mini-vimrc/vimrc: ~/.vimrc
 
-  ./wezterm/: ~/.config/wezterm
-
   ./kitty/: ~/.config/kitty
 
   ./termux/:
@@ -33,40 +31,20 @@ link:
     path: ~/.config/neofetch/config.conf
     force: true
 
-  ./bspwm/: ~/.config/bspwm
-
-  ./picom/: ~/.config/picom
-
-  ./polybar/: ~/.config/polybar
-
-  ./sxhkd/: ~/.config/sxhkd
-
-  ./dunst/: ~/.config/dunst
-
-  ./rofi/: ~/.config/rofi
-
-  ./xinitrc: ~/.xinitrc
-
-  ./fonts/: ~/.local/share/fonts
-
-  ./mpd/: ~/.config/mpd
-  ./ncmpcpp/: ~/.config/ncmpcpp
-
-  ./feh/: ~/.config/feh
+  ./hypr/: ~/.config/hypr
 
   ./imv/: ~/.config/imv
 
-  ./eww/: ~/.config/eww
-
-  ./stalonetray/stalonetrayrc: ~/.config/stalonetrayrc
-
-  ./yt-dlp/yt-dlp.conf: ~/.config/yt-dlp/config
-
-  ./gromoit-mpx/gromit-mpx.cfg: ~/.config/gromit-mpx.cfg
-
   ./mpv/: ~/.config/mpv
 
-  ./noctalia/:
-    path: ~/.config/noctalia
+  ./noctalia/config.toml: ~/.config/noctalia/config.toml
 
   ./noctalia/settings.toml: ~/.local/state/noctalia/settings.toml
+
+  ./fonts/Feather.ttf: ~/.local/share/fonts/Feather.ttf
+
+  "./fonts/Font Awesome 6 Pro-Solid-900.otf": "~/.local/share/fonts/Font Awesome 6 Pro-Solid-900.otf"
+
+  ./fonts/MaterialDesignIconsDesktop.ttf: ~/.local/share/fonts/MaterialDesignIconsDesktop.ttf
+
+  ./fonts/MesloLGS_NF_Regular.ttf: ~/.local/share/fonts/MesloLGS_NF_Regular.ttf
