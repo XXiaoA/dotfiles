@@ -1,13 +1,14 @@
 # ── Bar ───────────────────────────────────────────────────────────────────────
 
 [bar.main]
-margin_ends = 0
-margin_edge = 0
-radius      = 0
+margin_ends    = 0
+margin_edge    = 0
+radius         = 0
+widget_spacing = 12
 
 start  = ["session", "taskbar"]
-center = ["clock"]
-end    = ["media", "cpu_temp", "cpu_usage", "ram_used", "battery", "brightness", "volume", "network", "tray", "notifications"]
+center = ["notifications", "clock", "media"]
+end    = ["tray", "network","battery", "volume", "brightness", "cpu_temp", "cpu_usage", "ram_used"]
 
 # ── Widget definitions ────────────────────────────────────────────────────────
 
@@ -67,6 +68,7 @@ hide_when_no_unread = true
 
 [shell]
 clipboard_enabled = true
+date_format = "%Y/%m/%d"
 
 [shell.animation]
 speed = 1.5

@@ -5,6 +5,9 @@ enabled = true
 layer = "top"
 position = "top"
 
+[control_center.calendar]
+show_events_card = false
+
 [desktop_widgets]
 schema_version = 2
 widget_order = []
@@ -18,6 +21,10 @@ widget_order = []
 
 [dock]
 enabled = false
+
+[keybinds]
+down = [ "Down", "Tab" ]
+up = [ "Up", "Shift+ISO_Left_Tab" ]
 
 [lockscreen_widgets]
 enabled = true
@@ -77,13 +84,38 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-2" ]
         show_session_buttons = true
         show_weather = true
 
+[notification]
+layer = "overlay"
+
 [shell]
 app_icon_colorize = false
 lang = ""
 
+    [shell.launcher]
+    app_grid = false
+    categories = false
+    compact = false
+    show_icons = true
+
+        [shell.launcher.providers.emoji]
+        global = false
+
+    [shell.panel]
+    control_center_placement = "attached"
+    floating_offset = 8
+    open_near_click_control_center = false
+    open_near_click_wallpaper = false
+    wallpaper_placement = "attached"
+
+    [shell.screen_corners]
+    enabled = false
+
+    [shell.screenshot]
+    directory = "/home/XXiaoA/Pictures/Screenshots"
+
 [theme]
 builtin = "Tokyo-Night"
-community_palette = "One"
+community_palette = "Atuel"
 mode = "dark"
 pure_black_dark = false
 source = "builtin"
@@ -96,13 +128,13 @@ wallpaper_scheme = "soft"
 fill_mode = "crop"
 
     [wallpaper.default]
-    path = "/home/XXiaoA/Pictures/Wallpapers/wallhaven-pok5v9_3200x2000.png"
+    path = "/home/XXiaoA/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
 
     [wallpaper.last]
-    path = "/home/XXiaoA/Pictures/Wallpapers/wallhaven-pok5v9_3200x2000.png"
+    path = "/home/XXiaoA/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/XXiaoA/Pictures/Wallpapers/wallhaven-pok5v9_3200x2000.png"
+    path = "/home/XXiaoA/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
 
     [wallpaper.monitors.eDP-2]
-    path = "/home/XXiaoA/Pictures/Wallpapers/wallhaven-pok5v9_3200x2000.png"
+    path = "/home/XXiaoA/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
