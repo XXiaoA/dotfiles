@@ -19,3 +19,6 @@ abbr hy hyperfine
 
 abbr te trash-empty
 abbr tr trash-restore
+
+abbr oc opencode
+abbr p pi

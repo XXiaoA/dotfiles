@@ -23,6 +23,7 @@ set -gx https_proxy $http_proxy
 set -gx ftp_proxy $http_proxy
 set -gx rsync_proxy $http_proxy
 set -gx no_proxy "localhost,127.0.0.1,localaddress,.localdomain.com"
+set -gx NODE_USE_ENV_PROXY 1
 
 fish_add_path ~/.cargo/bin/
 fish_add_path ~/.local/share/nvim/mason/bin/
