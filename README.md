@@ -18,6 +18,21 @@
 ## SHOWCASE
 > check https://github.com/XXiaoA/dotfiles/issues/3 to see more
 
+### hyprland version
+
+![SHOWCASE-light](https://github.com/user-attachments/assets/085e29e7-942e-453f-9da9-a022eeb27059)
+
+![SHOWCASE-dark](https://github.com/user-attachments/assets/49abdf65-cdff-4a1a-a4fc-7ff0be43617f)
+
+* **Operating System** \- Arch Linux
+* **Window Manager** \- hyprland
+* **Bar / Music** \- noctalia
+* **Terminal** \- kitty
+* **Shell** \- fish
+* **Editor** \- nvim ( [dotfile here](https://github.com/XXiaoA/nvimrc) )
+* **AI agent** \- pi
+
+
 ### eww version
 
 ![SHOWCASE](https://github.com/XXiaoA/dotfiles/assets/62557596/6a72586a-e977-4839-9fa0-ca7a78ae40f9)
