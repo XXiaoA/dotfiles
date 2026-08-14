@@ -116,7 +116,7 @@ lang = ""
 [theme]
 builtin = "Tokyo-Night"
 community_palette = "Atuel"
-mode = "dark"
+mode = "light"
 pure_black_dark = false
 source = "builtin"
 wallpaper_scheme = "soft"
@@ -128,13 +128,13 @@ wallpaper_scheme = "soft"
 fill_mode = "crop"
 
     [wallpaper.default]
-    path = "/home/XXiaoA/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
+    path = "/home/XXiaoA/Pictures/Wallpapers/ign-waifu.png"
 
     [wallpaper.last]
-    path = "/home/XXiaoA/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
+    path = "/home/XXiaoA/Pictures/Wallpapers/ign-waifu.png"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/XXiaoA/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
+    path = "/home/XXiaoA/Pictures/Wallpapers/ign-waifu.png"
 
     [wallpaper.monitors.eDP-2]
-    path = "/home/XXiaoA/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
+    path = "/home/XXiaoA/Pictures/Wallpapers/ign-waifu.png"
