@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+# Light/dark theme switcher; usage: theme-toggle [toggle|light|dark]
+set -euo pipefail
+
+MODE="${1:-toggle}"
+
+WALLPAPER_LIGHT="$HOME/Pictures/Wallpapers/ign-waifu.png"
+WALLPAPER_DARK="$HOME/Pictures/Wallpapers/lunar-tides-5120x4266-26444.jpg"
+
+# Current mode is decided by noctalia
+case "$MODE" in
+    toggle)
+        current="$(noctalia msg theme-mode-get)"
+        case "$current" in
+            dark) next="light" ;;
+            light | auto) next="dark" ;;
+            *)
+                echo "Unknown theme mode: $current" >&2
+                exit 1
+                ;;
+        esac
+        ;;
+    light | dark)
+        next="$MODE"
+        ;;
+    *)
+        echo "Usage: $0 [toggle|light|dark]" >&2
+        exit 1
+        ;;
+esac
+
+# noctalia theme
+noctalia msg theme-mode-set "$next"
+
+if ! tpl_out="$(noctalia msg templates-apply 2>&1)"; then
+    echo "Warning: templates-apply failed: $tpl_out" >&2
+fi
+
+# gsettings
+if [[ "$next" == "dark" ]]; then
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+else
+    gsettings set org.gnome.desktop.interface color-scheme prefer-light
+fi
+
+# fish: universal vars sync to all instances
+FISH_THEME="$HOME/.config/fish/themes/$([[ "$next" == "dark" ]] && echo Everforest || echo "Amber Light").theme"
+fish -c "
+while read -l line
+    set -l toks (string split ' ' -- \$line)
+    string match -q '#*' -- \$toks[1]; and continue
+    [ (count \$toks) -ge 2 ]; or continue
+    set -U \$toks[1] \$toks[2..]
+end < '$FISH_THEME'
+"
+
+# starship: switch palette
+STARSHIP_TOML="$HOME/.config/starship.toml"
+[ -L "$STARSHIP_TOML" ] && STARSHIP_TOML="$(readlink -f "$STARSHIP_TOML")"
+sed -i "s/^palette = .*/palette = \"$next\"/" "$STARSHIP_TOML"
+
+# nvim: background + current_colorscheme in colorscheme.lua
+NVIM_CS="$HOME/.config/nvim/lua/colorscheme.lua"
+if [[ "$next" == "dark" ]]; then
+    sed -i 's/^M.background = "[^"]*"/M.background = "dark"/; s/^M.current_colorscheme = "[^"]*"/M.current_colorscheme = "everforest"/' "$NVIM_CS"
+else
+    sed -i 's/^M.background = "[^"]*"/M.background = "light"/; s/^M.current_colorscheme = "[^"]*"/M.current_colorscheme = "sweetie"/' "$NVIM_CS"
+fi
+
+# hyprland: state file (picked on reload) + apply now
+STATE_FILE="$HOME/.local/state/hypr-theme"
+echo "$next" > "$STATE_FILE"
+if [[ "$next" == "dark" ]]; then
+    hyprctl eval 'hl.config({ general = { col = { active_border = { colors = { "rgba(3a94c5ee)", "rgba(35a77cee)" }, angle = 45 }, inactive_border = "rgba(595959aa)" } } })'
+else
+    hyprctl eval 'hl.config({ general = { col = { active_border = { colors = { "rgba(c2912bee)", "rgba(e8b450ee)" }, angle = 45 }, inactive_border = "rgba(aab3baaa)" } } })'
+fi
+
+# wallpaper
+if [[ "$next" == "dark" ]]; then
+    wp="$WALLPAPER_DARK"
+else
+    wp="$WALLPAPER_LIGHT"
+fi
+if [[ -f "$wp" ]]; then
+    noctalia msg wallpaper-set "$wp"
+else
+    echo "Skipping wallpaper: $wp not found" >&2
+fi
+
+notify-send "Theme: $next" || true
+echo "Theme switched to: $next"
