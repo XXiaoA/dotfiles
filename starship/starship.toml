@@ -1,8 +1,21 @@
-# Inserts a blank line between shell prompts
 add_newline = true
 
+palette = "light"
+
+[palettes.light]
+directory = "#2c5fae"
+branch = "#7d47b8"
+git = "#ac4a1f"
+character = "#357e41"
+
+[palettes.dark]
+directory = "#0d73cc"
+branch = "#cb1ed1"
+git = "#C36316"
+character = "#678979"
+
 [character]
-success_symbol = "[❯](bold #678979)"
+success_symbol = "[❯](bold character)"
 error_symbol = "[x](bold red)"
 vicmd_symbol = "[N](bold #5879A6)"
 vimcmd_replace_one_symbol = "[R](bold #9C3D55)"
@@ -10,7 +23,7 @@ vimcmd_replace_symbol = "[R](bold #9C3D55)"
 vimcmd_visual_symbol = "[V](bold #7A5FA6)"
 
 [git_status]
-style = "bold #C36316"
+style = "bold git"
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
@@ -22,7 +35,11 @@ renamed = "»${count}"
 stashed = "\\$${count}"
 
 [git_branch]
+style = "bold branch"
 format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[directory]
+style = "bold directory"
 
 [cmd_duration]
 format = "[$duration]($style)"
