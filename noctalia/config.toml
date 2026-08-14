@@ -66,6 +66,9 @@ hide_when_no_unread = true
 
 # ── Services ──────────────────────────────────────────────────────────────────
 
+[weather]
+enabled = false
+
 [shell]
 clipboard_enabled = true
 date_format = "%Y/%m/%d"
