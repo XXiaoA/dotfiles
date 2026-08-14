@@ -7,6 +7,17 @@ package.path = package.path
 
 local smw = require("split-monitor-workspaces")
 
+local function theme_is_light()
+    local f = io.open(os.getenv("HOME") .. "/.local/state/hypr-theme", "r")
+    if not f then
+        return false -- default to dark
+    end
+    local t = f:read("*l") or ""
+    f:close()
+    return t:match("light") ~= nil
+end
+local light_theme = theme_is_light()
+
 local ipc = "noctalia msg "
 local terminal = "kitty"
 local file_manager = "dolphin"
@@ -87,8 +98,10 @@ hl.config({
         gaps_out = 6,
         border_size = 2,
         col = {
-            active_border = { colors = { "rgba(3a94c5ee)", "rgba(35a77cee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border = light_theme
+                    and { colors = { "rgba(c2912bee)", "rgba(e8b450ee)" }, angle = 45 }
+                or { colors = { "rgba(3a94c5ee)", "rgba(35a77cee)" }, angle = 45 },
+            inactive_border = light_theme and "rgba(aab3baaa)" or "rgba(595959aa)",
         },
         resize_on_border = false,
         allow_tearing = false,
@@ -241,7 +254,9 @@ hl.bind(
         [[sh -c 'FILE=~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png; grim -l 0 -s 1 "$FILE" && wl-copy < "$FILE" && notify-send "Screenshot taken" -t 1000 -a Screenshot -i "$FILE"']]
     )
 )
-hl.bind(main_mod .. " + SHIFT + R", hl.dsp.exec_cmd("~/dotfiles/scripts/recorder"))
+
+-- Toggle light/dark theme
+hl.bind(main_mod .. " + F2", hl.dsp.exec_cmd("~/dotfiles/scripts/theme-toggle"))
 
 -- Alt-Tab selects the least recently focused window on the current monitor.
 hl.bind("ALT + TAB", focus_previous_window_on_monitor)
@@ -345,6 +360,5 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("keymapper")
     hl.exec_cmd("fcitx5")
     hl.exec_cmd("syncthing")
-    hl.exec_cmd([[sh -c 'echo "Xft.dpi: 144" | xrdb -merge']])
     hl.exec_cmd("noctalia")
 end)
