@@ -132,6 +132,9 @@ hl.config({
         force_default_wallpaper = 0,
         disable_hyprland_logo = true,
     },
+    ecosystem = {
+        no_donation_nag = true,
+    },
     input = {
         -- Keep Num Lock enabled for the numeric keypad after login.
         numlock_by_default = true,
@@ -360,5 +363,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("keymapper")
     hl.exec_cmd("fcitx5")
     hl.exec_cmd("syncthing")
+    hl.exec_cmd([[sh -c 'echo "Xft.dpi: 144" | xrdb -merge']])
     hl.exec_cmd("noctalia")
 end)

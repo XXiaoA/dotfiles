@@ -18,7 +18,9 @@ link:
 
   ./mini-vimrc/vimrc: ~/.vimrc
 
-  ./kitty/: ~/.config/kitty
+  ./kitty/:
+    path: ~/.config/kitty
+    force: true
 
   ./termux/:
     path: ~/.termux
@@ -31,15 +33,21 @@ link:
     path: ~/.config/neofetch/config.conf
     force: true
 
-  ./hypr/: ~/.config/hypr
+  ./hypr/:
+    path: ~/.config/hypr
+    force: true
 
   ./imv/: ~/.config/imv
 
   ./mpv/: ~/.config/mpv
 
-  ./noctalia/config.toml: ~/.config/noctalia/config.toml
+  ./noctalia/config.toml:
+    path: ~/.config/noctalia/config.toml
+    force: true
 
-  ./noctalia/settings.toml: ~/.local/state/noctalia/settings.toml
+  ./noctalia/settings.toml:
+    path: ~/.local/state/noctalia/settings.toml
+    force: true
 
   ./fonts/Feather.ttf: ~/.local/share/fonts/Feather.ttf
 

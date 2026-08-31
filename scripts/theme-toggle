@@ -64,7 +64,7 @@ NVIM_CS="$HOME/.config/nvim/lua/colorscheme.lua"
 if [[ "$next" == "dark" ]]; then
     sed -i 's/^M.background = "[^"]*"/M.background = "dark"/; s/^M.current_colorscheme = "[^"]*"/M.current_colorscheme = "everforest"/' "$NVIM_CS"
 else
-    sed -i 's/^M.background = "[^"]*"/M.background = "light"/; s/^M.current_colorscheme = "[^"]*"/M.current_colorscheme = "sweetie"/' "$NVIM_CS"
+    sed -i 's/^M.background = "[^"]*"/M.background = "light"/; s/^M.current_colorscheme = "[^"]*"/M.current_colorscheme = "cedar"/' "$NVIM_CS"
 fi
 
 # hyprland: state file (picked on reload) + apply now

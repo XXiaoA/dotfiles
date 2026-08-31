@@ -1,4 +1,4 @@
-config_version = 8
+config_version = 13
 
 [bar.main]
 enabled = true
@@ -37,11 +37,13 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-2" ]
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
-    box_height = 229.0
+    box_height = 196.0
     box_width = 810.0
     cx = 960.0
     cy = 881.5
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -58,14 +60,17 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-2" ]
         show_login_button = true
         show_media = true
         show_session_buttons = true
+        show_unlock_hint = true
         show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-2"]
-    box_height = 229.0
+    box_height = 196.0
     box_width = 810.0
     cx = 800.0
     cy = 518.5
     output = "eDP-2"
+    placement_height = 1000.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "login_box"
 
@@ -82,6 +87,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@eDP-2" ]
         show_login_button = true
         show_media = true
         show_session_buttons = true
+        show_unlock_hint = true
         show_weather = true
 
 [notification]
