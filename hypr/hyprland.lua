@@ -357,12 +357,8 @@ hl.bind(main_mod .. " + Period", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
 
 -- Start the session services previously launched through exec-once directives.
 hl.on("hyprland.start", function()
-    hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-    hl.exec_cmd("mihomo")
-    hl.exec_cmd("keymapper")
-    hl.exec_cmd("fcitx5")
-    hl.exec_cmd("syncthing")
     hl.exec_cmd([[sh -c 'echo "Xft.dpi: 144" | xrdb -merge']])
+    hl.exec_cmd("fcitx5")
     hl.exec_cmd("noctalia")
 end)
