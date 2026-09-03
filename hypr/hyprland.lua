@@ -362,4 +362,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("keymapper")
     hl.exec_cmd("fcitx5")
     hl.exec_cmd("noctalia")
+    hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
+    hl.exec_cmd("mihomo") -- user-level run: reads ~/.config/mihomo by default (not systemd's /etc/mihomo);
 end)
