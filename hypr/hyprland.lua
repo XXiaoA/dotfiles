@@ -234,6 +234,7 @@ hl.bind(main_mod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(main_mod .. " + W", hl.dsp.window.close())
 hl.bind(main_mod .. " + SHIFT + W", hl.dsp.window.kill())
 hl.bind(main_mod .. " + SHIFT + ESCAPE", hl.dsp.exit())
+hl.bind(main_mod .. " + SHIFT + L", hl.dsp.exec_cmd(ipc .. "session lock"))
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd(file_manager))
 hl.bind(main_mod .. " + S", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen())
@@ -334,11 +335,6 @@ hl.window_rule({
 })
 hl.window_rule({ name = "float-imv", match = { class = "^(imv)$" }, float = true, center = true })
 
-hl.window_rule({
-    match = { class = "^(wechat)$", float = true },
-    no_blur = true,
-    decorate = false,
-})
 hl.window_rule({
     match = { class = "^(wps)$", float = true },
     no_blur = true,
