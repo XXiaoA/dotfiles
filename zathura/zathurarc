@@ -1,0 +1,3 @@
+set scroll-step 100
+set guioptions "shv"
+set zoom-center true

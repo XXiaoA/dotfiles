@@ -1,9 +1,11 @@
-config_version = 13
+config_version = 15
 
 [bar.main]
 enabled = true
 layer = "top"
 position = "top"
+
+[calendar]
 
 [control_center.calendar]
 show_events_card = false

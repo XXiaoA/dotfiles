@@ -39,6 +39,8 @@ link:
 
   ./imv/: ~/.config/imv
 
+  ./zathura/: ~/.config/zathura
+
   ./mpv/: ~/.config/mpv
 
   ./noctalia/config.toml:
