@@ -1,4 +1,5 @@
 set scroll-step 100
+set selection-clipboard clipboard
 set guioptions "shv"
 set zoom-center true
 set adjust-open "width"
