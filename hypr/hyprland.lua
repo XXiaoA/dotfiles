@@ -336,9 +336,25 @@ hl.window_rule({
 hl.window_rule({ name = "float-imv", match = { class = "^(imv)$" }, float = true, center = true })
 
 hl.window_rule({
+    name = "wps-selection-popup",
+    match = { class = "^(pdf)$", title = "^(pdf)$", float = true },
+    no_blur = true,
+    decorate = false,
+    border_size = 0,
+    stay_focused = true,
+})
+hl.window_rule({
+    name = "wps-writer-popup",
     match = { class = "^(wps)$", float = true },
     no_blur = true,
     decorate = false,
+    border_size = 0,
+    stay_focused = true,
+})
+hl.window_rule({
+    name = "wps-annotation-window",
+    match = { class = "^(pdf)$", title = "^(pdf)$", float = false },
+    float = true,
 })
 
 -- Noctalia Settings
