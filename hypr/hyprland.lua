@@ -274,10 +274,13 @@ for i = 1, smw.get_amount_of_workspaces() do
     local key = tostring(i % 10)
     hl.bind(main_mod .. " + " .. key, smw.workspace(tostring(i)))
     hl.bind(main_mod .. " + SHIFT + " .. key, smw.move_to_workspace_silent(tostring(i)))
+    hl.bind(main_mod .. " + ALT + " .. key, smw.move_to_workspace(tostring(i)))
 end
 
 -- Return to the previous workspace in the current monitor's workspace set.
 hl.bind(main_mod .. " + TAB", smw.workspace("prev"))
+-- Jump to the first empty workspace on the focused monitor.
+hl.bind(main_mod .. " + SHIFT + TAB", smw.workspace("empty"))
 hl.bind(main_mod .. " + BRACKETLEFT", smw.workspace("-1"))
 hl.bind(main_mod .. " + BRACKETRIGHT", smw.workspace("+1"))
 hl.bind(main_mod .. " + mouse_down", smw.cycle_workspaces("next"))
