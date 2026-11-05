@@ -354,6 +354,75 @@ hl.window_rule({
     border_size = 0,
     stay_focused = true,
 })
+
+-- WPS reuses one floating popup for tooltips and KeyTips, resizing it in place.
+-- Only apply opacity overrides while it is near the Writer window's size.
+local function set_wps_popup_opacity(window, opacity, override)
+    local override_value = override and "true" or "false"
+    for _, prop in ipairs({ "opacity", "opacity_inactive" }) do
+        hl.dispatch(hl.dsp.window.set_prop({ window = window, prop = prop, value = opacity }))
+    end
+    for _, prop in ipairs({ "opacity_override", "opacity_inactive_override" }) do
+        hl.dispatch(
+            hl.dsp.window.set_prop({ window = window, prop = prop, value = override_value })
+        )
+    end
+end
+
+local wps_keytips_opacity = {}
+hl.timer(function()
+    local windows = hl.get_windows({ mapped = true })
+    local live = {}
+
+    for _, window in ipairs(windows) do
+        if
+            window.class == "wps"
+            and window.initial_title == "wps"
+            and window.xwayland
+            and window.floating
+        then
+            live[window.address] = true
+            local writer
+            for _, candidate in ipairs(windows) do
+                if
+                    candidate.address ~= window.address
+                    and candidate.class == "wpsoffice"
+                    and candidate.workspace
+                    and window.workspace
+                    and candidate.workspace.id == window.workspace.id
+                    and candidate.monitor
+                    and window.monitor
+                    and candidate.monitor.id == window.monitor.id
+                then
+                    writer = candidate
+                    break
+                end
+            end
+
+            local size = window.size
+            local writer_size = writer and writer.size
+            local is_keytips = size
+                and writer_size
+                and size.x >= writer_size.x * 0.85
+                and size.y >= writer_size.y * 0.8
+
+            if is_keytips and not wps_keytips_opacity[window.address] then
+                set_wps_popup_opacity(window, "0.5", true)
+                wps_keytips_opacity[window.address] = true
+            elseif not is_keytips and wps_keytips_opacity[window.address] then
+                set_wps_popup_opacity(window, "1", false)
+                wps_keytips_opacity[window.address] = nil
+            end
+        end
+    end
+
+    for address in pairs(wps_keytips_opacity) do
+        if not live[address] then
+            wps_keytips_opacity[address] = nil
+        end
+    end
+end, { timeout = 100, type = "repeat" })
+
 hl.window_rule({
     name = "wps-annotation-window",
     match = { class = "^(pdf)$", title = "^(pdf)$", float = false },
